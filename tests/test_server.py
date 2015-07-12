@@ -9,18 +9,16 @@ def server():
     return Server('http://localhost:8153', user='ba', password='secret')
 
 
-def test_init_server():
-    server = Server('http://localhost:8153', user='ba', password='secret')
-
-    assert server.host == 'http://localhost:8153'
-    assert server.user == 'ba'
-    assert server.password == 'secret'
+auth_test_cassettes = [
+    'tests/fixtures/cassettes/server-basic-auth.yml',
+    'tests/fixtures/cassettes/server-without-auth.yml',
+]
 
 
-@vcr.use_cassette('tests/fixtures/cassettes/server-basic-auth.yml')
-def test_ensure_it_can_handle_basic_auth(server):
-    response = server.get('go/api/pipelines/Simple/history/0')
+@pytest.mark.parametrize("cassette_name", auth_test_cassettes)
+def test_request_with_and_without_auth(server, cassette_name):
+    with vcr.use_cassette(cassette_name) as cass:
+        response = server.get('go/api/pipelines/Simple/history/0')
 
     assert response.code == 200
     assert response.headers.type == 'application/json'
-
