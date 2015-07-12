@@ -34,10 +34,13 @@ setup(
     author_email='ba@sanitarium.se',
     license='MIT License',
     version=version(),
-    packages=find_packages(exclude=('test',)),
+    packages=find_packages(exclude=('tests',)),
     cmdclass = {'test': PyTest},
     tests_require=[
         'pytest',
-        'HTTPretty',
+        'vcrpy',
+        'mock',
+        'contextlib2',
+        'backport_collections',
     ],
 )

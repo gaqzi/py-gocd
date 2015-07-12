@@ -1,0 +1,5 @@
+pytest
+vcrpy
+mock==1.0.1
+contextlib2
+backport_collections

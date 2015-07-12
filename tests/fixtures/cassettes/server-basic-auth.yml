@@ -1,0 +1,67 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/api/pipelines/Simple/history/0
+  response:
+    body: {string: !!python/unicode "<html>\n<head>\n<meta http-equiv=\"Content-Type\"
+        content=\"text/html; charset=ISO-8859-1\"/>\n<title>Error 401 Full authentication
+        is required to access this resource</title>\n</head>\n<body><h2>HTTP ERROR
+        401</h2>\n<p>Problem accessing /go/api/pipelines/Simple/history/0. Reason:\n<pre>
+        \   Full authentication is required to access this resource</pre></p><hr /><i><small>Powered
+        by Jetty://</small></i><br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n\n</body>\n</html>\n"}
+    headers:
+      cache-control: ['must-revalidate,no-cache,no-store']
+      connection: [close]
+      content-length: ['1490']
+      content-type: [text/html; charset=iso-8859-1]
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=1xd7voojxoeru1nvh0xzw0478j;Path=/go;Expires=Sun, 26-Jul-2015
+          12:56:47 GMT']
+      www-authenticate: [Basic realm="Cruise"]
+    status: {code: 401, message: Full authentication is required to access this resource}
+- request:
+    body: null
+    headers:
+      Authorization: [Basic YmE6c2VjcmV0]
+      Connection: [close]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/api/pipelines/Simple/history/0
+  response:
+    body: {string: "{\"pagination\":{\"offset\":0,\"total\":1,\"page_size\":10},\"pipelines\":[{\"label\":\"1\",\"name\":\"Simple\",\"natural_order\":1.0,\"can_run\":true,\"stages\":[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"Passed\",\"name\":\"hello\",\"id\":1,\"scheduled_date\":1436692842813}],\"name\":\"Hello\",\"rerun_of_counter\":null,\"approval_type\":\"success\",\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"anonymous\",\"can_run\":true,\"id\":1,\"counter\":\"1\"}],\"id\":1,\"build_cause\":{\"trigger_message\":\"Forced
+        by anonymous\",\"approver\":\"anonymous\",\"material_revisions\":[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\",\"description\":\"URL:
+        /Users/ba/code/empty/.git, Branch: master\",\"id\":2,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1436692666000,\"user_name\":\"Bj\xF6rn
+        Andersson \\u003Cba@sanitarium.se\\u003E\",\"id\":1,\"revision\":\"4cdc0461343f0e4dffa4d45541bbdea691b8cd77\",\"email_address\":null,\"comment\":\"Greeting\"}],\"changed\":true}],\"trigger_forced\":true},\"preparing_to_schedule\":false,\"counter\":1,\"comment\":null}]}"}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [application/json; charset=utf-8]
+      etag: ['"ddb3a8419ebbeb0caa4c9da579039ecf"']
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=1h8330ihjno5t1iwo2qzf7a14y;Path=/go;Expires=Sun, 26-Jul-2015
+          12:56:47 GMT']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [31855010-4bd4-422f-a6f3-b19e9f74a37c]
+      x-runtime: ['0.064000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1
