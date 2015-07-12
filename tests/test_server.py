@@ -10,13 +10,10 @@ def server():
     return Server('http://localhost:8153', user='ba', password='secret')
 
 
-auth_test_cassettes = [
+@pytest.mark.parametrize('cassette_name', [
     'tests/fixtures/cassettes/server-basic-auth.yml',
     'tests/fixtures/cassettes/server-without-auth.yml',
-]
-
-
-@pytest.mark.parametrize("cassette_name", auth_test_cassettes)
+])
 def test_request_with_and_without_auth(server, cassette_name):
     with vcr.use_cassette(cassette_name) as _:
         response = server.get('go/api/pipelines/Simple/history/0')
