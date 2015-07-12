@@ -1,4 +1,5 @@
 pytest
+pytest-xdist
 vcrpy
 mock==1.0.1
 contextlib2
