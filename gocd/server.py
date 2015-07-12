@@ -1,6 +1,5 @@
-import urllib2
-
 from urlparse import urljoin
+import urllib2
 
 from gocd.api import Pipeline
 
