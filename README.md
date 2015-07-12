@@ -29,7 +29,14 @@ intended usage going in is:
 {"pagination":{"offset":0,"total":1,"page_size":10},"pipelines":[...]"}
 ```
 
+## Style
+
+This project follows the [Google Python Style Guide][google-python] and 
+particularly the section on [commenting the code][google-comments].
+
 ## License
 MIT License.
 
 [gocd]: http://go.cd/
+[google-python]: https://google-styleguide.googlecode.com/svn/trunk/pyguide.html
+[google-comments]: https://google-styleguide.googlecode.com/svn/trunk/pyguide.html?showone=Comments#Comments
