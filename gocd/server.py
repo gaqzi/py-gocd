@@ -21,9 +21,11 @@ class Server(object):
         return Pipeline(self, name)
 
     def _add_basic_auth(self):
-        auth_handler = urllib2.HTTPBasicAuthHandler()
+        auth_handler = urllib2.HTTPBasicAuthHandler(
+            urllib2.HTTPPasswordMgrWithDefaultRealm()
+        )
         auth_handler.add_password(
-            realm='Cruise',  # This seems to be hard coded.
+            realm=None,
             uri=self.host,
             user=self.user,
             passwd=self.password,
