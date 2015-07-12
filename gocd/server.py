@@ -4,7 +4,22 @@ import urllib2
 from gocd.api import Pipeline
 
 
-class Server(object):
+class ApiInstantiators(object):
+    def pipeline(self, name):
+        """Instantiates a `gocd.api.pipeline.Pipeline`.
+
+        Instantiates the pipeline with the current server and `name` provided.
+
+        Params:
+            name: The name of the pipeline you want to interact with
+
+        Returns:
+            an instance of `gocd.api.pipeline.Pipeline`
+        """
+        return Pipeline(self, name)
+
+
+class Server(ApiInstantiators):
     def __init__(self, host, user=None, password=None):
         self.host = host
         self.user = user
@@ -15,9 +30,6 @@ class Server(object):
 
     def get(self, path):
         return urllib2.urlopen(self._request(path))
-
-    def pipeline(self, name):
-        return Pipeline(self, name)
 
     def _add_basic_auth(self):
         auth_handler = urllib2.HTTPBasicAuthHandler(

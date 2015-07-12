@@ -1,0 +1,31 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/api/pipelines/Simple/history/10
+  response:
+    body: {string: "{\"pagination\":{\"offset\":10,\"total\":11,\"page_size\":10},\"pipelines\":[{\"label\":\"1\",\"name\":\"Simple\",\"natural_order\":1.0,\"can_run\":true,\"stages\":[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"Passed\",\"name\":\"hello\",\"id\":1,\"scheduled_date\":1436692842813}],\"name\":\"Hello\",\"rerun_of_counter\":null,\"approval_type\":\"success\",\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"anonymous\",\"can_run\":true,\"id\":1,\"counter\":\"1\"}],\"id\":1,\"build_cause\":{\"trigger_message\":\"Forced
+        by anonymous\",\"approver\":\"anonymous\",\"material_revisions\":[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\",\"description\":\"URL:
+        /Users/ba/code/empty/.git, Branch: master\",\"id\":2,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1436692666000,\"user_name\":\"Bj\xF6rn
+        Andersson \\u003Cba@sanitarium.se\\u003E\",\"id\":1,\"revision\":\"4cdc0461343f0e4dffa4d45541bbdea691b8cd77\",\"email_address\":null,\"comment\":\"Greeting\"}],\"changed\":true}],\"trigger_forced\":true},\"preparing_to_schedule\":false,\"counter\":1,\"comment\":null}]}"}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [application/json; charset=utf-8]
+      etag: ['"c41b8d7109c1e880b4c8a725dc5faf19"']
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=1nzr00phpc3ch1qkidbd5kgc2m;Path=/go;Expires=Sun, 26-Jul-2015
+          16:15:37 GMT']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [a3624219-0c3c-49ff-ae73-3b8399a11389]
+      x-runtime: ['0.027000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1
