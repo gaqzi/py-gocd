@@ -65,3 +65,12 @@ def test_pause(pipeline):
     assert response.is_ok
     assert response.content_type == 'text/html'
     assert response.payload == ' '
+
+
+@vcr.use_cassette('tests/fixtures/cassettes/api/pipeline/unpause-successful.yml')
+def test_unpause(pipeline):
+    response = pipeline.unpause()
+
+    assert response.is_ok
+    assert response.content_type == 'text/html'
+    assert response.payload == ' '

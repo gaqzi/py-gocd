@@ -40,7 +40,14 @@ class Pipeline(object):
             return Response.from_http_error(exc)
 
     def unpause(self):
-        pass
+        try:
+            return Response.from_request(self.server.post(
+                '{base_uri}/{pipeline}/unpause'.format(
+                    base_uri=self.uri,
+                    pipeline=self.name,
+                )))
+        except urllib2.HTTPError as exc:
+            return Response.from_http_error(exc)
 
     def status(self):
         pass
