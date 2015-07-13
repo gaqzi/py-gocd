@@ -1,0 +1,30 @@
+interactions:
+- request:
+    body: pauseCause=Time+to+sleep
+    headers:
+      Connection: [close]
+      Content-Length: ['24']
+      Content-Type: [application/x-www-form-urlencoded]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: POST
+    uri: http://localhost:8153/go/api/pipelines/Simple/pause
+  response:
+    body: {string: !!python/unicode ' '}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [text/html; charset=utf-8]
+      etag: ['"7215ee9c7d9dc229d2921a40e899ec5f"']
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=1dxgxnbiv0et0k0cxur38bbf0;Path=/go;Expires=Mon, 27-Jul-2015
+          15:32:18 GMT']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [8f665739-44b3-441a-af55-f465b3632494]
+      x-runtime: ['0.016000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1

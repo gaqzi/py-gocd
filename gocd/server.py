@@ -1,4 +1,5 @@
 from urlparse import urljoin
+import urllib
 import urllib2
 
 from gocd.api import Pipeline
@@ -31,8 +32,8 @@ class Server(ApiInstantiators):
     def get(self, path):
         return urllib2.urlopen(self._request(path))
 
-    def post(self, path, data=None):
-        return urllib2.urlopen(self._request(path, data=data or ''))
+    def post(self, path, **post_args):
+        return urllib2.urlopen(self._request(path, data=post_args or ''))
 
     def _add_basic_auth(self):
         auth_handler = urllib2.HTTPBasicAuthHandler(
@@ -54,7 +55,7 @@ class Server(ApiInstantiators):
 
         return urllib2.Request(
             self._url(path),
-            data=data,
+            data=urllib.urlencode(data) if data else data,  # GET is None
             headers=default_headers
         )
 

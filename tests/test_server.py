@@ -34,6 +34,16 @@ def test_post_request_without_argument(server, cassette_name):
     assert response.headers.type == 'text/html'
 
 
+@vcr.use_cassette('tests/fixtures/cassettes/post-with-argument.yml')
+def test_post_with_an_argument(server):
+    response = server.post(
+        'go/api/pipelines/Simple/pause',
+        pauseCause='Time to sleep'
+    )
+
+    assert response.code == 200
+
+
 def test_pipeline_creates_a_pipeline_instance(server):
     pipeline = server.pipeline('Simple')
 
