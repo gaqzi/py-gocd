@@ -57,7 +57,12 @@ class Pipeline(object):
             )))
 
     def instance(self, counter):
-        pass
+        return Response.from_request(self.server.get(
+            '{base_uri}/{pipeline}/instance/{counter:d}'.format(
+                base_uri=self.uri,
+                pipeline=self.name,
+                counter=counter,
+            )))
 
     def schedule(self, materials=None):
         pass

@@ -86,3 +86,13 @@ def test_status(pipeline):
     assert not status['locked']
     assert not status['paused']
     assert status['schedulable']
+
+
+@vcr.use_cassette('tests/fixtures/cassettes/api/pipeline/instance.yml')
+def test_instance(pipeline):
+    response = pipeline.instance(1)
+
+    assert response.is_ok
+    assert response.content_type == 'application/json'
+    assert response.payload['name'] == pipeline.name
+    assert response.payload['counter'] == 1
