@@ -11,15 +11,27 @@ def server():
 
 
 @pytest.mark.parametrize('cassette_name', [
-    'tests/fixtures/cassettes/server-basic-auth.yml',
-    'tests/fixtures/cassettes/server-without-auth.yml',
+    'tests/fixtures/cassettes/server-basic-auth-get.yml',
+    'tests/fixtures/cassettes/server-without-auth-get.yml',
 ])
-def test_request_with_and_without_auth(server, cassette_name):
+def test_get_request_with_and_without_auth(server, cassette_name):
     with vcr.use_cassette(cassette_name) as _:
         response = server.get('go/api/pipelines/Simple/history/0')
 
     assert response.code == 200
     assert response.headers.type == 'application/json'
+
+
+@pytest.mark.parametrize('cassette_name', [
+    'tests/fixtures/cassettes/server-basic-auth-post.yml',
+    'tests/fixtures/cassettes/server-without-auth-post.yml',
+])
+def test_post_request_without_argument(server, cassette_name):
+    with vcr.use_cassette(cassette_name) as _:
+        response = server.post('go/api/pipelines/Simple/schedule')
+
+    assert response.code == 202
+    assert response.headers.type == 'text/html'
 
 
 def test_pipeline_creates_a_pipeline_instance(server):

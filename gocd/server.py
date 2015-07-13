@@ -31,6 +31,9 @@ class Server(ApiInstantiators):
     def get(self, path):
         return urllib2.urlopen(self._request(path))
 
+    def post(self, path, data=None):
+        return urllib2.urlopen(self._request(path, data=data or ''))
+
     def _add_basic_auth(self):
         auth_handler = urllib2.HTTPBasicAuthHandler(
             urllib2.HTTPPasswordMgrWithDefaultRealm()
