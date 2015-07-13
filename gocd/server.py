@@ -1,6 +1,7 @@
 from urlparse import urljoin
-import urllib
 import urllib2
+
+from gocd.vendor.multidimensional_urlencode import urlencode
 
 from gocd.api import Pipeline
 
@@ -55,7 +56,8 @@ class Server(ApiInstantiators):
 
         return urllib2.Request(
             self._url(path),
-            data=urllib.urlencode(data) if data else data,  # GET is None
+            # GET is None, and anything that is a string is POST
+            data=urlencode(data) if data else data,
             headers=default_headers
         )
 

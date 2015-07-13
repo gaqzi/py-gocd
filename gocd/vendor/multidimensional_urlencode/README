@@ -1,0 +1,4 @@
+This is vendored from: https://github.com/uber/multidimensional_urlencode
+
+One of the goals of this project is for it to work without any external
+dependencies, so lets do it the Django way by including them.
