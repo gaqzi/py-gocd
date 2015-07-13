@@ -56,3 +56,12 @@ def test_release_when_pipeline_is_unlocked(locked_pipeline):
         'lock exists within the pipeline configuration but no pipeline '
         'instance is currently in progress\n'
     )
+
+
+@vcr.use_cassette('tests/fixtures/cassettes/api/pipeline/pause-successful.yml')
+def test_pause(pipeline):
+    response = pipeline.pause('Time to sleep')
+
+    assert response.is_ok
+    assert response.content_type == 'text/html'
+    assert response.payload == ' '

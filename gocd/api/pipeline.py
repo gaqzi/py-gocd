@@ -27,8 +27,17 @@ class Pipeline(object):
         except urllib2.HTTPError as exc:
             return Response.from_http_error(exc)
 
-    def pause(self):
-        pass
+    def pause(self, reason=''):
+        try:
+            return Response.from_request(self.server.post(
+                '{base_uri}/{pipeline}/pause'.format(
+                    base_uri=self.uri,
+                    pipeline=self.name,
+                ),
+                pauseCause=reason,
+            ))
+        except urllib2.HTTPError as exc:
+            return Response.from_http_error(exc)
 
     def unpause(self):
         pass
