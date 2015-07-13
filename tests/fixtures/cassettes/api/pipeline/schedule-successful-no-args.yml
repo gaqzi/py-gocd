@@ -1,0 +1,31 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      Connection: [close]
+      Content-Length: ['0']
+      Content-Type: [application/x-www-form-urlencoded]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: POST
+    uri: http://localhost:8153/go/api/pipelines/Simple/schedule
+  response:
+    body: {string: !!python/unicode 'Request to schedule pipeline Simple accepted
+
+'}
+    headers:
+      cache-control: [no-cache]
+      connection: [close]
+      content-type: [text/html; charset=utf-8]
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=1b0ndiug7r7vnn3tk29ym08px;Path=/go;Expires=Mon, 27-Jul-2015
+          16:15:09 GMT']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [312fc0a6-8ce4-44af-b30d-1dc921ab1d61]
+      x-runtime: ['0.050000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 202, message: Accepted}
+version: 1

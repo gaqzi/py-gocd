@@ -64,5 +64,17 @@ class Pipeline(object):
                 counter=counter,
             )))
 
-    def schedule(self, materials=None):
-        pass
+    def schedule(self, **material_args):
+        try:
+            return Response.from_request(
+                self.server.post(
+                    '{base_uri}/{pipeline}/schedule'.format(
+                        base_uri=self.uri,
+                        pipeline=self.name,
+                    ),
+                    **material_args
+                ),
+                ok_status=202.
+            )
+        except urllib2.HTTPError as exc:
+            return Response.from_http_error(exc)

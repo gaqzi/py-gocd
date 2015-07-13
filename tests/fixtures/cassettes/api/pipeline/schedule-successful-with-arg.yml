@@ -1,0 +1,31 @@
+interactions:
+- request:
+    body: material_fingerprint%5B29f5d8ec63b7200d06a25f0b1df0e321bd95f1ec823d3ef8bac7c5295affa488%5D=29f5d8ec63b7200d06a25f0b1df0e321bd95f1ec823d3ef8bac7c5295affa488
+    headers:
+      Connection: [close]
+      Content-Length: ['155']
+      Content-Type: [application/x-www-form-urlencoded]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: POST
+    uri: http://localhost:8153/go/api/pipelines/Simple/schedule
+  response:
+    body: {string: !!python/unicode 'Request to schedule pipeline Simple accepted
+
+'}
+    headers:
+      cache-control: [no-cache]
+      connection: [close]
+      content-type: [text/html; charset=utf-8]
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=qzr9l0fgfci6ggtov60b2900;Path=/go;Expires=Mon, 27-Jul-2015
+          16:44:40 GMT']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [fcf2a7de-1e84-431d-b50d-213e9da4bb56]
+      x-runtime: ['0.219000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 202, message: Accepted}
+version: 1

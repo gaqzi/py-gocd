@@ -1,0 +1,32 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      Connection: [close]
+      Content-Length: ['0']
+      Content-Type: [application/x-www-form-urlencoded]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: POST
+    uri: http://localhost:8153/go/api/pipelines/Simple/schedule
+  response:
+    body: {string: !!python/unicode 'Failed to trigger pipeline [Simple] { Stage [Hello]
+        in pipeline [Simple] is still in progress }
+
+'}
+    headers:
+      cache-control: [no-cache]
+      connection: [close]
+      content-type: [text/html; charset=utf-8]
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=qyv0lngxw1ym1e0gzt2jf52w2;Path=/go;Expires=Mon, 27-Jul-2015
+          17:10:13 GMT']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [ffb539ab-375b-4d72-88cf-59aa5e3a3862]
+      x-runtime: ['0.022000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 409, message: Conflict}
+version: 1
