@@ -50,7 +50,11 @@ class Pipeline(object):
             return Response.from_http_error(exc)
 
     def status(self):
-        pass
+        return Response.from_request(self.server.get(
+            '{base_uri}/{pipeline}/status'.format(
+                base_uri=self.uri,
+                pipeline=self.name,
+            )))
 
     def instance(self, counter):
         pass

@@ -74,3 +74,15 @@ def test_unpause(pipeline):
     assert response.is_ok
     assert response.content_type == 'text/html'
     assert response.payload == ' '
+
+
+@vcr.use_cassette('tests/fixtures/cassettes/api/pipeline/status.yml')
+def test_status(pipeline):
+    response = pipeline.status()
+
+    assert response.is_ok
+    assert response.content_type == 'application/json'
+    status = response.payload
+    assert not status['locked']
+    assert not status['paused']
+    assert status['schedulable']
