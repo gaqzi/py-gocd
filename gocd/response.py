@@ -2,16 +2,17 @@ import json
 
 
 class Response(object):
-    def __init__(self, status_code, body, headers=None):
+    def __init__(self, status_code, body, headers=None, ok_status=None):
         self.status_code = status_code
         self._body = body
         self._body_parsed = None
         self.content_type = headers['content-type'].split(';')[0]
         self.headers = headers
+        self.ok_status = ok_status or 200
 
     @property
     def is_ok(self):
-        return self.status_code == 200
+        return self.status_code == self.ok_status
 
     @property
     def payload(self):
@@ -24,11 +25,12 @@ class Response(object):
             return self._body
 
     @classmethod
-    def from_request(cls, response):
+    def from_request(cls, response, ok_status=None):
         return Response(
             response.code,
             response.read(),
             response.headers,
+            ok_status=ok_status
         )
 
     @classmethod
