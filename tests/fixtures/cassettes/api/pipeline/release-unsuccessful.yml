@@ -1,0 +1,32 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      Connection: [close]
+      Content-Length: ['0']
+      Content-Type: [application/x-www-form-urlencoded]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: POST
+    uri: http://localhost:8153/go/api/pipelines/Simple-with-lock/releaseLock
+  response:
+    body: {string: !!python/unicode 'lock exists within the pipeline configuration
+        but no pipeline instance is currently in progress
+
+'}
+    headers:
+      cache-control: [no-cache]
+      connection: [close]
+      content-type: [text/html; charset=utf-8]
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=1mup2zss5f6pc1s61fu65subrc;Path=/go;Expires=Mon, 27-Jul-2015
+          14:45:50 GMT']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [84d1c425-f726-49ec-9d04-5d3362b0dfbc]
+      x-runtime: ['0.065000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 406, message: Not Acceptable}
+version: 1

@@ -19,8 +19,32 @@
         </jobs>
       </stage>
     </pipeline>
+    <pipeline name="Simple-with-lock" isLocked="true">
+      <materials>
+        <git url="/Users/ba/code/empty/.git" autoUpdate="false" />
+      </materials>
+      <stage name="firstStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="false" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="secondStage">
+        <jobs>
+          <job name="second">
+            <tasks>
+              <exec command="true" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
   </pipelines>
   <agents>
     <agent hostname="djuproera.local" ipaddress="10.0.1.10" uuid="4bed6380-ff7b-47ec-8d76-f69a570c1783" />
   </agents>
 </cruise>
+

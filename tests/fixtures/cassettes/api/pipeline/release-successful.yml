@@ -1,0 +1,32 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      Connection: [close]
+      Content-Length: ['0']
+      Content-Type: [application/x-www-form-urlencoded]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: POST
+    uri: http://localhost:8153/go/api/pipelines/Simple-with-lock/releaseLock
+  response:
+    body: {string: !!python/unicode 'pipeline lock released for Simple-with-lock
+
+'}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [text/html; charset=utf-8]
+      etag: ['"374c557409bfbbd28a14642495a64968"']
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=16dc53h216tzn1tpotyalbemj3;Path=/go;Expires=Mon, 27-Jul-2015
+          14:19:52 GMT']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [733c575d-a45e-4b8d-9390-5efe70bfdeef]
+      x-runtime: ['0.024000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1

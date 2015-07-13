@@ -14,6 +14,11 @@ def pipeline(server):
     return server.pipeline('Simple')
 
 
+@pytest.fixture
+def locked_pipeline(server):
+    return server.pipeline('Simple-with-lock')
+
+
 @pytest.mark.parametrize('cassette_name,offset,counter', [
     ('tests/fixtures/cassettes/api/pipeline/history-offset-0.yml', 0, 11),
     ('tests/fixtures/cassettes/api/pipeline/history-offset-10.yml', 10, 1)
@@ -28,3 +33,26 @@ def test_history(pipeline, cassette_name, offset, counter):
     run = response.payload['pipelines'][0]
     assert run['name'] == 'Simple'
     assert run['counter'] == counter
+
+
+@vcr.use_cassette('tests/fixtures/cassettes/api/pipeline/release-successful.yml')
+def test_release(locked_pipeline):
+    response = locked_pipeline.release()
+
+    assert response.is_ok
+    assert response.content_type == 'text/html'
+    assert response.payload == 'pipeline lock released for {0}\n'.format(
+        locked_pipeline.name
+    )
+
+
+@vcr.use_cassette('tests/fixtures/cassettes/api/pipeline/release-unsuccessful.yml')
+def test_release_when_pipeline_is_unlocked(locked_pipeline):
+    response = locked_pipeline.release()
+
+    assert not response.is_ok
+    assert response.content_type == 'text/html'
+    assert response.payload == (
+        'lock exists within the pipeline configuration but no pipeline '
+        'instance is currently in progress\n'
+    )

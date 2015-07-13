@@ -1,3 +1,4 @@
+import urllib2
 from gocd import Response
 
 
@@ -16,11 +17,15 @@ class Pipeline(object):
                 offset=offset or 0,
             )))
 
-    def schedule(self, materials=None):
-        pass
-
     def release(self):
-        pass
+        try:
+            return Response.from_request(self.server.post(
+                '{base_uri}/{pipeline}/releaseLock'.format(
+                    base_uri=self.uri,
+                    pipeline=self.name,
+                )))
+        except urllib2.HTTPError as exc:
+            return Response.from_http_error(exc)
 
     def pause(self):
         pass
@@ -32,4 +37,7 @@ class Pipeline(object):
         pass
 
     def instance(self, counter):
+        pass
+
+    def schedule(self, materials=None):
         pass

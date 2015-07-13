@@ -30,3 +30,11 @@ class Response(object):
             response.read(),
             response.headers,
         )
+
+    @classmethod
+    def from_http_error(cls, http_error):
+        return Response(
+            http_error.code,
+            http_error.read(),
+            http_error.headers,
+        )
