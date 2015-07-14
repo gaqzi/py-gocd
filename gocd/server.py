@@ -31,10 +31,13 @@ class Server(ApiInstantiators):
             self._add_basic_auth()
 
     def get(self, path):
-        return urllib2.urlopen(self._request(path))
+        return self.request(path)
 
     def post(self, path, **post_args):
-        return urllib2.urlopen(self._request(path, data=post_args or ''))
+        return self.request(path, data=post_args or '')
+
+    def request(self, path, data=None, headers=None):
+        return urllib2.urlopen(self._request(path, data=data, headers=headers))
 
     def _add_basic_auth(self):
         auth_handler = urllib2.HTTPBasicAuthHandler(

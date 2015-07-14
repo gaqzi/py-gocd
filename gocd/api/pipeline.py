@@ -1,80 +1,36 @@
-import urllib2
-from gocd import Response
+from gocd.api.endpoint import Endpoint
 
 
-class Pipeline(object):
-    uri = 'go/api/pipelines'
+class Pipeline(Endpoint):
+    _base_path = 'go/api/pipelines/{id}'
+
+    @property
+    def _id(self):
+        return self.name
 
     def __init__(self, server, name):
         self.server = server
         self.name = name
 
     def history(self, offset=0):
-        return Response.from_request(self.server.get(
-            '{base_uri}/{pipeline}/history/{offset}'.format(
-                base_uri=self.uri,
-                pipeline=self.name,
-                offset=offset or 0,
-            )))
+        return self._get('/history/{offset:d}'.format(offset=offset or 0))
 
     def release(self):
-        try:
-            return Response.from_request(self.server.post(
-                '{base_uri}/{pipeline}/releaseLock'.format(
-                    base_uri=self.uri,
-                    pipeline=self.name,
-                )))
-        except urllib2.HTTPError as exc:
-            return Response.from_http_error(exc)
+        return self._post('/releaseLock')
+    unlock = release
 
     def pause(self, reason=''):
-        try:
-            return Response.from_request(self.server.post(
-                '{base_uri}/{pipeline}/pause'.format(
-                    base_uri=self.uri,
-                    pipeline=self.name,
-                ),
-                pauseCause=reason,
-            ))
-        except urllib2.HTTPError as exc:
-            return Response.from_http_error(exc)
+        return self._post('/pause', pauseCause=reason)
 
     def unpause(self):
-        try:
-            return Response.from_request(self.server.post(
-                '{base_uri}/{pipeline}/unpause'.format(
-                    base_uri=self.uri,
-                    pipeline=self.name,
-                )))
-        except urllib2.HTTPError as exc:
-            return Response.from_http_error(exc)
+        return self._post('/unpause')
 
     def status(self):
-        return Response.from_request(self.server.get(
-            '{base_uri}/{pipeline}/status'.format(
-                base_uri=self.uri,
-                pipeline=self.name,
-            )))
+        return self._get('/status')
 
     def instance(self, counter):
-        return Response.from_request(self.server.get(
-            '{base_uri}/{pipeline}/instance/{counter:d}'.format(
-                base_uri=self.uri,
-                pipeline=self.name,
-                counter=counter,
-            )))
+        return self._get('/instance/{counter:d}'.format(counter=counter))
 
     def schedule(self, **material_args):
-        try:
-            return Response.from_request(
-                self.server.post(
-                    '{base_uri}/{pipeline}/schedule'.format(
-                        base_uri=self.uri,
-                        pipeline=self.name,
-                    ),
-                    **material_args
-                ),
-                ok_status=202.
-            )
-        except urllib2.HTTPError as exc:
-            return Response.from_http_error(exc)
+        return self._post('/schedule', ok_status=202, **material_args)
+    run = schedule
