@@ -2,11 +2,8 @@ from gocd.api.endpoint import Endpoint
 
 
 class Pipeline(Endpoint):
-    _base_path = 'go/api/pipelines/{id}'
-
-    @property
-    def _id(self):
-        return self.name
+    base_path = 'go/api/pipelines/{id}'
+    id = 'name'
 
     def __init__(self, server, name):
         self.server = server

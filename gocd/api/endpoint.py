@@ -2,26 +2,36 @@ import urllib2
 from gocd.response import Response
 
 
-# TODO: Think about the design of this class.
-# The handling of base_path doesn't feel pythonesque, probably should
-# follow the `get_base_path()` pattern from Django instead. Same with _id.
 class Endpoint(object):
-    _base_path = None   # What should be configured for each pipeline
-    __base_path = None  # The cached response of replacing `_id`
+    # The cached responses
+    _base_path = None
+    _id = None
 
-    @property
-    def _id(self):
-        raise KeyError('No `_id` defined as the primary identifier for this API endpoint.')
+    def get_id(self):
+        if self._id is None:
+            self._id = getattr(self, self.id, None)
+            if self._id is None:
+                raise NotImplementedError(
+                    'id is not set. It is needed when calling a specific '
+                    'instance of an endpoint. '
+                )
 
-    @property
-    def base_path(self):
-        if not self.__base_path:
-            self.__base_path = self._base_path.format(id=self._id)
+        return self._id
 
-        return self.__base_path
+    def get_base_path(self):
+        if getattr(self, 'base_path', None) is None:
+            raise NotImplementedError(
+                "base_path is not set. I don't know where to query on "
+                "the Go server."
+            )
+
+        if not self._base_path:
+            self._base_path = self.base_path.format(id=self.get_id())
+
+        return self._base_path
 
     def _join_path(self, path):
-        return '{0}/{1}'.format(self.base_path, path).replace('//', '/')
+        return '{0}/{1}'.format(self.get_base_path(), path).replace('//', '/')
 
     def _get(self, path, ok_status=None):
         return self._request(path, ok_status=ok_status)
