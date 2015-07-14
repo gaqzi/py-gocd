@@ -2,7 +2,7 @@ import urllib
 
 import pytest
 
-from multidimensional_urlencode import urlencode
+from gocd.vendor.multidimensional_urlencode import urlencode
 
 
 def test_basic():

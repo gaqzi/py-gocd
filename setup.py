@@ -28,6 +28,13 @@ def version():
     import gocd
     return gocd.__version__
 
+extra_dependencies = []
+if sys.version_info < (2, 7):
+    extra_dependencies = [
+        'mock==1.0.1',
+        'contextlib2',
+        'backport_collections',
+    ]
 
 setup(
     name='gocd',
@@ -40,8 +47,5 @@ setup(
     tests_require=[
         'pytest',
         'vcrpy',
-        'mock',
-        'contextlib2',
-        'backport_collections',
-    ],
+    ] + extra_dependencies,
 )

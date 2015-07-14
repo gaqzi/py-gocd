@@ -3,3 +3,4 @@
 .eggs
 build
 dist
+.tox
