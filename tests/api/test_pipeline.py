@@ -29,8 +29,8 @@ def test_history(pipeline, cassette_name, offset, counter):
 
     assert response.is_ok
     assert response.content_type == 'application/json'
-    assert 'pipelines' in response.payload
-    run = response.payload['pipelines'][0]
+    assert 'pipelines' in response
+    run = response['pipelines'][0]
     assert run['name'] == 'Simple'
     assert run['counter'] == counter
 
@@ -83,10 +83,9 @@ def test_status(pipeline):
 
     assert response.is_ok
     assert response.content_type == 'application/json'
-    status = response.payload
-    assert not status['locked']
-    assert not status['paused']
-    assert status['schedulable']
+    assert not response['locked']
+    assert not response['paused']
+    assert response['schedulable']
 
 
 @vcr.use_cassette('tests/fixtures/cassettes/api/pipeline/instance.yml')
@@ -95,8 +94,8 @@ def test_instance(pipeline):
 
     assert response.is_ok
     assert response.content_type == 'application/json'
-    assert response.payload['name'] == pipeline.name
-    assert response.payload['counter'] == 1
+    assert response['name'] == pipeline.name
+    assert response['counter'] == 1
 
 
 @vcr.use_cassette('tests/fixtures/cassettes/api/pipeline/schedule-successful-no-args.yml')

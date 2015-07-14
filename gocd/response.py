@@ -15,6 +15,10 @@ class Response(object):
     def is_ok(self):
         return self.status_code == self.ok_status
 
+    @property
+    def is_json(self):
+        return self.content_type.startswith('application/json')
+
     def __bool__(self):
         # XXX
         # I'm not sure if this is a good idea or not,
@@ -23,10 +27,21 @@ class Response(object):
         return self.is_ok
     __nonzero__ = __bool__
 
+    def __getitem__(self, item):
+        if self.is_json:
+            return self.payload[item]
+
+        self._raise_non_json_response()
+
+    def __contains__(self, item):
+        if self.is_json:
+            return item in self.payload
+
+        self._raise_non_json_response()
 
     @property
     def payload(self):
-        if self.content_type.startswith('application/json'):
+        if self.is_json:
             if not self._body_parsed:
                 self._body_parsed = json.loads(self._body)
 
@@ -49,4 +64,10 @@ class Response(object):
             http_error.code,
             http_error.read(),
             http_error.headers,
+        )
+
+    def _raise_non_json_response(self):
+        raise AttributeError(
+            "Can't lookup item in a non-JSON response.",
+            content_type=self.content_type
         )
