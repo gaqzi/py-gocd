@@ -50,6 +50,7 @@ def test_release(locked_pipeline):
 def test_release_when_pipeline_is_unlocked(locked_pipeline):
     response = locked_pipeline.release()
 
+    assert not response
     assert not response.is_ok
     assert response.content_type == 'text/html'
     assert response.payload == (
@@ -108,7 +109,6 @@ def test_schedule(pipeline):
     assert response.payload == (
         'Request to schedule pipeline {0} accepted\n'.format(pipeline.name)
     )
-
 
 
 @vcr.use_cassette('tests/fixtures/cassettes/api/pipeline/schedule-successful-with-arg.yml')

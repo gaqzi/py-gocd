@@ -1,6 +1,7 @@
 import json
 
 
+# TODO: Test this class explicitly, the implicit testing we got now works but it doesn't define the behavior.
 class Response(object):
     def __init__(self, status_code, body, headers=None, ok_status=None):
         self.status_code = status_code
@@ -13,6 +14,15 @@ class Response(object):
     @property
     def is_ok(self):
         return self.status_code == self.ok_status
+
+    def __bool__(self):
+        # XXX
+        # I'm not sure if this is a good idea or not,
+        # but I think a response should be true/false depending on whether it was ok or not.
+        # Let's try it out and see whether it's a crazy idea.
+        return self.is_ok
+    __nonzero__ = __bool__
+
 
     @property
     def payload(self):
