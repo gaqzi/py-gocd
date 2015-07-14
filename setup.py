@@ -28,6 +28,7 @@ def version():
     import gocd
     return gocd.__version__
 
+
 setup(
     name='gocd',
     author='Björn Andersson',
@@ -35,7 +36,7 @@ setup(
     license='MIT License',
     version=version(),
     packages=find_packages(exclude=('tests',)),
-    cmdclass = {'test': PyTest},
+    cmdclass={'test': PyTest},
     tests_require=[
         'pytest',
         'vcrpy',
