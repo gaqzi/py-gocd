@@ -1,5 +1,6 @@
 import urllib2
-from gocd.response import Response
+
+from gocd.api.response import Response
 
 
 class Endpoint(object):
