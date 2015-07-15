@@ -32,18 +32,24 @@ class Endpoint(object):
         return self._base_path
 
     def _join_path(self, path):
+        # TODO: Make this more robust. `urlparse.urljoin` didn't quite work as I wanted.
         return '{0}/{1}'.format(self.get_base_path(), path).replace('//', '/')
 
-    def _get(self, path, ok_status=None):
-        return self._request(path, ok_status=ok_status)
+    def _get(self, path, ok_status=None, headers=None):
+        return self._request(path, ok_status=ok_status, headers=headers)
 
-    def _post(self, path, ok_status=None, **post_args):
-        return self._request(path, ok_status=ok_status, data=post_args or '')
+    def _post(self, path, ok_status=None, headers=None, **post_args):
+        return self._request(path, ok_status=ok_status, data=post_args or '', headers=headers)
 
-    def _request(self, path, ok_status, data=None):
+    # TODO: Add tests for adding headers
+    def _request(self, path, ok_status, data=None, headers=None):
         try:
             return Response.from_request(
-                self.server.request(self._join_path(path), data=data),
+                self.server.request(
+                    self._join_path(path),
+                    data=data,
+                    headers=headers
+                ),
                 ok_status=ok_status
             )
         except urllib2.HTTPError as exc:
