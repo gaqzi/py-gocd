@@ -1,0 +1,290 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/api/pipelines.xml
+  response:
+    body: {string: !!python/unicode "<pipelines>\n <link rel=\"self\" href=\"http://localhost:8153/go/api/pipelines.xml\"/>\n
+        \   <pipeline href=\"http://localhost:8153/go/api/pipelines/Simple/stages.xml\"
+        />\n    <pipeline href=\"http://localhost:8153/go/api/pipelines/Simple-with-lock/stages.xml\"
+        />\n</pipelines>"}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [application/xml; charset=utf-8]
+      etag: ['"3de87b84f8c9805118994346027582a5"']
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=vjshdiftict01nc5xv5r9sckj;Path=/go;Expires=Wed, 29-Jul-2015
+          16:32:22 GMT']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [6899c3a6-4ff7-4de9-b944-ecc71286afb0]
+      x-runtime: ['0.024000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Cookie: [JSESSIONID=JSESSIONID=vjshdiftict01nc5xv5r9sckj]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/pipelines
+  response:
+    body: {string: !!python/unicode "<!DOCTYPE HTML>\n<!--[if lt IE 7]> <html xmlns=\"http://www.w3.org/1999/xhtml\"
+        lang=\"en\" class=\"no-js ie6 oldie\"> <![endif]-->\n<!--[if IE 7]> <html
+        xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" class=\"no-js ie7 oldie\">
+        <![endif]-->\n<!--[if IE 8]> <html xmlns=\"http://www.w3.org/1999/xhtml\"
+        lang=\"en\" class=\"no-js ie8 oldie\"> <![endif]-->\n<!--[if gt IE 8]><!-->\n<html
+        xmlns=\"http://www.w3.org/1999/xhtml\" lang='en'>\n<!--<![endif]-->\n\n\n<head>\n
+        \   <title>\n    Pipelines - Go\n</title>\n\n<link debug=\"false\" href=\"/go/assets/application-8f30e9364d6c69c71c8a76c50bc8e0ce.css\"
+        media=\"all\" rel=\"stylesheet\" />\n<link debug=\"false\" href=\"/go/assets/patterns/application-5a2cf49bd5c98c87f1f9f7a1c17b1131.css\"
+        media=\"all\" rel=\"stylesheet\" />\n\n<!-- START: prototype hooks for css
+        injection -->\n\n<!-- END: prototype hooks for css injection -->\n\n<script
+        debug=\"false\" src=\"/go/assets/application-ea0319c4737b736cc4da43f3f849f60b.js\"></script>\n<![if
+        !IE]>\n    <script src=\"/go/assets/lib/d3-3.1.5.min-18acdd172951a1c84db7dfac05912508.js\"></script>\n<![endif]>\n<!--[if
+        gt IE 8]><!-->\n    <script src=\"/go/assets/lib/d3-3.1.5.min-18acdd172951a1c84db7dfac05912508.js\"></script>\n<!--<![endif]-->\n\n\n<link
+        rel=\"shortcut icon\" href=\"/go/assets/cruise-a9724b6cd5ccc7da0532f027b0970936.ico\"/>\n</head>\n<body
+        id=\"pipelines\" class=\"pipelines\">\n<div id=\"body_bg\">\n    <div id=\"header\">\n
+        \       <div class=\"header clear_float\">\n  <a href=\"/go/pipelines\" id=\"application_logo\">&nbsp;</a>\n
+        \ <div class=\"application_nav\">\n  <input id=\"server_timestamp\" name=\"server_time\"
+        type=\"hidden\" value=\"1436977942\" />        <ul class=\"user\">\n            <li
+        class=\"help\">\n                <a href=\"http://www.go.cd/documentation/user/current\"
+        target=\"_blank\">Help</a>\n            </li>\n        </ul>\n\n    <ul class=\"tabs\">\n
+        \       <li id='cruise-header-tab-pipelines' class=\"current\">\n            <a
+        href=\"/go/pipelines\">PIPELINES</a>        </li>\n        <li id='cruise-header-tab-environments'
+        class=\"\">\n            <a href=\"/go/environments\">ENVIRONMENTS</a>        </li>\n
+        \       <li id='cruise-header-tab-agents' class=\"\">\n            <a href=\"/go/agents\">AGENTS</a>
+        \       </li>\n        <li id=\"cruise-header-tab-admin\" class=\"\">\n                <a
+        class=\"dropdown-arrow-icon\" data-toggle=\"dropdown\" href=\"#\">ADMIN</a>
+        \               <ul class=\"dropdown-menu\" role=\"menu\">\n                        <li
+        role=\"presentation\">\n    <a href=\"/go/admin/pipelines\">Pipelines</a></li>\n<li
+        role=\"presentation\">\n    <a href=\"/go/admin/templates\">Templates</a></li>\n<li
+        role=\"presentation\">\n    <a href=\"/go/admin/config_xml\">Config XML</a></li>\n<li
+        role=\"presentation\">\n    <a href=\"/go/admin/config/server\">Server Configuration</a></li>\n<li
+        role=\"presentation\">\n    <a href=\"/go/admin/users\">User Summary</a></li>\n<li
+        role=\"presentation\">\n    <a href=\"/go/oauth/admin/clients\">OAuth Clients</a></li>\n<li
+        role=\"presentation\">\n    <a href=\"/go/admin/gadgets/oauth_clients\">OAuth
+        Enabled Gadget Providers</a></li>\n<li role=\"presentation\">\n    <a href=\"/go/admin/backup\">Backup</a></li>\n<li
+        role=\"presentation\">\n    <a href=\"/go/admin/plugins\">Plugins</a></li>\n<li
+        role=\"presentation\">\n    <a href=\"/go/admin/package_repositories/new\">Package
+        Repositories</a></li>\n                </ul>\n        </li>\n    </ul>\n    <div
+        class=\"error_messaging_counter\">\n  <div id=\"cruise_message_counts\" class=\"cruise_messages\">\n
+        \ </div>\n  <div id=\"cruise_message_body\" style=\"display:none;\">\n  </div>\n\n
+        \    <script type=\"text/javascript\">\n        Util.on_load(function() {new
+        AjaxRefresher('/go/server/messages.json', null);});\n     </script>\n</div>\n</div>\n<div
+        class=\"back_to_top\" title=\"Scroll to Top\">Top</div>\n</div>\n    </div>\n\n
+        \   <div id='body_content'>\n        <div class=\"messaging_wrapper\" id=\"messaging_wrapper\">\n
+        \           <div class=\"flash\" id=\"message_pane\">\n</div>\n\n                    </div>\n
+        \       \n<div class=\"page_header\">\n    <h1><h1 class=\"entity_title\">Pipelines</h1></h1>\n
+        \   <div class=\"pipelines_selector\">\n<input title='Search for Pipeline'
+        placeholder='Search for Pipeline' id='pipeline-search' type=\"text\"/>\n\n<button
+        class=\"header_submit submit button\" id=\"show_pipelines_selector\" type=\"button\"
+        value=\"Personalize\"><span>PERSONALIZE</span></button>\n\n\n<div id=\"pipelines_selector\"
+        class='enhanced_dropdown hidden'>\n\n    <form accept-charset=\"UTF-8\" action=\"/go/pipelines/select_pipelines\"
+        method=\"post\" onsubmit=\"PipelineOperations.onPipelineSelector(this, '/go/pipelines/select_pipelines');
+        return false;; \"><div style=\"margin:0;padding:0;display:inline\"><input
+        name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" /><input name=\"authenticity_token\"
+        type=\"hidden\" value=\"yPRpHPuWEo9sex1nZBDkRpHbMkJzA7b1Pj3Qzrn4bts=\" /></div>\n
+        \   <div class=\"select_all_none_panel\">\n        <div id=\"select_text\">Select:</div>\n
+        \       <a class=\"link_as_button\" href=\"javascript:void(0);\" id=\"select_all_pipelines\">All</a>\n
+        \       <a class=\"link_as_button\" href=\"javascript:void(0);\" id=\"select_no_pipelines\">None</a>\n
+        \       <div id=\"show_new_pipelines_container\">\n            <input id=\"show_new_pipelines\"
+        type=\"checkbox\" name=\"show_new_pipelines\" checked='checked'/>\n            <label
+        id=\"show_new_pipelines_label\" for=\"show_new_pipelines\">Show newly created
+        pipelines</label>\n        </div>\n    </div>\n    <div id=\"pipelines_selector_pipelines\"
+        class=\"scrollable_panel\">\n        \n    <div id='selector_group_Test' class=\"selector_group\">\n
+        \       <input type=\"checkbox\" id=\"select_group_Test\" name=\"selector[group][]\"
+        value=\"Test\"\n               checked=\"checked\"\n               />\n        <label
+        for=\"select_group_Test\" class=\"label inline\">Test</label>\n            <div
+        id='selector_pipeline_Simple' class=\"selector_pipeline\">\n                <input
+        type=\"checkbox\" id=\"select_pipeline_Simple\" name=\"selector[pipeline][]\"
+        value=\"Simple\"\n                       checked=\"checked\"\n                       />\n
+        \               <label for=\"select_pipeline_Simple\" class=\"label inline\">Simple</label>\n
+        \           </div>\n            <div id='selector_pipeline_Simple-with-lock'
+        class=\"selector_pipeline\">\n                <input type=\"checkbox\" id=\"select_pipeline_Simple-with-lock\"
+        name=\"selector[pipeline][]\" value=\"Simple-with-lock\"\n                       checked=\"checked\"\n
+        \                      />\n                <label for=\"select_pipeline_Simple-with-lock\"
+        class=\"label inline\">Simple-with-lock</label>\n            </div>\n    </div>\n
+        \   </div>\n    <div class=\"add_panel\">\n        <button class=\"primary
+        submit\" id=\"apply_pipelines_selector\" type=\"submit\" value=\"Apply\"><span>APPLY</span></button>\n
+        \   </div>\n    </form>\n</div>\n\n<script type=\"text/javascript\">\n    Util.on_load(function()
+        {\n        PipelineFilter.initialize();\n        PipelineSearch.initialize('#pipeline-search');\n
+        \   });\n</script>\n    </div>\n</div>\n        \n\n    <div class=\"dashboard_microcontent_popup
+        dashboard_build_cause_like_microcontent_popups\">\n        <div class=\"hidden
+        changes enhanced_dropdown\" id=\"dashboard_build_cause_content\">&nbsp;</div>\n
+        \   </div>\n\n\n<div id=\"pipeline_groups_container\">\n            <div id=\"pipeline_group_Test_panel\">\n
+        \               \n<div class=\"pipeline_bundle pipeline_group\">\n    <div
+        class=\"pipelines\">\n        <div class=\"content_wrapper_outer\"><div class=\"content_wrapper_inner\">\n
+        \           <h2 class=\"entity_title\">Test</h2>\n\n                <div id=\"pipeline_Simple_panel\"
+        class=\"pipeline\">\n                        \n<div class=\"pipeline_header\">\n
+        \   <div class=\"pipeline_actions\">\n        \n            <a class=\"icon16
+        setting\" href=\"/go/admin/pipelines/Simple/general\"></a>\n    </div>\n    <div
+        class=\"pipeline_name_link\">\n        <h3 class=\"title entity_title \">\n
+        \           <a href=\"/go/tab/pipeline/history/Simple\">Simple</a>\n        </h3>\n
+        \   </div>\n</div>\n\n<div class=\"alert\" id=\"trigger-result-Simple\"></div>\n\n
+        \   <div class=\"pipeline_instance\">\n            <div class='status details'>\n
+        \               \n\n<div class=\"label\">Label:        <a href=\"/go/pipelines/value_stream_map/Simple/21\"
+        \ title=\"21\">21</a>\n</div>\n\n\n                <span class=\"compare_pipeline
+        dashboard\" >\n                    <a href=\"/go/compare/Simple/20/with/21\"
+        title=\"Compare with the previous build\">Compare</a>\n                </span>\n\n
+        \                       <span class=\"separator\">&nbsp;</span>\n\n                    <span
+        class=\"changes_button_wrapper\">\n                        <a class=\"show_panel
+        submit_small dashboard_build_cause_button\" href=\"/go/pipelines/Simple/21/build_cause\"
+        id=\"show_changes_Simple_21\">Changes</a>                    </span>\n\n                    <script
+        type=\"text/javascript\">\n                    </script>\n                <div
+        class=\"pipeline_instance_details\">\n    <div class=\"schedule_time\" title=\"Wed
+        Jul 15 21:15:33 SGT 2015\">\n        (Triggered&nbsp;by&nbsp;<span class='who'>anonymous</span>&nbsp;<span
+        class='time'></span><input type='hidden' value='1436966133508'/>)    </div>\n
+        \   <div class=\"stages\">\n    <div class=\"latest_stage\">\n            Failed:
+        Hello\n    </div>\n\n        \n    <a href='/go/pipelines/Simple/21/Hello/1'
+        class='stage' >\n        \n<div class=\"stage_bar_wrapper  last_run_stage\">\n
+        \   <div class=\"stage_bar Failed\" title=\"Hello (Failed)\" data-stage=\"Hello\"
+        style='width: 19.75em'>\n            </div>\n</div>\n    </a>\n</div>\n\n</div>\n\n
+        \           </div>\n            \n<div class=\"previously_wrapper\">\n</div>\n\n
+        \   </div>\n\n<div class=\"pipeline_operations\">\n        \n<form accept-charset=\"UTF-8\"
+        action=\"/go/api/pipelines/Simple/schedule\" method=\"post\" onsubmit=\"PipelineOperations.onTrigger(this,
+        'Simple', '/go/api/pipelines/Simple/schedule'); return false;; \"><div style=\"margin:0;padding:0;display:inline\"><input
+        name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" /><input name=\"authenticity_token\"
+        type=\"hidden\" value=\"+UNF44oKE9j9RllodeXZVCAzz/i4ZdkkViq27eDID1s=\" /></div>
+        \   <div class='operate trigger_wrapper'>\n        <button class=\"image submit\"
+        id=\"deploy-Simple\" title=\"Trigger\" type=\"submit\" value=\"Trigger\"><span
+        title=\"Trigger\"> </span></button>\n    </div>\n</form>\n\n        <form
+        accept-charset=\"UTF-8\" action=\"/go/pipelines/show_for_trigger\" method=\"post\"
+        onsubmit=\"PipelineOperations.onTriggerWithOptions(this, 'Simple', 'Trigger',
+        '/go/pipelines/show_for_trigger'); return false;; \"><div style=\"margin:0;padding:0;display:inline\"><input
+        name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" /><input name=\"authenticity_token\"
+        type=\"hidden\" value=\"+UNF44oKE9j9RllodeXZVCAzz/i4ZdkkViq27eDID1s=\" /></div>
+        \   <input type=\"hidden\" name=\"pipeline_name\" value=\"Simple\"/>\n    <div
+        class='operate trigger_with_options_wrapper'>\n        <button class=\"image
+        submit\" id=\"deploy-with-options-Simple\" title=\"Trigger with options\"
+        type=\"submit\" value=\"Trigger with options\"><span title=\"Trigger with
+        options\"> </span></button>    </div>\n</form>\n            <div class='operate
+        pause_wrapper'>\n        <button class=\"image submit\" id=\"confirm-pause-Simple\"
+        onclick=\"Modalbox.show($(&quot;pause-info-Simple&quot;),{title: &quot;Pause
+        pipeline: Simple &quot;,overlayClose:false})\" title=\"Pause\" type=\"submit\"
+        value=\"Pause\"><span title=\"Pause\"> </span></button>\n    </div>\n    <div
+        id=\"pause-info-Simple\" style=\"display:none\">\n        <form action=\"/go/api/pipelines/Simple/pause\"
+        method=\"post\" onsubmit=\"PipelineOperations.onPause(this, 'Simple', '/go/api/pipelines/Simple/pause');
+        return false;\">\n            <div class=\"sub_tab_container\">\n                <div
+        class='pause_reason'>\n                    Specify a reason for pausing schedule
+        on pipeline 'Simple': <input type=\"text\" name=\"pauseCause\" maxlength=\"255\"/>\n
+        \               </div>\n            </div>\n            <div class=\"actions\">\n
+        \               <button class=\"primary submit\" id=\"pause-Simple\" type=\"submit\"
+        value=\"Ok\"><span>OK</span></button>\n                <button class=\"submit
+        button\" onclick=\"Modalbox.hide()\" type=\"button\" value=\"Close\"><span>CLOSE</span></button>\n
+        \           </div>\n        </form>\n    </div>\n</div>\n                </div>\n\n
+        \           <div class=\"divider\"></div>\n\n                <div id=\"pipeline_Simple-with-lock_panel\"
+        class=\"pipeline\">\n                        \n<div class=\"pipeline_header\">\n
+        \   <div class=\"pipeline_actions\">\n        \n            <a class=\"icon16
+        setting\" href=\"/go/admin/pipelines/Simple-with-lock/general\"></a>\n    </div>\n
+        \   <div class=\"pipeline_name_link\">\n        <h3 class=\"title entity_title
+        \">\n            <a href=\"/go/tab/pipeline/history/Simple-with-lock\">Simple-with-lock</a>\n
+        \       </h3>\n    </div>\n</div>\n\n<div class=\"alert\" id=\"trigger-result-Simple-with-lock\"></div>\n\n
+        \   <div class=\"pipeline_instance\">\n            <div class='status details'>\n
+        \               \n\n<div class=\"label\">Label:        <a href=\"/go/pipelines/value_stream_map/Simple-with-lock/11\"
+        \ title=\"11\">11</a>\n</div>\n\n\n                <span class=\"compare_pipeline
+        dashboard\" >\n                    <a href=\"/go/compare/Simple-with-lock/10/with/11\"
+        title=\"Compare with the previous build\">Compare</a>\n                </span>\n\n
+        \                       <span class=\"separator\">&nbsp;</span>\n\n                    <span
+        class=\"changes_button_wrapper\">\n                        <a class=\"show_panel
+        submit_small dashboard_build_cause_button\" href=\"/go/pipelines/Simple-with-lock/11/build_cause\"
+        id=\"show_changes_Simple-with-lock_11\">Changes</a>                    </span>\n\n
+        \                   <script type=\"text/javascript\">\n                    </script>\n
+        \               <div class=\"pipeline_instance_details\">\n    <div class=\"schedule_time\"
+        title=\"Tue Jul 14 01:42:04 SGT 2015\">\n        (Triggered&nbsp;by&nbsp;<span
+        class='who'>anonymous</span>&nbsp;<span class='time'></span><input type='hidden'
+        value='1436809324238'/>)    </div>\n    <div class=\"stages\">\n    <div class=\"latest_stage\">\n
+        \           Failed: firstStage\n    </div>\n\n        \n    <a href='/go/pipelines/Simple-with-lock/11/firstStage/7'
+        class='stage' >\n        \n<div class=\"stage_bar_wrapper  last_run_stage\">\n
+        \   <div class=\"stage_bar Failed\" title=\"firstStage (Failed)\" data-stage=\"firstStage\"
+        style='width: 9.75em'>\n            </div>\n</div>\n    </a>\n        \n    <a
+        href='/go/pipelines/Simple-with-lock/11/secondStage/1' class='stage' >\n        \n<div
+        class=\"stage_bar_wrapper \">\n    <div class=\"stage_bar Passed\" title=\"secondStage
+        (Passed)\" data-stage=\"secondStage\" style='width: 9.9167em'>\n            </div>\n</div>\n
+        \   </a>\n</div>\n\n</div>\n\n            </div>\n            \n<div class=\"previously_wrapper\">\n</div>\n\n
+        \   </div>\n\n<div class=\"pipeline_operations\">\n        \n<form accept-charset=\"UTF-8\"
+        action=\"/go/api/pipelines/Simple-with-lock/schedule\" method=\"post\" onsubmit=\"PipelineOperations.onTrigger(this,
+        'Simple-with-lock', '/go/api/pipelines/Simple-with-lock/schedule'); return
+        false;; \"><div style=\"margin:0;padding:0;display:inline\"><input name=\"utf8\"
+        type=\"hidden\" value=\"&#x2713;\" /><input name=\"authenticity_token\" type=\"hidden\"
+        value=\"yPRpHPuWEo9sex1nZBDkRpHbMkJzA7b1Pj3Qzrn4bts=\" /></div>    <div class='operate
+        trigger_wrapper'>\n        <button class=\"image submit\" id=\"deploy-Simple-with-lock\"
+        title=\"Trigger\" type=\"submit\" value=\"Trigger\"><span title=\"Trigger\">
+        </span></button>\n    </div>\n</form>\n\n        <form accept-charset=\"UTF-8\"
+        action=\"/go/pipelines/show_for_trigger\" method=\"post\" onsubmit=\"PipelineOperations.onTriggerWithOptions(this,
+        'Simple-with-lock', 'Trigger', '/go/pipelines/show_for_trigger'); return false;;
+        \"><div style=\"margin:0;padding:0;display:inline\"><input name=\"utf8\" type=\"hidden\"
+        value=\"&#x2713;\" /><input name=\"authenticity_token\" type=\"hidden\" value=\"yPRpHPuWEo9sex1nZBDkRpHbMkJzA7b1Pj3Qzrn4bts=\"
+        /></div>    <input type=\"hidden\" name=\"pipeline_name\" value=\"Simple-with-lock\"/>\n
+        \   <div class='operate trigger_with_options_wrapper'>\n        <button class=\"image
+        submit\" id=\"deploy-with-options-Simple-with-lock\" title=\"Trigger with
+        options\" type=\"submit\" value=\"Trigger with options\"><span title=\"Trigger
+        with options\"> </span></button>    </div>\n</form>\n            <div class='operate
+        pause_wrapper'>\n        <button class=\"image submit\" id=\"confirm-pause-Simple-with-lock\"
+        onclick=\"Modalbox.show($(&quot;pause-info-Simple-with-lock&quot;),{title:
+        &quot;Pause pipeline: Simple-with-lock &quot;,overlayClose:false})\" title=\"Pause\"
+        type=\"submit\" value=\"Pause\"><span title=\"Pause\"> </span></button>\n
+        \   </div>\n    <div id=\"pause-info-Simple-with-lock\" style=\"display:none\">\n
+        \       <form action=\"/go/api/pipelines/Simple-with-lock/pause\" method=\"post\"
+        onsubmit=\"PipelineOperations.onPause(this, 'Simple-with-lock', '/go/api/pipelines/Simple-with-lock/pause');
+        return false;\">\n            <div class=\"sub_tab_container\">\n                <div
+        class='pause_reason'>\n                    Specify a reason for pausing schedule
+        on pipeline 'Simple-with-lock': <input type=\"text\" name=\"pauseCause\" maxlength=\"255\"/>\n
+        \               </div>\n            </div>\n            <div class=\"actions\">\n
+        \               <button class=\"primary submit\" id=\"pause-Simple-with-lock\"
+        type=\"submit\" value=\"Ok\"><span>OK</span></button>\n                <button
+        class=\"submit button\" onclick=\"Modalbox.hide()\" type=\"button\" value=\"Close\"><span>CLOSE</span></button>\n
+        \           </div>\n        </form>\n    </div>\n</div>\n                </div>\n\n
+        \           <div class=\"divider\"></div>\n        </div></div>\n    </div>\n</div>\n\n
+        \           </div>\n</div>\n\n\n<script type=\"text/javascript\">\n    Util.on_load(function()
+        {\n        var dashboard_ajax_refresher = new DashboardAjaxRefresher('/go/pipelines.json',
+        {redirectUrl: '/go/auth/login', className: '.pipeline_group', refreshCompleted:
+        function(isPartialRefresh) {\n            if (!isPartialRefresh) {\n                Util.enable('show_pipelines_selector');\n
+        \           }\n            jQuery('span.time').each(function() {\n                Util.convert_to_timeago(this);\n
+        \           });\n\n            jQuery(document).trigger(\"dashboard-refresh-completed\",
+        isPartialRefresh);\n        }});\n        AjaxRefreshers.addRefresher(dashboard_ajax_refresher,
+        true);\n\n        jQuery('span.time').each(function() {\n            Util.convert_to_timeago(this);\n
+        \       });\n        ElementAligner.hookupAlignEvents();\n        var content_box
+        = jQuery('#dashboard_build_cause_content');\n        var popup = new MicroContentPopup('dashboard_build_cause_content',
+        new ContextualAjaxPopupHandler(content_box.get(0),\n                function(event)
+        {\n                    return event.target.getAttribute(\"href\");\n                }));\n
+        \       var popupShower = new MicroContentPopup.LiveShower(popup);\n\n        jQuery('.dashboard_build_cause_button').live('click',
+        function(event) {\n            popupShower.toggle_popup(event, this);\n        });\n
+        \   });\n</script>\n    </div>\n\n    <div id='footer'>\n        <ul class=\"copyright\"
+        onclick=\"dashboard_periodical_executer.stop();\">\n    <li>Copyright &copy;
+        2015 <a href=\"http://www.thoughtworks.com/products\" target='_blank'>ThoughtWorks,
+        Inc.</a> Licensed under <a href=\"http://www.apache.org/licenses/LICENSE-2.0\"
+        target=\"_blank\">Apache License, Version 2.0</a>. Go includes <a href=\"/go/NOTICE/cruise_notice_file.pdf\"
+        target=\"_blank\">third-party software</a>.</li>\n    <li class=\"last\">Go
+        Version: 15.1.0(1863-42e58c22aefd03)</li>\n</ul>\n<ul class=\"links\">\n    <li><a
+        href=\"/go/cctray.xml\">(cc) CCTray Feed</a></li>\n    <li><a href=\"http://www.go.cd/documentation/user/current/api/go_api.html\"
+        target=\"_blank\">APIs</a></li>\n    <li><a href=\"http://www.go.cd/community/plugins.html\"
+        target=\"_blank\">Plugins</a></li>\n    <li><a href=\"http://www.go.cd/community/resources.html\"
+        target=\"_blank\">Community</a></li>\n    <li><a href=\"/go/about\">Server
+        Details</a></li>\n    <li class=\"last\"><a href=\"http://www.go.cd/documentation/user/current\"
+        target=\"_blank\">Help</a></li>\n</ul>\n\n    </div>\n</div>\n</body>\n</html>\n"}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [text/html; charset=utf-8]
+      etag: ['"548aa0788e22df81e53d10bd9d0db856"']
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=109fd27wv21v113boef4izt2eu;Path=/go;Expires=Wed, 29-Jul-2015
+          16:32:22 GMT']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [62055d60-c249-4f39-92ff-3821ccbdb62e]
+      x-runtime: ['0.065000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1

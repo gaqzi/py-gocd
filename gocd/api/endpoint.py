@@ -39,7 +39,7 @@ class Endpoint(object):
         return self._request(path, ok_status=ok_status, headers=headers)
 
     def _post(self, path, ok_status=None, headers=None, **post_args):
-        return self._request(path, ok_status=ok_status, data=post_args or '', headers=headers)
+        return self._request(path, ok_status=ok_status, data=post_args or {}, headers=headers)
 
     # TODO: Add tests for adding headers
     def _request(self, path, ok_status, data=None, headers=None):

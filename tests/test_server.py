@@ -2,6 +2,7 @@ import pytest
 import vcr
 
 from gocd.server import Server
+from gocd.vendor.multidimensional_urlencode import urlencode
 import gocd.api
 
 
@@ -42,6 +43,15 @@ def test_post_with_an_argument(server):
     )
 
     assert response.code == 200
+
+
+@vcr.use_cassette('tests/fixtures/cassettes/server-enable-session-auth.yml')
+def test_post_with_an_argument(server):
+    server.add_logged_in_session()
+    request = server._request('go/run/Simple-with-lock/11/firstStage', data={})
+
+    assert 'JSESSIONID={0}'.format(server._session_id) in request.headers['Cookie']
+    assert 'authenticity_token' in request.data
 
 
 def test_pipeline_creates_a_pipeline_instance(server):
