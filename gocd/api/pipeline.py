@@ -31,3 +31,4 @@ class Pipeline(Endpoint):
     def schedule(self, **material_args):
         return self._post('/schedule', ok_status=202, **material_args)
     run = schedule
+    trigger = schedule
