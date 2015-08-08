@@ -132,7 +132,9 @@ def test_schedule_with_git_arg(pipeline):
     )
 
 
-@vcr.use_cassette('tests/fixtures/cassettes/api/pipeline/schedule-unsuccessful-when-already-running.yml')
+@vcr.use_cassette(
+    'tests/fixtures/cassettes/api/pipeline/schedule-unsuccessful-when-already-running.yml'
+)
 def test_schedule_when_pipeline_is_already_running(pipeline):
     response = pipeline.schedule()
 
