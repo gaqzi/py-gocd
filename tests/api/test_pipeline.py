@@ -110,7 +110,7 @@ def test_schedule(pipeline):
     )
 
 
-@vcr.use_cassette('tests/fixtures/cassettes/api/pipeline/schedule-successful-with-arg.yml')
+@vcr.use_cassette('tests/fixtures/cassettes/api/pipeline/schedule-successful-with-material.yml')
 def test_schedule_with_git_arg(pipeline):
     git_revision = (
         '29f5d8ec63b7200d06a25f0b1df0e321bd95f1ec823d3ef8bac7c5295affa488'
@@ -120,9 +120,33 @@ def test_schedule_with_git_arg(pipeline):
     #       revs are, and how to figure it out
     # If this is it then I need to find a better way for users of this
     # library to interact with it, duplicating the revision isn't cool.
-    response = pipeline.schedule(
-        material_fingerprint={git_revision: git_revision}
+    response = pipeline.schedule(materials={git_revision: git_revision})
+
+    assert response.status_code == 202
+    assert response.is_ok
+    assert response.content_type == 'text/html'
+    assert response.payload == (
+        'Request to schedule pipeline {0} accepted\n'.format(pipeline.name)
     )
+
+
+@vcr.use_cassette('tests/fixtures/cassettes/api/pipeline/schedule-successful-with-env-var.yml')
+def test_schedule_with_environment_variable_passed(pipeline):
+    response = pipeline.schedule(variables=dict(UPSTREAM_REVISION='42'))
+
+    assert response.status_code == 202
+    assert response.is_ok
+    assert response.content_type == 'text/html'
+    assert response.payload == (
+        'Request to schedule pipeline {0} accepted\n'.format(pipeline.name)
+    )
+
+
+@vcr.use_cassette(
+    'tests/fixtures/cassettes/api/pipeline/schedule-successful-with-secure-env-var.yml'
+)
+def test_schedule_with_secure_environment_variable_passed(pipeline):
+    response = pipeline.schedule(secure_variables=dict(UPLOAD_PASSWORD='ssh, not so loud'))
 
     assert response.status_code == 202
     assert response.is_ok

@@ -1,0 +1,31 @@
+interactions:
+- request:
+    body: secure_variables%5BUPLOAD_PASSWORD%5D=ssh%2C+not+so+loud
+    headers:
+      Connection: [close]
+      Content-Length: ['56']
+      Content-Type: [application/x-www-form-urlencoded]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: POST
+    uri: http://localhost:8153/go/api/pipelines/Simple/schedule
+  response:
+    body: {string: !!python/unicode 'Request to schedule pipeline Simple accepted
+
+'}
+    headers:
+      cache-control: [no-cache]
+      connection: [close]
+      content-type: [text/html; charset=utf-8]
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=3dc1s06uhm8la1s15eqcg27i;Path=/go;Expires=Sat, 22-Aug-2015
+          15:30:40 GMT']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [86ff993d-f563-443b-b383-74ea74f4abae]
+      x-runtime: ['0.085000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 202, message: Accepted}
+version: 1
