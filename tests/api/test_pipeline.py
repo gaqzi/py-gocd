@@ -24,7 +24,7 @@ def locked_pipeline(server):
     ('tests/fixtures/cassettes/api/pipeline/history-offset-10.yml', 10, 1)
 ])
 def test_history(pipeline, cassette_name, offset, counter):
-    with vcr.use_cassette(cassette_name) as _:
+    with vcr.use_cassette(cassette_name):
         response = pipeline.history(offset=offset)
 
     assert response.is_ok

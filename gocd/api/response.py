@@ -1,7 +1,8 @@
 import json
 
 
-# TODO: Test this class explicitly, the implicit testing we got now works but it doesn't define the behavior.
+# TODO: Test this class explicitly, the implicit testing we got now
+# works but it doesn't define the behavior.
 class Response(object):
     """A nicely wrapped HTTP Response
 

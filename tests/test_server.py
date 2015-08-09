@@ -2,7 +2,6 @@ import pytest
 import vcr
 
 from gocd.server import Server
-from gocd.vendor.multidimensional_urlencode import urlencode
 import gocd.api
 
 
@@ -16,7 +15,7 @@ def server():
     'tests/fixtures/cassettes/server-without-auth-get.yml',
 ])
 def test_get_request_with_and_without_auth(server, cassette_name):
-    with vcr.use_cassette(cassette_name) as _:
+    with vcr.use_cassette(cassette_name):
         response = server.get('go/api/pipelines/Simple/history/0')
 
     assert response.code == 200
@@ -28,7 +27,7 @@ def test_get_request_with_and_without_auth(server, cassette_name):
     'tests/fixtures/cassettes/server-without-auth-post.yml',
 ])
 def test_post_request_without_argument(server, cassette_name):
-    with vcr.use_cassette(cassette_name) as _:
+    with vcr.use_cassette(cassette_name):
         response = server.post('go/api/pipelines/Simple/schedule')
 
     assert response.code == 202
@@ -46,7 +45,7 @@ def test_post_with_an_argument(server):
 
 
 @vcr.use_cassette('tests/fixtures/cassettes/server-enable-session-auth.yml')
-def test_post_with_an_argument(server):
+def test_post_session_with_an_argument(server):
     server.add_logged_in_session()
     request = server._request('go/run/Simple-with-lock/11/firstStage', data={})
 
