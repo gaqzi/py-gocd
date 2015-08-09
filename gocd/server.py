@@ -6,27 +6,37 @@ from gocd.vendor.multidimensional_urlencode import urlencode
 
 from gocd.api import Pipeline
 
+__all__ = ['Server', 'AuthenticationFailed']
+
 
 class AuthenticationFailed(Exception):
     pass
 
 
-class ApiInstantiators(object):
-    def pipeline(self, name):
-        """Instantiates a `gocd.api.pipeline.Pipeline`.
+class Server(object):
+    """Interacting with the Go server
 
-        Instantiates the pipeline with the current server and `name` provided.
+    If user and password is supplied the client will try to login using
+    HTTP Basic Auth on each request.
 
-        Params:
-            name: The name of the pipeline you want to interact with
+    The intention is to use this class as a jumping off point to the
+    nicer API wrappers in the :mod:`gocd.api` package.
 
-        Returns:
-            an instance of `gocd.api.pipeline.Pipeline`
-        """
-        return Pipeline(self, name)
+    Example of intended interaction with this class::
 
+      >>> import gocd
+      >>> go_server = gocd.Server('http://localhost:8153', 'admin', 'badger')
+      >>> pipeline = go_server.pipeline('up42')
+      >>> response = pipeline.pause('Admin says no work for you.')
+      >>> response.is_ok
+      True
 
-class Server(ApiInstantiators):
+    Args:
+      host (str): The base URL for your go server.
+        Example: http://go.example.com/
+      user (str): The username to login as
+      password (str): The password for this user
+    """
     _session_id = None
     _authenticity_token = None
 
@@ -39,12 +49,56 @@ class Server(ApiInstantiators):
             self._add_basic_auth()
 
     def get(self, path):
+        """Performs a HTTP GET request to the Go server
+
+        Args:
+          path (str): The full path on the Go server to request.
+            This includes any query string attributes.
+
+        Raises:
+          HTTPError: when the HTTP request fails.
+
+        Returns:
+          file like object: The response from a
+            :func:`urllib2.urlopen` call
+        """
         return self.request(path)
 
     def post(self, path, **post_args):
+        """Performs a HTTP POST request to the Go server
+
+        Args:
+          path (str): The full path on the Go server to request.
+            This includes any query string attributes.
+          **post_args: Any POST arguments that should be sent to the server
+
+        Raises:
+          HTTPError: when the HTTP request fails.
+
+        Returns:
+          file like object: The response from a
+            :func:`urllib2.urlopen` call
+        """
         return self.request(path, data=post_args or {})
 
     def request(self, path, data=None, headers=None):
+        """Performs a HTTP request to the Go server
+
+        Args:
+          path (str): The full path on the Go server to request.
+            This includes any query string attributes.
+          data (str, dict, optional): If any data is present this
+            request will become a POST request
+          headers (dict, optional): Headers to set for this particular
+            request
+
+        Raises:
+          HTTPError: when the HTTP request fails.
+
+        Returns:
+          file like object: The response from a
+            :func:`urllib2.urlopen` call
+        """
         return urllib2.urlopen(self._request(path, data=data, headers=headers))
 
     def add_logged_in_session(self, response=None):
@@ -55,21 +109,21 @@ class Server(ApiInstantiators):
 
         1. If no response passed in a call to `go/api/pipelines.xml` is
            made to get a valid session
-        2. JSESSIONID will be populated from this request
+        2. `JSESSIONID` will be populated from this request
         3. A request to `go/pipelines` will be so the
-           authenticity_token (CSRF) can be extracted. It will then
+           `authenticity_token` (CSRF) can be extracted. It will then
            silently be injected into `post_args` on any POST calls that
            doesn't start with `go/api` from this point.
 
         Args:
-            response: a `gocd.api.response.Response` object from a
-                      previously successful API call.
-                      So we won't have to query go/api/pipelines.xml unnecessarily
+          response: a :class:`Response` object from a previously successful
+            API call. So we won't have to query `go/api/pipelines.xml`
+            unnecessarily.
 
         Raises:
-            HTTPError: when the HTTP request fails.
-            AuthenticationFailed: when failing to get the `session_id`
-                                  or the `authenticity_token`.
+          HTTPError: when the HTTP request fails.
+          AuthenticationFailed: when failing to get the `session_id`
+            or the `authenticity_token`.
         """
         if not response:
             response = self.get('go/api/pipelines.xml')
@@ -87,6 +141,17 @@ class Server(ApiInstantiators):
             self._authenticity_token = match.group(1)
         else:
             raise AuthenticationFailed('Authenticity token not found on page')
+
+    def pipeline(self, name):
+        """Instantiates a :class:`Pipeline` with the given name.
+
+        Args:
+          name: The name of the pipeline you want to interact with
+
+        Returns:
+          Pipeline: an instantiated :class:`Pipeline`.
+        """
+        return Pipeline(self, name)
 
     def _add_basic_auth(self):
         auth_handler = urllib2.HTTPBasicAuthHandler(
