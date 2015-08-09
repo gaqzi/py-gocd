@@ -13,6 +13,17 @@ A Python API for interacting with `Go Continuous Delivery`_
    :target: https://readthedocs.org/projects/py-gocd/?badge=latest
    :alt: Documentation Status
 
+.. image:: https://img.shields.io/pypi/v/gocd.svg
+   :target: https://pypi.python.org/pypi/gocd/
+   :alt: Latest Version
+
+.. image:: https://img.shields.io/pypi/dm/gocd.svg
+   :target: https://pypi.python.org/pypi/gocd/
+   :alt: Downloads
+
+.. image:: https://img.shields.io/pypi/pyversions/gocd.svg
+   :target: https://pypi.python.org/pypi/gocd/
+   :alt: Python versions
 
 The reason for this project is to provide a wrapper to easily perform operations
 against Go. I've been writing a lot of shell scripts to interact with Go using
