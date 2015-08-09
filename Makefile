@@ -6,6 +6,10 @@ develop:
 	python setup.py develop
 	pip install -r test-requirements.txt
 	pip install flake8 restructuredtext_lint
+	@echo "#!/bin/bash\nmake pre-commit" > .git/hooks/pre-push
+	@chmod a+x .git/hooks/pre-push
+	@echo
+	@echo "Added pre-push hook! To run manually: make pre-commit"
 
 test:
 	tox
