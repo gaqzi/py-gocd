@@ -5,3 +5,4 @@ mock==1.0.1
 contextlib2
 backport_collections
 tox
+Sphinx==1.3.1
