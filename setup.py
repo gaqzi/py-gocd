@@ -21,7 +21,6 @@ class PyTest(TestCommand):
     def run_tests(self):
         # import here, cause outside the eggs aren't loaded
         import pytest
-        self.pytest_args = ['--cov=gocd']
         errno = pytest.main(self.pytest_args)
         sys.exit(errno)
 
@@ -52,7 +51,6 @@ setup(
     cmdclass={'test': PyTest},
     tests_require=[
         'pytest',
-        'pytest-cov',
         'vcrpy',
     ] + extra_dependencies,
     classifiers=[
