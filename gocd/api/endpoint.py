@@ -44,7 +44,7 @@ class Endpoint(object):
     # TODO: Add tests for adding headers
     def _request(self, path, ok_status, data=None, headers=None):
         try:
-            return Response.from_request(
+            return Response._from_request(
                 self.server.request(
                     self._join_path(path),
                     data=data,
@@ -53,4 +53,4 @@ class Endpoint(object):
                 ok_status=ok_status
             )
         except urllib2.HTTPError as exc:
-            return Response.from_http_error(exc)
+            return Response._from_http_error(exc)
