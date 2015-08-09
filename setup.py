@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
+import os
 import sys
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
@@ -36,11 +37,15 @@ if sys.version_info < (2, 7):
         'backport_collections',
     ]
 
+README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
+
 setup(
     name='gocd',
     author='Björn Andersson',
     author_email='ba@sanitarium.se',
     license='MIT License',
+    description='A Python API for interacting with Go Continuous Delivery',
+    long_description=README,
     version=version(),
     packages=find_packages(exclude=('tests',)),
     cmdclass={'test': PyTest},
@@ -48,4 +53,13 @@ setup(
         'pytest',
         'vcrpy',
     ] + extra_dependencies,
+    classifiers=[
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+    ],
 )
