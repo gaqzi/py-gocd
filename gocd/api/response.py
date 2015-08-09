@@ -44,7 +44,7 @@ class Response(object):
         self._body_parsed = None
         self.content_type = headers['content-type'].split(';')[0]
         self.headers = headers or {}
-        self.ok_status = ok_status
+        self.ok_status = ok_status or 200
 
     @property
     def is_ok(self):
