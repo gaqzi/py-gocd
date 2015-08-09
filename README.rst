@@ -1,6 +1,19 @@
 A Python API for interacting with `Go Continuous Delivery`_
 ===========================================================
 
+.. image:: https://coveralls.io/repos/gaqzi/py-gocd/badge.svg?branch=master&service=github
+   :target: https://coveralls.io/github/gaqzi/py-gocd?branch=master
+   :alt: Coverage Status
+
+.. image:: https://snap-ci.com/gaqzi/py-gocd/branch/master/build_image
+   :target: https://snap-ci.com/gaqzi/py-gocd/branch/master
+   :alt: Build Status
+
+.. image:: https://readthedocs.org/projects/py-gocd/badge/?version=latest
+   :target: https://readthedocs.org/projects/py-gocd/?badge=latest
+   :alt: Documentation Status
+
+
 The reason for this project is to provide a wrapper to easily perform operations
 against Go. I've been writing a lot of shell scripts to interact with Go using
 curl, but when going a little further than the most basic interactions I've
