@@ -25,6 +25,10 @@ A Python API for interacting with `Go Continuous Delivery`_
    :target: https://pypi.python.org/pypi/gocd/
    :alt: Python versions
 
+.. image:: https://img.shields.io/pypi/status/gocd.svg
+   :target: https://pypi.python.org/pypi/gocd/
+   :alt: Package status
+
 The reason for this project is to provide a wrapper to easily perform operations
 against Go. I've been writing a lot of shell scripts to interact with Go using
 curl, but when going a little further than the most basic interactions I've
