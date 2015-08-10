@@ -1,8 +1,8 @@
 A Python API for interacting with `Go Continuous Delivery`_
 ===========================================================
 
-.. image:: https://coveralls.io/repos/gaqzi/py-gocd/badge.svg?branch=master&service=github
-   :target: https://coveralls.io/github/gaqzi/py-gocd?branch=master
+.. image:: http://codecov.io/github/gaqzi/py-gocd/coverage.svg?branch=master
+   :target: http://codecov.io/github/gaqzi/py-gocd?branch=master
    :alt: Coverage Status
 
 .. image:: https://snap-ci.com/gaqzi/py-gocd/branch/master/build_image
