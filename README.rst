@@ -10,7 +10,7 @@ A Python API for interacting with `Go Continuous Delivery`_
    :alt: Build Status
 
 .. image:: https://readthedocs.org/projects/py-gocd/badge/?version=latest
-   :target: https://readthedocs.org/projects/py-gocd/?badge=latest
+   :target: http://py-gocd.readthedocs.org/en/latest/?badge=latest
    :alt: Documentation Status
 
 .. image:: https://img.shields.io/pypi/v/gocd.svg
@@ -33,16 +33,20 @@ The reason for this project is to provide a wrapper to easily perform operations
 against Go. I've been writing a lot of shell scripts to interact with Go using
 curl, but when going a little further than the most basic interactions I've
 always started to feel the need for doing all of this in a proper programming
-language. I.e. something that is not bash.
+language. I.e. something that is beyond bash.
 
-I've chosen to use Python and version 2.6.6 as my target platform, with no
-external dependencies, to make it really straightforward to install/run on RHEL6
-and other similar *stable* distributions.
+I've chosen to use Python and version 2.6.6 and newer as my target platform,
+with no external dependencies, to make it really straightforward to install/run
+on RHEL6 and other similar *stable* distributions. Python 3 is currently not
+supported but I want to support it.
 
 This library was created to support `a Go CLI`__, to handle some common
 scenarios you as an admin or advanced user would do.
 
-.. __: https://github.com/gaqzi/py-gocd-cli/
+`API documentation`_ available on read the docs.
+
+.. __: https://github.com/gaqzi/gocd-cli/
+.. _`API documentation`: http://py-gocd.readthedocs.org/en/latest/
 
 Usage
 -----
@@ -65,6 +69,7 @@ An example interaction:
     >>> response.content_type
     'application/json'
     >>> response.is_ok
+    True
     >>> response.body
     {"pagination":{"offset":0,"total":1,"page_size":10},"pipelines":[...]"}
 
