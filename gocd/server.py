@@ -175,7 +175,7 @@ class Server(object):
         return urllib2.Request(
             self._url(path),
             # GET is None, and anything that is a string is POST
-            data=urlencode(data) if data else data,
+            data=urlencode(data) if data is not None else data,
             headers=default_headers
         )
 
