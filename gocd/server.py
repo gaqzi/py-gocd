@@ -87,8 +87,8 @@ class Server(object):
         Args:
           path (str): The full path on the Go server to request.
             This includes any query string attributes.
-          data (str, dict, optional): If any data is present this
-            request will become a POST request
+          data (str, dict, bool, optional): If any data is present this
+            request will become a POST request.
           headers (dict, optional): Headers to set for this particular
             request
 
@@ -174,10 +174,19 @@ class Server(object):
         data = self._inject_authenticity_token(data, path)
         return urllib2.Request(
             self._url(path),
-            # GET is None, and anything that is a string is POST
-            data=urlencode(data) if data is not None else data,
+            data=self._encode_data(data),  # None or False == GET request
             headers=default_headers
         )
+
+    def _encode_data(self, data):
+        if isinstance(data, dict):
+            return urlencode(data)
+        elif isinstance(data, str):
+            return data
+        elif data is True:
+            return ''
+        else:
+            return None
 
     def _url(self, path):
         return urljoin(self.host, path)

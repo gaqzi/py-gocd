@@ -1,0 +1,93 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/api/pipelines/Simple-with-lock/pause
+  response:
+    body: {string: !!python/unicode "<!DOCTYPE HTML>\n<!--[if lt IE 7]> <html xmlns=\"http://www.w3.org/1999/xhtml\"
+        lang=\"en\" class=\"no-js ie6 oldie\"> <![endif]-->\n<!--[if IE 7]> <html
+        xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" class=\"no-js ie7 oldie\">
+        <![endif]-->\n<!--[if IE 8]> <html xmlns=\"http://www.w3.org/1999/xhtml\"
+        lang=\"en\" class=\"no-js ie8 oldie\"> <![endif]-->\n<!--[if gt IE 8]><!-->\n<html
+        xmlns=\"http://www.w3.org/1999/xhtml\" lang='en'>\n<!--<![endif]-->\n\n\n<head>\n
+        \   <title>\n    HTTP ERROR 404 - Go\n</title>\n\n<link debug=\"false\" href=\"/go/assets/application-8f30e9364d6c69c71c8a76c50bc8e0ce.css\"
+        media=\"all\" rel=\"stylesheet\" />\n<link debug=\"false\" href=\"/go/assets/patterns/application-5a2cf49bd5c98c87f1f9f7a1c17b1131.css\"
+        media=\"all\" rel=\"stylesheet\" />\n\n<!-- START: prototype hooks for css
+        injection -->\n\n<!-- END: prototype hooks for css injection -->\n\n<script
+        debug=\"false\" src=\"/go/assets/application-ea0319c4737b736cc4da43f3f849f60b.js\"></script>\n<![if
+        !IE]>\n    <script src=\"/go/assets/lib/d3-3.1.5.min-18acdd172951a1c84db7dfac05912508.js\"></script>\n<![endif]>\n<!--[if
+        gt IE 8]><!-->\n    <script src=\"/go/assets/lib/d3-3.1.5.min-18acdd172951a1c84db7dfac05912508.js\"></script>\n<!--<![endif]-->\n\n\n<link
+        rel=\"shortcut icon\" href=\"/go/assets/cruise-a9724b6cd5ccc7da0532f027b0970936.ico\"/>\n</head>\n<body
+        id=\"application\" class=\"application\">\n<div id=\"body_bg\">\n    <div
+        id=\"header\">\n        <div class=\"header clear_float\">\n  <a href=\"/go/pipelines\"
+        id=\"application_logo\">&nbsp;</a>\n  <div class=\"application_nav\">\n  <input
+        id=\"server_timestamp\" name=\"server_time\" type=\"hidden\" value=\"1440336414\"
+        />        <ul class=\"user\">\n            <li class=\"help\">\n                <a
+        href=\"http://www.go.cd/documentation/user/current\" target=\"_blank\">Help</a>\n
+        \           </li>\n        </ul>\n\n    <ul class=\"tabs\">\n        <li id='cruise-header-tab-pipelines'
+        class=\"\">\n            <a href=\"/go/pipelines\">PIPELINES</a>        </li>\n
+        \       <li id='cruise-header-tab-environments' class=\"\">\n            <a
+        href=\"/go/environments\">ENVIRONMENTS</a>        </li>\n        <li id='cruise-header-tab-agents'
+        class=\"\">\n            <a href=\"/go/agents\">AGENTS</a>        </li>\n
+        \       <li id=\"cruise-header-tab-admin\" class=\"\">\n                <a
+        class=\"dropdown-arrow-icon\" data-toggle=\"dropdown\" href=\"#\">ADMIN</a>
+        \               <ul class=\"dropdown-menu\" role=\"menu\">\n                        <li
+        role=\"presentation\">\n    <a href=\"/go/admin/pipelines\">Pipelines</a></li>\n<li
+        role=\"presentation\">\n    <a href=\"/go/admin/templates\">Templates</a></li>\n<li
+        role=\"presentation\">\n    <a href=\"/go/admin/config_xml\">Config XML</a></li>\n<li
+        role=\"presentation\">\n    <a href=\"/go/admin/config/server\">Server Configuration</a></li>\n<li
+        role=\"presentation\">\n    <a href=\"/go/admin/users\">User Summary</a></li>\n<li
+        role=\"presentation\">\n    <a href=\"/go/oauth/admin/clients\">OAuth Clients</a></li>\n<li
+        role=\"presentation\">\n    <a href=\"/go/admin/gadgets/oauth_clients\">OAuth
+        Enabled Gadget Providers</a></li>\n<li role=\"presentation\">\n    <a href=\"/go/admin/backup\">Backup</a></li>\n<li
+        role=\"presentation\">\n    <a href=\"/go/admin/plugins\">Plugins</a></li>\n<li
+        role=\"presentation\">\n    <a href=\"/go/admin/package_repositories/new\">Package
+        Repositories</a></li>\n                </ul>\n        </li>\n    </ul>\n    <div
+        class=\"error_messaging_counter\">\n  <div id=\"cruise_message_counts\" class=\"cruise_messages\">\n
+        \ </div>\n  <div id=\"cruise_message_body\" style=\"display:none;\">\n  </div>\n\n
+        \    <script type=\"text/javascript\">\n        Util.on_load(function() {new
+        AjaxRefresher('/go/server/messages.json', null);});\n     </script>\n</div>\n</div>\n<div
+        class=\"back_to_top\" title=\"Scroll to Top\">Top</div>\n</div>\n    </div>\n\n
+        \   <div id='body_content'>\n        <div class=\"messaging_wrapper\" id=\"messaging_wrapper\">\n
+        \           <div class=\"flash\" id=\"message_pane\">\n</div>\n\n                    </div>\n
+        \               <div class=\"content_wrapper_outer\"><div class=\"content_wrapper_inner\">\n<div
+        class=\"notification pagenotfound\">\n    <div class='biggest'>:(</div>\n
+        \   <h3>The url [ /go/api/pipelines/Simple-with-lock/pause ] you are trying
+        to reach doesn't appear to be correct.</h3>\n    <span>Go to <a href=\"/go/pipelines\">Pipelines</a></span>\n</div>\n</div></div>\n\n\n<script
+        type=\"text/javascript\">\n    pageResizer();\n    function pageResizer()
+        {\n        var $pagenotfound = $j('.pagenotfound');\n        $pagenotfound.parent(
+        \".content_wrapper_inner\").height($j(window).height() - 160).css({'padding':0});\n
+        \       $pagenotfound.parents(\"#body_content\").css({paddingTop:46});\n\n
+        \   }\n    $j(window).resize(function() {\n        pageResizer();\n    });\n</script>\n
+        \   </div>\n\n    <div id='footer'>\n        <ul class=\"copyright\" onclick=\"dashboard_periodical_executer.stop();\">\n
+        \   <li>Copyright &copy; 2015 <a href=\"http://www.thoughtworks.com/products\"
+        target='_blank'>ThoughtWorks, Inc.</a> Licensed under <a href=\"http://www.apache.org/licenses/LICENSE-2.0\"
+        target=\"_blank\">Apache License, Version 2.0</a>. Go includes <a href=\"/go/NOTICE/cruise_notice_file.pdf\"
+        target=\"_blank\">third-party software</a>.</li>\n    <li class=\"last\">Go
+        Version: 15.1.0(1863-42e58c22aefd03)</li>\n</ul>\n<ul class=\"links\">\n    <li><a
+        href=\"/go/cctray.xml\">(cc) CCTray Feed</a></li>\n    <li><a href=\"http://www.go.cd/documentation/user/current/api/go_api.html\"
+        target=\"_blank\">APIs</a></li>\n    <li><a href=\"http://www.go.cd/community/plugins.html\"
+        target=\"_blank\">Plugins</a></li>\n    <li><a href=\"http://www.go.cd/community/resources.html\"
+        target=\"_blank\">Community</a></li>\n    <li><a href=\"/go/about\">Server
+        Details</a></li>\n    <li class=\"last\"><a href=\"http://www.go.cd/documentation/user/current\"
+        target=\"_blank\">Help</a></li>\n</ul>\n\n    </div>\n</div>\n</body>\n</html>\n"}
+    headers:
+      cache-control: [no-cache]
+      connection: [close]
+      content-type: [text/html; charset=utf-8]
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=9fk46nmlvtkh14zbgytdbb1ke;Path=/go;Expires=Sun, 06-Sep-2015
+          13:26:54 GMT']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [4ca78163-e72e-41c2-b948-1856ab9c1cda]
+      x-runtime: ['2.273000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 404, message: Not Found}
+version: 1

@@ -1,4 +1,5 @@
 import pytest
+import urllib2
 import vcr
 
 from gocd.server import Server
@@ -32,6 +33,28 @@ def test_post_request_without_argument(server, cassette_name):
 
     assert response.code == 202
     assert response.headers.type == 'text/html'
+
+
+@pytest.mark.parametrize('data', [{}, '', True])
+def test_request_with_all_kinds_of_falsey_values_that_should_be_post(server, data):
+    with vcr.use_cassette('tests/fixtures/cassettes/server-data-for-post-requests.yml'):
+        response = urllib2.urlopen(
+            server._request('go/api/pipelines/Simple-with-lock/pause', data=data)
+        )
+
+    assert response.code == 200
+    assert response.headers.type == 'text/html'
+    assert response.fp.read() == ' '
+
+
+@pytest.mark.parametrize('data', [[], None, False])
+def test_request_with_with_explicitly_no_post_data(server, data):
+    # This is meant to fail with a 404 since this endpoint is post only.
+    with vcr.use_cassette('tests/fixtures/cassettes/server-data-for-get-requests.yml'):
+        with pytest.raises(urllib2.HTTPError) as exc:
+            urllib2.urlopen(server._request('go/api/pipelines/Simple-with-lock/pause', data=data))
+
+    assert exc.value.code == 404
 
 
 @vcr.use_cassette('tests/fixtures/cassettes/post-with-argument.yml')

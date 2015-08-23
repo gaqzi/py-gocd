@@ -1,0 +1,30 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      Connection: [close]
+      Content-Length: ['0']
+      Content-Type: [application/x-www-form-urlencoded]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: POST
+    uri: http://localhost:8153/go/api/pipelines/Simple-with-lock/pause
+  response:
+    body: {string: !!python/unicode ' '}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [text/html; charset=utf-8]
+      etag: ['"7215ee9c7d9dc229d2921a40e899ec5f"']
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=1pwjxivtslb8t17s9d4zkgtvfx;Path=/go;Expires=Sun, 06-Sep-2015
+          13:29:01 GMT']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [deeeda6f-7078-4b20-aa87-04e30a358815]
+      x-runtime: ['0.012000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1
