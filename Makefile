@@ -44,7 +44,7 @@ docs:
 	  make html
 
 lint-rst:
-	rst-lint README.rst
+	rst-lint README.rst CHANGELOG.rst
 
 lint-pep8:
 	flake8 gocd tests
