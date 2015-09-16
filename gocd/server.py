@@ -14,6 +14,8 @@ class AuthenticationFailed(Exception):
 
 
 class Server(object):
+    SESSION_COOKIE_NAME = 'JSESSIONID'
+
     #: Sets the debug level for the urllib2 HTTP(s) handlers
     request_debug_level = 0
 
@@ -151,7 +153,7 @@ class Server(object):
             return
 
         for cookie in response.headers['set-cookie'].split(';'):
-            if cookie.startswith('JSESSIONID'):
+            if cookie.startswith(self.SESSION_COOKIE_NAME):
                 self._session_id = cookie
 
     def pipeline(self, name):
