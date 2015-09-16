@@ -1,4 +1,4 @@
-.PHONY: develop test coverage clean lint pre-commit upload-package
+.PHONY: develop docs test coverage clean lint pre-commit upload-package
 
 default: coverage
 
@@ -33,7 +33,15 @@ clean-build:
 clean-coverage-html:
 	rm -rf htmlcov
 
-clean: clean-pyc clean-build clean-coverage-html
+clean-docs:
+	@cd docs && \
+	  make clean
+
+clean: clean-pyc clean-build clean-coverage-html clean-docs
+
+docs:
+	@cd docs && \
+	  make html
 
 lint-rst:
 	rst-lint README.rst CHANGELOG.rst
