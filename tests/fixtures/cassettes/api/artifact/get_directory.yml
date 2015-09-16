@@ -1,0 +1,47 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: ['192.168.24.67:32769']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://192.168.24.67:32769/go/files/Art/2/defaultStage/3/defaultJob/foo.zip
+  response:
+    body: {string: !!python/unicode ''}
+    headers:
+      connection: [close]
+      content-language: [en-US]
+      date: ['Wed, 16 Sep 2015 12:58:13 GMT']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      server: [Jetty(9.2.z-SNAPSHOT)]
+      set-cookie: ['JSESSIONID=1k2y18mi4d3oarkeqbapk5uc2;Path=/go;Expires=Wed, 30-Sep-2015
+          12:58:13 GMT']
+    status: {code: 202, message: Accepted}
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Cookie: [JSESSIONID=1k2y18mi4d3oarkeqbapk5uc2]
+      Host: ['192.168.24.67:32769']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://192.168.24.67:32769/go/files/Art/2/defaultStage/3/defaultJob/foo.zip
+  response:
+    body:
+      string: !!binary |
+        UEsDBBQACAgIAEZnMEcAAAAAAAAAAAAAAAAEAAAAZm9vLwMAUEsHCAAAAAACAAAAAAAAAFBLAwQU
+        AAgICABAZzBHAAAAAAAAAAAAAAAACQAAAGZvby9hLnR4dDO1NDY2NDIDAFBLBwi42D5HCQAAAAcA
+        AABQSwMEFAAICAgAQGcwRwAAAAAAAAAAAAAAAAkAAABmb28vYi50eHQztTQ2NjQyAwBQSwcIuNg+
+        RwkAAAAHAAAAUEsBAhQAFAAICAgARmcwRwAAAAACAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAGZv
+        by9QSwECFAAUAAgICABAZzBHuNg+RwkAAAAHAAAACQAAAAAAAAAAAAAAAAA0AAAAZm9vL2EudHh0
+        UEsBAhQAFAAICAgAQGcwR7jYPkcJAAAABwAAAAkAAAAAAAAAAAAAAAAAdAAAAGZvby9iLnR4dFBL
+        BQYAAAAAAwADAKAAAAC0AAAAAAA=
+    headers:
+      connection: [close]
+      content-language: [en-US]
+      content-type: [application/zip]
+      date: ['Wed, 16 Sep 2015 12:58:13 GMT']
+      server: [Jetty(9.2.z-SNAPSHOT)]
+    status: {code: 200, message: OK}
+version: 1
