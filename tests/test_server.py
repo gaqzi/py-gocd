@@ -77,6 +77,19 @@ def test_post_session_with_an_argument(server):
     assert 'authenticity_token' in request.data
 
 
+@vcr.use_cassette('tests/fixtures/cassettes/server-without-auth-get.yml')
+def test_set_session_cookie_after_successful_request(server):
+    assert server._session_id is None
+
+    server.get('go/api/pipelines/Simple/history/0')
+    assert server._session_id
+
+    # Ensure the saved session cookie is used in subsequent requests
+    with vcr.use_cassette('tests/fixtures/cassettes/server-enable-session-auth.yml'):
+        request = server._request('go/run/Simple-with-lock/11/firstStage', data={})
+        assert server._session_id in request.headers['Cookie']
+
+
 def test_pipeline_creates_a_pipeline_instance(server):
     pipeline = server.pipeline('Simple')
 
