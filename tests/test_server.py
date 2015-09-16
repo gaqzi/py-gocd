@@ -72,7 +72,8 @@ def test_post_session_with_an_argument(server):
     server.add_logged_in_session()
     request = server._request('go/run/Simple-with-lock/11/firstStage', data={})
 
-    assert 'JSESSIONID={0}'.format(server._session_id) in request.headers['Cookie']
+    assert server._session_id in request.headers['Cookie']
+    assert 'JSESSIONID=JSESSIONID=' not in request.headers['Cookie']
     assert 'authenticity_token' in request.data
 
 
