@@ -14,6 +14,9 @@ class AuthenticationFailed(Exception):
 
 
 class Server(object):
+    #: Sets the debug level for the urllib2 HTTP(s) handlers
+    request_debug_level = 0
+
     """Interacting with the Go server
 
     If user and password is supplied the client will try to login using
@@ -163,7 +166,11 @@ class Server(object):
             user=self.user,
             passwd=self.password,
         )
-        urllib2.install_opener(urllib2.build_opener(auth_handler))
+        urllib2.install_opener(urllib2.build_opener(
+            auth_handler,
+            urllib2.HTTPHandler(debuglevel=self.request_debug_level),
+            urllib2.HTTPSHandler(debuglevel=self.request_debug_level),
+        ))
 
     def _request(self, path, data=None, headers=None):
         default_headers = {'User-Agent': 'py-gocd'}

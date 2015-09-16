@@ -2,6 +2,13 @@
 Change Log
 ==========
 
+WIP - Some point
+================
+
+Added
+-----
+
+* An option ``request_debug_level`` on ``gocd.Server`` to set log level
 `0.7.1`_ - 2015-08-23
 =====================
 
