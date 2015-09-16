@@ -14,8 +14,14 @@ Added
   This is intended to speed up subsequent requests to Go and will
   `according to the documentation`_ give a significant speed improvement
   for certain auth modules.
+* `Pipeline groups`_ API endpoint added. This is used primarily now for
+  getting a list of all available pipelines in `gocd-cli`_ and as such
+  only has nice helpers for that use case. Suggestions welcome for more
+  useful wrappers here. :)
 
 .. _according to the documentation: http://api.go.cd/current/#cookie-session-authentication
+.. _Pipeline groups: http://api.go.cd/current/#pipeline-groups
+.. _gocd-cli: https://github.com/gaqzi/gocd-cli/
 
 Fixed
 -----

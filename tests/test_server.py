@@ -95,3 +95,9 @@ def test_pipeline_creates_a_pipeline_instance(server):
 
     assert isinstance(pipeline, gocd.api.Pipeline)
     assert pipeline.name == 'Simple'
+
+
+def test_pipeline_groups_creates_a_pipeline_groups_instance(server):
+    pipeline_groups = server.pipeline_groups()
+
+    assert isinstance(pipeline_groups, gocd.api.PipelineGroups)

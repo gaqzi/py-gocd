@@ -4,7 +4,7 @@ import urllib2
 
 from gocd.vendor.multidimensional_urlencode import urlencode
 
-from gocd.api import Pipeline
+from gocd.api import Pipeline, PipelineGroups
 
 __all__ = ['Server', 'AuthenticationFailed']
 
@@ -166,6 +166,14 @@ class Server(object):
           Pipeline: an instantiated :class:`Pipeline`.
         """
         return Pipeline(self, name)
+
+    def pipeline_groups(self):
+        """Returns an instance of :class:`PipelineGroups`
+
+        Returns:
+          PipelineGroups: an instantiated :class:`PipelineGroups`.
+        """
+        return PipelineGroups(self)
 
     def _add_basic_auth(self):
         auth_handler = urllib2.HTTPBasicAuthHandler(
