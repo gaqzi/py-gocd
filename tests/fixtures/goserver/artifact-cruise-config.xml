@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="75">
+  <server artifactsdir="artifacts" agentAutoRegisterKey="123456789abcdef" commandRepositoryLocation="default" serverId="0072a8d7-6563-4f53-a87e-dc7a9f17c82a" />
+  <pipelines group="defaultGroup">
+    <pipeline name="Art">
+      <materials>
+        <git url="http://192.168.24.41/gitt/.git/" />
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="python">
+                <arg>stuff.py</arg>
+                <runif status="passed" />
+              </exec>
+              <exec command="bash">
+                <arg>-c</arg>
+                <arg>mkdir -p foo &amp;&amp; echo -n 5933126 &gt; foo/a.txt &amp;&amp; cp foo/a.txt foo/b.txt</arg>
+                <runif status="passed" />
+              </exec>
+              <exec command="bash">
+                <arg>-c</arg>
+                <arg>echo -n 3239273 &gt; output.txt</arg>
+                <runif status="passed" />
+              </exec>
+            </tasks>
+            <artifacts>
+              <artifact src="output.txt" />
+              <artifact src="foo" />
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+  <agents>
+    <agent hostname="37d0a200592c" ipaddress="172.17.0.6" uuid="bc574ac3-26c4-42c7-8422-ebfea4228bfa" />
+  </agents>
+</cruise>
+

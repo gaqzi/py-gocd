@@ -1,0 +1,32 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: ['192.168.24.67:32769']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://192.168.24.67:32769/go/files/Art/2/defaultStage/3/defaultJob/.json
+  response:
+    body: {string: !!python/unicode '[ { "name": "cruise-output","url": "http://192.168.24.67:32769/go/files/Art/2/defaultStage/3/defaultJob/cruise-output","type":
+        "folder","files": [ { "name": "console.log","url": "http://192.168.24.67:32769/go/files/Art/2/defaultStage/3/defaultJob/cruise-output/console.log","type":
+        "file" },{ "name": "md5.checksum","url": "http://192.168.24.67:32769/go/files/Art/2/defaultStage/3/defaultJob/cruise-output/md5.checksum","type":
+        "file" } ] },{ "name": "foo","url": "http://192.168.24.67:32769/go/files/Art/2/defaultStage/3/defaultJob/foo","type":
+        "folder","files": [ { "name": "a.txt","url": "http://192.168.24.67:32769/go/files/Art/2/defaultStage/3/defaultJob/foo/a.txt","type":
+        "file" },{ "name": "b.txt","url": "http://192.168.24.67:32769/go/files/Art/2/defaultStage/3/defaultJob/foo/b.txt","type":
+        "file" } ] },{ "name": "output.txt","url": "http://192.168.24.67:32769/go/files/Art/2/defaultStage/3/defaultJob/output.txt","type":
+        "file" } ]'}
+    headers:
+      cache-control: ['max-age=1, no-cache']
+      connection: [close]
+      content-language: [en-US]
+      content-length: ['943']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 16 Sep 2015 12:58:13 GMT']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      server: [Jetty(9.2.z-SNAPSHOT)]
+      set-cookie: ['JSESSIONID=1vuewuk513rz51ej1msw1bia2u;Path=/go;Expires=Wed, 30-Sep-2015
+          12:58:13 GMT']
+      vary: ['Accept-Encoding, User-Agent']
+    status: {code: 200, message: OK}
+version: 1

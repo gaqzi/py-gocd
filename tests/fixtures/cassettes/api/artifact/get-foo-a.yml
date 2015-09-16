@@ -1,0 +1,23 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: ['192.168.24.67:32769']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://192.168.24.67:32769/go/files/Art/2/defaultStage/3/defaultJob/foo/a.txt
+  response:
+    body: {string: !!python/unicode '5933126'}
+    headers:
+      connection: [close]
+      content-language: [en-US]
+      content-length: ['7']
+      content-type: [text/plain]
+      date: ['Wed, 16 Sep 2015 12:58:13 GMT']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      server: [Jetty(9.2.z-SNAPSHOT)]
+      set-cookie: ['JSESSIONID=16nzbhc03z0yn1geuinokmzyx5;Path=/go;Expires=Wed, 30-Sep-2015
+          12:58:13 GMT']
+    status: {code: 200, message: OK}
+version: 1
