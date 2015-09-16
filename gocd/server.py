@@ -102,7 +102,10 @@ class Server(object):
           file like object: The response from a
             :func:`urllib2.urlopen` call
         """
-        return urllib2.urlopen(self._request(path, data=data, headers=headers))
+        response = urllib2.urlopen(self._request(path, data=data, headers=headers))
+        self._set_session_cookie(response)
+
+        return response
 
     def add_logged_in_session(self, response=None):
         """Make the request appear to be coming from a browser
@@ -131,9 +134,7 @@ class Server(object):
         if not response:
             response = self.get('go/api/pipelines.xml')
 
-        for cookie in response.headers['set-cookie'].split(';'):
-            if cookie.startswith('JSESSIONID'):
-                self._session_id = cookie
+        self._set_session_cookie(response)
 
         if not self._session_id:
             raise AuthenticationFailed('No session id extracted from request.')
@@ -144,6 +145,14 @@ class Server(object):
             self._authenticity_token = match.group(1)
         else:
             raise AuthenticationFailed('Authenticity token not found on page')
+
+    def _set_session_cookie(self, response):
+        if 'set-cookie' not in response.headers:
+            return
+
+        for cookie in response.headers['set-cookie'].split(';'):
+            if cookie.startswith('JSESSIONID'):
+                self._session_id = cookie
 
     def pipeline(self, name):
         """Instantiates a :class:`Pipeline` with the given name.

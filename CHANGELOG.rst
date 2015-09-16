@@ -9,6 +9,14 @@ Added
 -----
 
 * An option ``request_debug_level`` on ``gocd.Server`` to set log level
+* Set the session cookie when a request finishes if it hasn't been set.
+
+  This is intended to speed up subsequent requests to Go and will
+  `according to the documentation`_ give a significant speed improvement
+  for certain auth modules.
+
+.. _according to the documentation: http://api.go.cd/current/#cookie-session-authentication
+
 Fixed
 -----
 
