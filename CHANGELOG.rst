@@ -9,6 +9,12 @@ Added
 -----
 
 * An option ``request_debug_level`` on ``gocd.Server`` to set log level
+Fixed
+-----
+
+* Set the session cookie properly, Go will now not force another login
+  after the session has been set
+
 `0.7.1`_ - 2015-08-23
 =====================
 

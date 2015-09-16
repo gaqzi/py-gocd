@@ -175,7 +175,7 @@ class Server(object):
     def _request(self, path, data=None, headers=None):
         default_headers = {'User-Agent': 'py-gocd'}
         if self._session_id:
-            default_headers['Cookie'] = 'JSESSIONID={0}'.format(self._session_id)
+            default_headers['Cookie'] = self._session_id
         default_headers.update(headers or {})
 
         data = self._inject_authenticity_token(data, path)
