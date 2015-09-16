@@ -1,0 +1,29 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/api/config/pipeline_groups
+  response:
+    body: {string: !!python/unicode '[{"name":"defaultGroup","pipelines":[{"label":"${COUNT}","materials":[{"fingerprint":"7ac538cb4982616d4cf18a17b2fe7e6ae2e033ef04d66c29a508ca1155460e20","type":"Git","description":"URL:
+        /Users/ba/code/empty/, Branch: master"}],"stages":[{"name":"defaultStage"}],"name":"No-valid-agents"}]}]'}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [application/json; charset=utf-8]
+      etag: ['"fcdbd4209c7a2211a5611d95dc968d2a"']
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=a6td4q7ux7pr19htd8h7y4nsd;Path=/go;Expires=Tue, 29-Sep-2015
+          10:20:29 GMT']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [91cc22d1-31fc-4298-8ff1-e63cbb2c50eb]
+      x-runtime: ['0.036000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1
