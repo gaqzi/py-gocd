@@ -57,14 +57,9 @@ class Artifact(Endpoint):
             ```dist/foobar-widgets-1.2.0.jar```
 
         Returns:
-          file like object: The response from a
-            :func:`urllib2.urlopen` call
+          Response: :class:`gocd.api.response.Response` object
         """
-        return self.server.request(
-            self._join_path(path_to_file),
-            data=None,
-            headers=None
-        )
+        return self._get(path_to_file)
 
     def get_directory(self, path_to_directory):
         """Gets an artifact directory by its path.
@@ -78,11 +73,6 @@ class Artifact(Endpoint):
             It can be nested eg ```target/dist.zip```
 
         Returns:
-          file like object: The response from a
-            :func:`urllib2.urlopen` call
+          Response: :class:`gocd.api.response.Response` object
         """
-        return self.server.request(
-            self._join_path(path_to_directory + ".zip"),
-            data=None,
-            headers=None
-        )
+        return self._get('{0}.zip'.format(path_to_directory))
