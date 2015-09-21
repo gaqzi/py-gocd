@@ -34,12 +34,13 @@ class Response(object):
 
     Args:
       status_code (int): The HTTP status of this response
-      body (str): The HTTP response body/payload of this response
+      body (str, fp): The HTTP response body/payload of this response
       headers (dict, optional): The headers supplied by this response
       ok_status (int, optional): If the `status_code` is this then this
         response is successful. Default: 200
     """
     def __init__(self, status_code, body, headers=None, ok_status=200):
+        self.__body = None
         self.status_code = status_code
         self._body = body
         self._body_parsed = None
@@ -101,11 +102,34 @@ class Response(object):
     #: Alias for :meth:`payload`
     body = payload
 
+    @property
+    def _body(self):
+        if hasattr(self.__body, 'read'):
+            self.__body = self.__body.read()
+
+        return self.__body
+
+    @_body.setter
+    def _body(self, value):
+        self.__body = value
+
+    @property
+    def fp(self):
+        """Returns a file-like object if the class was instantiated with one
+
+        Returns:
+          None, file-like object: If :attribute:`_body` responds to read else None
+        """
+        if hasattr(self.__body, 'read'):
+            return self.__body
+
+        return None
+
     @classmethod
     def _from_request(cls, response, ok_status=None):
         return Response(
             response.code,
-            response.read(),
+            response.fp,
             response.headers,
             ok_status=ok_status
         )
@@ -114,7 +138,7 @@ class Response(object):
     def _from_http_error(cls, http_error):
         return Response(
             http_error.code,
-            http_error.read(),
+            http_error.fp,
             http_error.headers,
         )
 
