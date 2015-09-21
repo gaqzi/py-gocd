@@ -44,7 +44,7 @@ class Response(object):
         self.status_code = status_code
         self._body = body
         self._body_parsed = None
-        self.content_type = headers['content-type'].split(';')[0]
+        self.content_type = headers.get('content-type', '').split(';')[0] or False
         self.headers = headers or {}
         self.ok_status = ok_status or 200
 
