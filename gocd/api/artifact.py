@@ -55,7 +55,7 @@ class Artifact(Endpoint):
 
         Args:
           path_to_file (str): The path to file to get. It can be nested eg
-            ```dist/foobar-widgets-1.2.0.jar```
+            ``dist/foobar-widgets-1.2.0.jar``
 
         Returns:
           Response: :class:`gocd.api.response.Response` object
