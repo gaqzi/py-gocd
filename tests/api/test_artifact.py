@@ -2,8 +2,8 @@ import pytest
 import vcr
 import zipfile
 import io
-import time
 
+from gocd.api import Artifact
 import gocd
 
 
@@ -14,7 +14,7 @@ def server():
 
 @pytest.fixture
 def artifact(server):
-    return gocd.api.Artifact(server, "Art", 2, "defaultStage", "defaultJob", 3)
+    return Artifact(server, "Art", 2, "defaultStage", "defaultJob", 3)
 
 
 @vcr.use_cassette('tests/fixtures/cassettes/api/artifact/list.yml')
@@ -43,11 +43,7 @@ def test_get(artifact, cassette_name, path_to_file, expected_content):
 
 @vcr.use_cassette('tests/fixtures/cassettes/api/artifact/get_directory.yml')
 def test_get_directory(artifact):
-    for i in xrange(10):
-        response = artifact.get_directory("foo")
-        if response.status_code != 202:
-            break
-        time.sleep(0.1)
+    response = artifact.get_directory("foo", backoff=0.1)
 
     assert response.status_code == 200
 
