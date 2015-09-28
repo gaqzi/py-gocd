@@ -1,4 +1,10 @@
-import urllib2
+try:
+    #python2
+    from urllib2 import HTTPError
+except ImportError:
+    #python3
+    from urllib.request import HTTPError
+
 
 from gocd.api.response import Response
 
@@ -52,5 +58,5 @@ class Endpoint(object):
                 ),
                 ok_status=ok_status
             )
-        except urllib2.HTTPError as exc:
+        except HTTPError as exc:
             return Response._from_http_error(exc)
