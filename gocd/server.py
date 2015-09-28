@@ -1,8 +1,15 @@
-from urlparse import urljoin
 import re
-import urllib2
 
-from gocd.vendor.multidimensional_urlencode import urlencode
+try:
+    #python2
+    from urlparse import urljoin
+    from urllib2 import urlopen, HTTPPasswordMgrWithDefaultRealm, HTTPBasicAuthHandler, HTTPHandler, HTTPSHandler, install_opener, build_opener, Request
+except ImportError:
+    #python3
+    from urllib.parse import urljoin
+    from urllib.request import urlopen, HTTPPasswordMgrWithDefaultRealm, HTTPBasicAuthHandler, HTTPHandler, HTTPSHandler, install_opener, build_opener, Request
+
+import gocd.vendor.multidimensional_urlencode as foo
 
 from gocd.api import Pipeline, PipelineGroups
 
@@ -104,7 +111,7 @@ class Server(object):
           file like object: The response from a
             :func:`urllib2.urlopen` call
         """
-        response = urllib2.urlopen(self._request(path, data=data, headers=headers))
+        response = urlopen(self._request(path, data=data, headers=headers))
         self._set_session_cookie(response)
 
         return response
@@ -176,8 +183,8 @@ class Server(object):
         return PipelineGroups(self)
 
     def _add_basic_auth(self):
-        auth_handler = urllib2.HTTPBasicAuthHandler(
-            urllib2.HTTPPasswordMgrWithDefaultRealm()
+        auth_handler = HTTPBasicAuthHandler(
+            HTTPPasswordMgrWithDefaultRealm()
         )
         auth_handler.add_password(
             realm=None,
@@ -185,10 +192,10 @@ class Server(object):
             user=self.user,
             passwd=self.password,
         )
-        urllib2.install_opener(urllib2.build_opener(
+        install_opener(build_opener(
             auth_handler,
-            urllib2.HTTPHandler(debuglevel=self.request_debug_level),
-            urllib2.HTTPSHandler(debuglevel=self.request_debug_level),
+            HTTPHandler(debuglevel=self.request_debug_level),
+            HTTPSHandler(debuglevel=self.request_debug_level),
         ))
 
     def _request(self, path, data=None, headers=None):
@@ -198,7 +205,7 @@ class Server(object):
         default_headers.update(headers or {})
 
         data = self._inject_authenticity_token(data, path)
-        return urllib2.Request(
+        return Request(
             self._url(path),
             data=self._encode_data(data),  # None or False == GET request
             headers=default_headers
@@ -206,7 +213,7 @@ class Server(object):
 
     def _encode_data(self, data):
         if isinstance(data, dict):
-            return urlencode(data)
+            return foo.urlencode(data)
         elif isinstance(data, str):
             return data
         elif data is True:
