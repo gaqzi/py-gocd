@@ -51,7 +51,7 @@ def test_request_with_all_kinds_of_falsey_values_that_should_be_post(server, dat
 
     assert response.code == 200
     assert response.headers["Content-Type"] == 'text/html; charset=utf-8'
-    #assert response.fp.read() == ' '
+    assert response.read() == b' '
 
 
 @pytest.mark.parametrize('data', [[], None, False])
