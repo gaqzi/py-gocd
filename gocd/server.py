@@ -9,7 +9,7 @@ except ImportError:
     from urllib.parse import urljoin
     from urllib.request import urlopen, HTTPPasswordMgrWithDefaultRealm, HTTPBasicAuthHandler, HTTPHandler, HTTPSHandler, install_opener, build_opener, Request
 
-import gocd.vendor.multidimensional_urlencode as foo
+from gocd.vendor.multidimensional_urlencode import urlencoder
 
 from gocd.api import Pipeline, PipelineGroups
 
@@ -111,6 +111,8 @@ class Server(object):
           file like object: The response from a
             :func:`urllib2.urlopen` call
         """
+        if isinstance(data, str):
+            data = data.encode('utf-8')
         response = urlopen(self._request(path, data=data, headers=headers))
         self._set_session_cookie(response)
 
@@ -213,7 +215,7 @@ class Server(object):
 
     def _encode_data(self, data):
         if isinstance(data, dict):
-            return foo.urlencode(data)
+            return urlencoder.urlencode(data).encode("utf-8")
         elif isinstance(data, str):
             return data
         elif data is True:
