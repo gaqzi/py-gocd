@@ -151,7 +151,7 @@ class Server(object):
             raise AuthenticationFailed('No session id extracted from request.')
 
         response = self.get('go/pipelines')
-        match = re.search(r'name="authenticity_token".+?value="([^"]+)', response.read())
+        match = re.search(r'name="authenticity_token".+?value="([^"]+)', response.read().decode("utf-8"))
         if match:
             self._authenticity_token = match.group(1)
         else:
@@ -217,9 +217,9 @@ class Server(object):
         if isinstance(data, dict):
             return urlencoder.urlencode(data).encode("utf-8")
         elif isinstance(data, str):
-            return data
+            return data.encode("utf-8")
         elif data is True:
-            return ''
+            return ''.encode("utf-8")
         else:
             return None
 
