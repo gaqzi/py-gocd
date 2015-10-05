@@ -93,7 +93,7 @@ class Response(object):
         """
         if self.is_json:
             if not self._body_parsed:
-                self._body_parsed = json.loads(self._body)
+                self._body_parsed = json.loads(self._body.decode('utf-8'))
 
             return self._body_parsed
         else:
