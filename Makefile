@@ -11,7 +11,12 @@ develop:
 	@echo
 	@echo "Added pre-push hook! To run manually: make pre-commit"
 
-test:
+setup-env:
+	@[ "$(SNAP_CI)" = 'true' ] && \
+		export PATH="$PATH:/opt/local/python/3.3.5/bin:/opt/local/python/3.4.0/bin:/opt/local/python/3.5.0/bin" \
+		|| true
+
+test: setup-env
 	tox
 
 coverage:
