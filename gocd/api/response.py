@@ -129,7 +129,7 @@ class Response(object):
     def _from_request(cls, response, ok_status=None):
         return Response(
             response.code,
-            response.fp,
+            response,
             response.headers,
             ok_status=ok_status
         )

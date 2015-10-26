@@ -38,7 +38,7 @@ def test_get(artifact, cassette_name, path_to_file, expected_content):
         response = artifact.get(path_to_file)
 
     assert response.status_code == 200
-    assert response.fp.read() == expected_content
+    assert response.fp.read().decode('utf-8') == expected_content
 
 
 @vcr.use_cassette('tests/fixtures/cassettes/api/artifact/get_directory.yml')
