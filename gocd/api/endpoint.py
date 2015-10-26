@@ -1,8 +1,8 @@
 try:
-    #python2
+    # python2
     from urllib2 import HTTPError
 except ImportError:
-    #python3
+    # python3
     from urllib.request import HTTPError
 
 
