@@ -41,7 +41,7 @@ def test_release(locked_pipeline):
 
     assert response.is_ok
     assert response.content_type == 'text/html'
-    assert response.payload.decode("utf-8") == 'pipeline lock released for {0}\n'.format(
+    assert response.payload.decode('utf-8') == 'pipeline lock released for {0}\n'.format(
         locked_pipeline.name
     )
 
@@ -53,7 +53,7 @@ def test_release_when_pipeline_is_unlocked(locked_pipeline):
     assert not response
     assert not response.is_ok
     assert response.content_type == 'text/html'
-    assert response.payload.decode("utf-8") == (
+    assert response.payload.decode('utf-8') == (
         'lock exists within the pipeline configuration but no pipeline '
         'instance is currently in progress\n'
     )
@@ -65,7 +65,7 @@ def test_pause(pipeline):
 
     assert response.is_ok
     assert response.content_type == 'text/html'
-    assert response.payload.decode("utf-8") == ' '
+    assert response.payload.decode('utf-8') == ' '
 
 
 @vcr.use_cassette('tests/fixtures/cassettes/api/pipeline/unpause-successful.yml')
@@ -74,7 +74,7 @@ def test_unpause(pipeline):
 
     assert response.is_ok
     assert response.content_type == 'text/html'
-    assert response.payload.decode("utf-8") == ' '
+    assert response.payload.decode('utf-8') == ' '
 
 
 @vcr.use_cassette('tests/fixtures/cassettes/api/pipeline/status.yml')
@@ -105,7 +105,7 @@ def test_schedule(pipeline):
     assert response.status_code == 202
     assert response.is_ok
     assert response.content_type == 'text/html'
-    assert response.payload.decode("utf-8") == (
+    assert response.payload.decode('utf-8') == (
         u'Request to schedule pipeline {0} accepted\n'.format(pipeline.name)
     )
 
@@ -125,7 +125,7 @@ def test_schedule_with_git_arg(pipeline):
     assert response.status_code == 202
     assert response.is_ok
     assert response.content_type == 'text/html'
-    assert response.payload.decode("utf-8") == (
+    assert response.payload.decode('utf-8') == (
         'Request to schedule pipeline {0} accepted\n'.format(pipeline.name)
     )
 
@@ -137,7 +137,7 @@ def test_schedule_with_environment_variable_passed(pipeline):
     assert response.status_code == 202
     assert response.is_ok
     assert response.content_type == 'text/html'
-    assert response.payload.decode("utf-8") == (
+    assert response.payload.decode('utf-8') == (
         'Request to schedule pipeline {0} accepted\n'.format(pipeline.name)
     )
 
@@ -151,7 +151,7 @@ def test_schedule_with_secure_environment_variable_passed(pipeline):
     assert response.status_code == 202
     assert response.is_ok
     assert response.content_type == 'text/html'
-    assert response.payload.decode("utf-8") == (
+    assert response.payload.decode('utf-8') == (
         'Request to schedule pipeline {0} accepted\n'.format(pipeline.name)
     )
 
@@ -165,7 +165,7 @@ def test_schedule_when_pipeline_is_already_running(pipeline):
     assert response.status_code == 409
     assert not response.is_ok
     assert response.content_type == 'text/html'
-    assert response.payload.decode("utf-8") == (
+    assert response.payload.decode('utf-8') == (
         'Failed to trigger pipeline [{pipeline}] {{ Stage [Hello] in '
         'pipeline [{pipeline}] is still in progress }}\n'
     ).format(pipeline=pipeline.name)

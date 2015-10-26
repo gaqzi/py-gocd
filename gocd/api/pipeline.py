@@ -128,7 +128,7 @@ class Pipeline(Endpoint):
             material_fingerprint=materials,
         )
 
-        scheduling_args = dict((k, v) for k, v in scheduling_args.items() if v != None)
+        scheduling_args = dict((k, v) for k, v in scheduling_args.items() if v is not None)
 
         return self._post('/schedule', ok_status=202, **scheduling_args)
     #: This is an alias for :meth:`schedule`

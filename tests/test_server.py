@@ -1,9 +1,9 @@
 import pytest
 try:
-    #python2
+    # python2
     from urllib2 import urlopen, HTTPError
 except ImportError:
-    #python3
+    # python3
     from urllib.request import urlopen, HTTPError
 
 
@@ -81,7 +81,7 @@ def test_post_session_with_an_argument(server):
 
     assert server._session_id in request.headers['Cookie']
     assert 'JSESSIONID=JSESSIONID=' not in request.headers['Cookie']
-    assert 'authenticity_token' in request.data.decode("utf-8")
+    assert 'authenticity_token' in request.data.decode('utf-8')
 
 
 @vcr.use_cassette('tests/fixtures/cassettes/server-without-auth-get.yml')

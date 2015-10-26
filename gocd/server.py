@@ -1,13 +1,31 @@
 import re
 
 try:
-    #python2
+    # python2
     from urlparse import urljoin
-    from urllib2 import urlopen, HTTPPasswordMgrWithDefaultRealm, HTTPBasicAuthHandler, HTTPHandler, HTTPSHandler, install_opener, build_opener, Request
+    from urllib2 import (
+        urlopen,
+        HTTPPasswordMgrWithDefaultRealm,
+        HTTPBasicAuthHandler,
+        HTTPHandler,
+        HTTPSHandler,
+        install_opener,
+        build_opener,
+        Request,
+    )
 except ImportError:
-    #python3
+    # python3
     from urllib.parse import urljoin
-    from urllib.request import urlopen, HTTPPasswordMgrWithDefaultRealm, HTTPBasicAuthHandler, HTTPHandler, HTTPSHandler, install_opener, build_opener, Request
+    from urllib.request import (
+        urlopen,
+        HTTPPasswordMgrWithDefaultRealm,
+        HTTPBasicAuthHandler,
+        HTTPHandler,
+        HTTPSHandler,
+        install_opener,
+        build_opener,
+        Request,
+    )
 
 from gocd.vendor.multidimensional_urlencode import urlencoder
 
@@ -151,7 +169,10 @@ class Server(object):
             raise AuthenticationFailed('No session id extracted from request.')
 
         response = self.get('go/pipelines')
-        match = re.search(r'name="authenticity_token".+?value="([^"]+)', response.read().decode("utf-8"))
+        match = re.search(
+            r'name="authenticity_token".+?value="([^"]+)',
+            response.read().decode('utf-8')
+        )
         if match:
             self._authenticity_token = match.group(1)
         else:
@@ -215,11 +236,11 @@ class Server(object):
 
     def _encode_data(self, data):
         if isinstance(data, dict):
-            return urlencoder.urlencode(data).encode("utf-8")
+            return urlencoder.urlencode(data).encode('utf-8')
         elif isinstance(data, str):
-            return data.encode("utf-8")
+            return data.encode('utf-8')
         elif data is True:
-            return ''.encode("utf-8")
+            return ''.encode('utf-8')
         else:
             return None
 
