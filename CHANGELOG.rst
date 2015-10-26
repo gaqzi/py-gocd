@@ -2,6 +2,28 @@
 Change Log
 ==========
 
+`0.9.0`_ - 2015-11-02
+=====================
+
+**Added**
+
+* `Artifact`_ API endpoint.
+
+  Added by `@henriquegemignani`_
+
+* Python 3 support
+
+  The API library now works with Python 3, the CLI still needs work for it
+  though. *hint hint*
+
+  Added by `@lenniboy`_
+
+A big thanks to @henriquegemignani amd @lenniboy for the patches! :D
+
+.. _Artifact: http://api.go.cd/current/#the-artifact-object
+.. _@henriquegemignani: https://github.com/henriquegemignani
+.. _@lenniboy: https://github.com/lenniboy
+
 `0.8.0`_ - 2015-09-16
 =====================
 
@@ -55,6 +77,7 @@ Changed
 
 Nothing much to say here, initial public release. :)
 
+.. _`0.9.0`: https://github.com/gaqzi/py-gocd/compare/v.0.8.0...v0.9.0
 .. _`0.8.0`: https://github.com/gaqzi/py-gocd/compare/v.0.7.1...v0.8.0
 .. _`0.7.1`: https://github.com/gaqzi/py-gocd/compare/v0.7.0.2...v.0.7.1
 .. _`0.7.0.2`: https://github.com/gaqzi/py-gocd/releases/tag/v0.7.0.2
