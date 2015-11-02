@@ -37,8 +37,7 @@ language. I.e. something that is beyond bash.
 
 I've chosen to use Python and version 2.6.6 and newer as my target platform,
 with no external dependencies, to make it really straightforward to install/run
-on RHEL6 and other similar *stable* distributions. Python 3 is currently not
-supported but I want to support it.
+on RHEL6 and other similar *stable* distributions.
 
 This library was created to support `a Go CLI`__, to handle some common
 scenarios you as an admin or advanced user would do.
