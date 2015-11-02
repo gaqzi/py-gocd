@@ -1,4 +1,4 @@
-.PHONY: develop docs test coverage clean lint pre-commit upload-package
+.PHONY: develop docs test coverage clean lint pre-commit upload-package dist
 
 default: coverage
 
@@ -58,9 +58,25 @@ lint: lint-rst lint-pep8
 
 pre-commit: coverage lint
 
-upload-package: lint clean
-	pip install twine wheel
-	python setup.py sdist bdist_wheel
+develop-dist:
+	pip2 install wheel
+	pip3 install wheel
+
+sdist:
+	python setup.py sdist
+
+bdist_py2:
+	python2 setup.py bdist_wheel
+
+bdist_py3:
+	python3 setup.py bdist_wheel
+
+bdist: bdist_py2 bdist_py3
+
+dist: develop-dist sdist bdist
+
+upload-package: lint clean dist
+	pip install twine
 	twine upload dist/*
 
 rpm: clean
