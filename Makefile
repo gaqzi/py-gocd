@@ -58,7 +58,7 @@ lint: lint-rst lint-pep8
 
 pre-commit: coverage lint
 
-upload-package: test lint clean
+upload-package: lint clean
 	pip install twine wheel
 	python setup.py sdist bdist_wheel
 	twine upload dist/*
