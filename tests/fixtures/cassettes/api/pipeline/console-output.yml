@@ -1,0 +1,267 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/api/pipelines/Simple/history/0
+  response:
+    body: {string: "{\"pagination\":{\"offset\":0,\"total\":9,\"page_size\":10},\"\
+        pipelines\":[{\"label\":\"9\",\"name\":\"Simple\",\"natural_order\":9.0,\"\
+        can_run\":true,\"stages\":[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"\
+        Completed\",\"result\":\"Passed\",\"name\":\"defaultJob\",\"id\":13,\"scheduled_date\"\
+        :1447817370382}],\"name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\"\
+        :\"success\",\"scheduled\":true,\"operate_permission\":true,\"approved_by\"\
+        :\"anonymous\",\"can_run\":true,\"id\":13,\"counter\":\"1\"}],\"id\":12,\"\
+        build_cause\":{\"trigger_message\":\"Forced by anonymous\",\"approver\":\"\
+        anonymous\",\"material_revisions\":[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\"\
+        ,\"description\":\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\"\
+        :3,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1439970615000,\"\
+        user_name\":\"Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"\
+        revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\",\"email_address\"\
+        :null,\"comment\":\"Hello\"}],\"changed\":false}],\"trigger_forced\":true},\"\
+        preparing_to_schedule\":false,\"counter\":9,\"comment\":null},{\"label\":\"\
+        8\",\"name\":\"Simple\",\"natural_order\":8.0,\"can_run\":true,\"stages\"\
+        :[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"\
+        Passed\",\"name\":\"defaultJob\",\"id\":12,\"scheduled_date\":1447816847452}],\"\
+        name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\":\"success\"\
+        ,\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"anonymous\"\
+        ,\"can_run\":true,\"id\":12,\"counter\":\"1\"}],\"id\":11,\"build_cause\"\
+        :{\"trigger_message\":\"Forced by anonymous\",\"approver\":\"anonymous\",\"\
+        material_revisions\":[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\"\
+        ,\"description\":\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\"\
+        :3,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1439970615000,\"\
+        user_name\":\"Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"\
+        revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\",\"email_address\"\
+        :null,\"comment\":\"Hello\"}],\"changed\":false}],\"trigger_forced\":true},\"\
+        preparing_to_schedule\":false,\"counter\":8,\"comment\":null},{\"label\":\"\
+        7\",\"name\":\"Simple\",\"natural_order\":7.0,\"can_run\":true,\"stages\"\
+        :[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"\
+        Passed\",\"name\":\"defaultJob\",\"id\":11,\"scheduled_date\":1447816801298}],\"\
+        name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\":\"success\"\
+        ,\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"anonymous\"\
+        ,\"can_run\":true,\"id\":11,\"counter\":\"1\"}],\"id\":10,\"build_cause\"\
+        :{\"trigger_message\":\"Forced by anonymous\",\"approver\":\"anonymous\",\"\
+        material_revisions\":[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\"\
+        ,\"description\":\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\"\
+        :3,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1439970615000,\"\
+        user_name\":\"Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"\
+        revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\",\"email_address\"\
+        :null,\"comment\":\"Hello\"}],\"changed\":false}],\"trigger_forced\":true},\"\
+        preparing_to_schedule\":false,\"counter\":7,\"comment\":null},{\"label\":\"\
+        6\",\"name\":\"Simple\",\"natural_order\":6.0,\"can_run\":true,\"stages\"\
+        :[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"\
+        Passed\",\"name\":\"defaultJob\",\"id\":10,\"scheduled_date\":1447816746094}],\"\
+        name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\":\"success\"\
+        ,\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"anonymous\"\
+        ,\"can_run\":true,\"id\":10,\"counter\":\"1\"}],\"id\":9,\"build_cause\":{\"\
+        trigger_message\":\"Forced by anonymous\",\"approver\":\"anonymous\",\"material_revisions\"\
+        :[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\"\
+        ,\"description\":\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\"\
+        :3,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1439970615000,\"\
+        user_name\":\"Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"\
+        revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\",\"email_address\"\
+        :null,\"comment\":\"Hello\"}],\"changed\":false}],\"trigger_forced\":true},\"\
+        preparing_to_schedule\":false,\"counter\":6,\"comment\":null},{\"label\":\"\
+        5\",\"name\":\"Simple\",\"natural_order\":5.0,\"can_run\":true,\"stages\"\
+        :[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"\
+        Passed\",\"name\":\"defaultJob\",\"id\":9,\"scheduled_date\":1447816694909}],\"\
+        name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\":\"success\"\
+        ,\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"anonymous\"\
+        ,\"can_run\":true,\"id\":9,\"counter\":\"1\"}],\"id\":8,\"build_cause\":{\"\
+        trigger_message\":\"Forced by anonymous\",\"approver\":\"anonymous\",\"material_revisions\"\
+        :[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\"\
+        ,\"description\":\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\"\
+        :3,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1439970615000,\"\
+        user_name\":\"Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"\
+        revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\",\"email_address\"\
+        :null,\"comment\":\"Hello\"}],\"changed\":false}],\"trigger_forced\":true},\"\
+        preparing_to_schedule\":false,\"counter\":5,\"comment\":null},{\"label\":\"\
+        4\",\"name\":\"Simple\",\"natural_order\":4.0,\"can_run\":true,\"stages\"\
+        :[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"\
+        Passed\",\"name\":\"defaultJob\",\"id\":8,\"scheduled_date\":1447814880186}],\"\
+        name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\":\"success\"\
+        ,\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"anonymous\"\
+        ,\"can_run\":true,\"id\":8,\"counter\":\"1\"}],\"id\":7,\"build_cause\":{\"\
+        trigger_message\":\"Forced by anonymous\",\"approver\":\"anonymous\",\"material_revisions\"\
+        :[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\"\
+        ,\"description\":\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\"\
+        :3,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1439970615000,\"\
+        user_name\":\"Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"\
+        revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\",\"email_address\"\
+        :null,\"comment\":\"Hello\"}],\"changed\":false}],\"trigger_forced\":true},\"\
+        preparing_to_schedule\":false,\"counter\":4,\"comment\":null},{\"label\":\"\
+        3\",\"name\":\"Simple\",\"natural_order\":3.0,\"can_run\":true,\"stages\"\
+        :[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"\
+        Passed\",\"name\":\"defaultJob\",\"id\":7,\"scheduled_date\":1447814839058}],\"\
+        name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\":\"success\"\
+        ,\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"anonymous\"\
+        ,\"can_run\":true,\"id\":7,\"counter\":\"1\"}],\"id\":6,\"build_cause\":{\"\
+        trigger_message\":\"Forced by anonymous\",\"approver\":\"anonymous\",\"material_revisions\"\
+        :[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\"\
+        ,\"description\":\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\"\
+        :3,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1439970615000,\"\
+        user_name\":\"Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"\
+        revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\",\"email_address\"\
+        :null,\"comment\":\"Hello\"}],\"changed\":false}],\"trigger_forced\":true},\"\
+        preparing_to_schedule\":false,\"counter\":3,\"comment\":null},{\"label\":\"\
+        2\",\"name\":\"Simple\",\"natural_order\":2.0,\"can_run\":true,\"stages\"\
+        :[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"\
+        Passed\",\"name\":\"defaultJob\",\"id\":6,\"scheduled_date\":1447814811978}],\"\
+        name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\":\"success\"\
+        ,\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"anonymous\"\
+        ,\"can_run\":true,\"id\":6,\"counter\":\"1\"}],\"id\":5,\"build_cause\":{\"\
+        trigger_message\":\"Forced by anonymous\",\"approver\":\"anonymous\",\"material_revisions\"\
+        :[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\"\
+        ,\"description\":\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\"\
+        :3,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1439970615000,\"\
+        user_name\":\"Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"\
+        revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\",\"email_address\"\
+        :null,\"comment\":\"Hello\"}],\"changed\":false}],\"trigger_forced\":true},\"\
+        preparing_to_schedule\":false,\"counter\":2,\"comment\":null},{\"label\":\"\
+        1\",\"name\":\"Simple\",\"natural_order\":1.0,\"can_run\":true,\"stages\"\
+        :[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"\
+        Passed\",\"name\":\"defaultJob\",\"id\":5,\"scheduled_date\":1447814683534}],\"\
+        name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\":\"success\"\
+        ,\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"changes\"\
+        ,\"can_run\":true,\"id\":5,\"counter\":\"1\"}],\"id\":4,\"build_cause\":{\"\
+        trigger_message\":\"modified by Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\\
+        u003E\",\"approver\":\"\",\"material_revisions\":[{\"material\":{\"fingerprint\"\
+        :\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\",\"description\"\
+        :\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\":3,\"type\":\"Git\"\
+        },\"modifications\":[{\"modified_time\":1439970615000,\"user_name\":\"Bj\xF6\
+        rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\"\
+        ,\"email_address\":null,\"comment\":\"Hello\"}],\"changed\":true}],\"trigger_forced\"\
+        :false},\"preparing_to_schedule\":false,\"counter\":1,\"comment\":null}]}"}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [application/json; charset=utf-8]
+      etag: ['"6ebd54e30deec2a5e517a79c73b5601a"']
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=128at6k3qjuuq12a5lzlstmniq;Path=/go;Expires=Wed, 02-Dec-2015
+          09:19:29 GMT']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [d3494eac-08c1-499a-ae8d-4e0a6b6d23b1]
+      x-runtime: ['0.040000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Cookie: [JSESSIONID=128at6k3qjuuq12a5lzlstmniq]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/files/Simple/9/defaultStage/1/defaultJob/cruise-output/console.log
+  response:
+    body: {string: !!python/unicode '11:29:44.088 [go] Job Started: 2015-11-18 11:29:44
+        SGT
+
+
+        11:29:44.088 [go] Start to prepare Simple/9/defaultStage/1/defaultJob on arkham.local
+        [/Users/ba/Library/Application Support/Go Agent]
+
+        11:29:44.096 [go] Start to update materials.
+
+
+        11:29:44.096 [go] Start updating files at revision 106a9ffe7131a15a44338eb703ecb31e1bc5de68
+        from /Users/ba/code/empty/.git
+
+        11:29:44.366 [GIT] Fetch and reset in working directory pipelines/Simple
+
+        11:29:44.366 [GIT] Cleaning all unversioned files in working copy
+
+        11:29:44.495 [GIT] Cleaning submodule configurations in .git/config
+
+        11:29:44.605 [GIT] Fetching changes
+
+        11:29:44.783 [GIT] Performing git gc
+
+        11:29:44.896 [GIT] Updating working copy to revision 106a9ffe7131a15a44338eb703ecb31e1bc5de68
+
+        11:29:44.913 HEAD is now at 106a9ff Hello
+
+        11:29:45.015 [GIT] Removing modified files in submodules
+
+        11:29:45.175 [GIT] Cleaning all unversioned files in working copy
+
+        11:29:45.399 [go] Done.
+
+
+        11:29:45.408 [go] Start to build Simple/9/defaultStage/1/defaultJob on arkham.local
+        [/Users/ba/Library/Application Support/Go Agent]
+
+        11:29:45.408 [go] Current job status: passed.
+
+
+        11:29:45.408 [go] Start to execute task: <exec command="echo" >
+
+        <arg>Hello!</arg>
+
+        </exec>.
+
+        11:29:45.409 [go] setting environment variable ''GO_SERVER_URL'' to value
+        ''https://127.0.0.1:8154/go/''
+
+        11:29:45.409 [go] setting environment variable ''GO_TRIGGER_USER'' to value
+        ''anonymous''
+
+        11:29:45.410 [go] setting environment variable ''GO_PIPELINE_NAME'' to value
+        ''Simple''
+
+        11:29:45.410 [go] setting environment variable ''GO_PIPELINE_COUNTER'' to
+        value ''9''
+
+        11:29:45.410 [go] setting environment variable ''GO_PIPELINE_LABEL'' to value
+        ''9''
+
+        11:29:45.411 [go] setting environment variable ''GO_STAGE_NAME'' to value
+        ''defaultStage''
+
+        11:29:45.411 [go] setting environment variable ''GO_STAGE_COUNTER'' to value
+        ''1''
+
+        11:29:45.411 [go] setting environment variable ''GO_JOB_NAME'' to value ''defaultJob''
+
+        11:29:45.411 [go] setting environment variable ''GO_REVISION'' to value ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
+
+        11:29:45.412 [go] setting environment variable ''GO_TO_REVISION'' to value
+        ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
+
+        11:29:45.412 [go] setting environment variable ''GO_FROM_REVISION'' to value
+        ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
+
+        11:29:45.419 Hello!
+
+        11:29:45.552 [go] Current job status: passed.
+
+
+        11:29:45.570 [go] Start to create properties Simple/9/defaultStage/1/defaultJob
+        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
+
+        11:29:45.570 [go] Start to upload Simple/9/defaultStage/1/defaultJob on arkham.local
+        [/Users/ba/Library/Application Support/Go Agent]
+
+        11:29:45.695 [go] Job completed Simple/9/defaultStage/1/defaultJob on arkham.local
+        [/Users/ba/Library/Application Support/Go Agent]
+
+        '}
+    headers:
+      connection: [close]
+      content-disposition: [Inline; filename=fname.ext]
+      content-language: [en-US]
+      content-length: ['2702']
+      content-type: [text/plain; charset=utf-8]
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=128at6k3qjuuq12a5lzlstmniq;Path=/go;Expires=Wed, 02-Dec-2015
+          09:19:29 GMT']
+    status: {code: 200, message: OK}
+version: 1

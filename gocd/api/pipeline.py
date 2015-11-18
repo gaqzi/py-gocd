@@ -1,12 +1,16 @@
 import time
-
 from gocd.api.response import Response
 from gocd.api.endpoint import Endpoint
+from gocd.api.artifact import Artifact
+
+__all__ = ['Pipeline']
 
 
 class Pipeline(Endpoint):
     base_path = 'go/api/pipelines/{id}'
     id = 'name'
+    #: The result of a job/stage has been finalised when these values are set
+    final_results = ['Passed', 'Failed']
 
     def __init__(self, server, name):
         """A wrapper for the `Go pipeline API`__
@@ -48,6 +52,7 @@ class Pipeline(Endpoint):
           Response: :class:`gocd.api.response.Response` object
         """
         return self._post('/releaseLock')
+
     #: This is an alias for :meth:`release`
     unlock = release
 
@@ -170,7 +175,70 @@ class Pipeline(Endpoint):
             return response
         else:
             return self._post('/schedule', ok_status=202, **scheduling_args)
+
     #: This is an alias for :meth:`schedule`
     run = schedule
     #: This is an alias for :meth:`schedule`
     trigger = schedule
+
+    def artifact(self, counter, stage, job, stage_counter=1):
+        """Helper to instantiate an :class:`gocd.api.artifact.Artifact` object
+
+        Args:
+          counter (int): The pipeline counter to get the artifact for
+          stage: Stage name
+          job: Job name
+          stage_counter: Defaults to 1
+
+        Returns:
+          Artifact: :class:`gocd.api.artifact.Artifact` object
+        """
+        return Artifact(self.server, self.name, counter, stage, job, stage_counter)
+
+    # TODO: It would be nice if this could stream the output as it happens.
+    # Currently it's built with the assumption that this is done after all output has finished.
+    def console_output(self, instance=None):
+        """Yields the output and metadata from all jobs in the pipeline
+
+        Args:
+          instance: The result of a :meth:`instance` call, if not supplied
+            the latest of the pipeline will be used.
+
+        Yields:
+          tuple: (metadata (dict), output (str)).
+
+          metadata contains:
+            - pipeline
+            - pipeline_counter
+            - stage
+            - stage_counter
+            - job
+            - job_result
+        """
+        if instance is None:
+            instance = self.instance()
+
+        for stage in instance['stages']:
+            for job in stage['jobs']:
+                if job['result'] not in self.final_results:
+                    continue
+
+                artifact = self.artifact(
+                    instance['counter'],
+                    stage['name'],
+                    job['name'],
+                    stage['counter']
+                )
+                output = artifact.get('cruise-output/console.log')
+
+                yield (
+                    {
+                        'pipeline': self.name,
+                        'pipeline_counter': instance['counter'],
+                        'stage': stage['name'],
+                        'stage_counter': stage['counter'],
+                        'job': job['name'],
+                        'job_result': job['result'],
+                    },
+                    output.body
+                )

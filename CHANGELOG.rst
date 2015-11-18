@@ -5,9 +5,16 @@ Change Log
 `0.10.0`_ - 2015-11-xx
 ======================
 
+**Added**
+
+* `Pipeline.artifact()`_ helper to get artifacts for the pipeline instance.
+
+* `Pipeline.console_output()`_ helper to get the console output from jobs
+  that has finished for a pipeline.
+
 **Changed**
 
-* `Pipeline.instance()`_ now returns the latest instance when no ``counter``
+* `Pipeline.instance()`_ now returns the latest instance when ``counter``
   is falsey.
 
 * `Pipeline.schedule()`_ has a new argument, ``return_new_instance`` which
@@ -17,6 +24,8 @@ Change Log
 .. _Pipeline.instance(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Pipeline.instance
 .. _Pipeline.schedule(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Pipeline.schedule
 .. _Pipeline.history(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Pipeline.history
+.. _Pipeline.artifact(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Pipeline.artifact
+.. _Pipeline.console_output(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Pipeline.console_output
 
 `0.9.0`_ - 2015-11-02
 =====================

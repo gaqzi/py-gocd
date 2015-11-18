@@ -1,0 +1,309 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/api/pipelines/Multiple-Stages-And-Jobs/history/0
+  response:
+    body: {string: "{\"pagination\":{\"offset\":0,\"total\":1,\"page_size\":10},\"\
+        pipelines\":[{\"label\":\"1\",\"name\":\"Multiple-Stages-And-Jobs\",\"natural_order\"\
+        :1.0,\"can_run\":true,\"stages\":[{\"result\":\"Passed\",\"jobs\":[{\"state\"\
+        :\"Completed\",\"result\":\"Passed\",\"name\":\"Hello\",\"id\":15,\"scheduled_date\"\
+        :1447828069679},{\"state\":\"Completed\",\"result\":\"Passed\",\"name\":\"\
+        Bye\",\"id\":16,\"scheduled_date\":1447828069679}],\"name\":\"First\",\"rerun_of_counter\"\
+        :null,\"approval_type\":\"success\",\"scheduled\":true,\"operate_permission\"\
+        :true,\"approved_by\":\"changes\",\"can_run\":true,\"id\":15,\"counter\":\"\
+        1\"},{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\"\
+        :\"Passed\",\"name\":\"Ehlo\",\"id\":17,\"scheduled_date\":1447828108744}],\"\
+        name\":\"Second\",\"rerun_of_counter\":null,\"approval_type\":\"success\"\
+        ,\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"changes\"\
+        ,\"can_run\":true,\"id\":16,\"counter\":\"1\"}],\"id\":14,\"build_cause\"\
+        :{\"trigger_message\":\"modified by Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\\
+        u003E\",\"approver\":\"\",\"material_revisions\":[{\"material\":{\"fingerprint\"\
+        :\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\",\"description\"\
+        :\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\":3,\"type\":\"Git\"\
+        },\"modifications\":[{\"modified_time\":1439970615000,\"user_name\":\"Bj\xF6\
+        rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\"\
+        ,\"email_address\":null,\"comment\":\"Hello\"}],\"changed\":true}],\"trigger_forced\"\
+        :false},\"preparing_to_schedule\":false,\"counter\":1,\"comment\":null}]}"}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [application/json; charset=utf-8]
+      etag: ['"fcdfda35eee0b5f49dee6de5ea0b3356"']
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=108bvch5ocj8q1rkec91ff95nl;Path=/go;Expires=Wed, 02-Dec-2015
+          09:19:29 GMT']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [7d516108-c0f3-434f-962f-9df622ee964e]
+      x-runtime: ['0.008000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Cookie: [JSESSIONID=108bvch5ocj8q1rkec91ff95nl]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/files/Multiple-Stages-And-Jobs/1/First/1/Hello/cruise-output/console.log
+  response:
+    body: {string: !!python/unicode '14:28:08.466 [go] Job Started: 2015-11-18 14:28:08
+        SGT
+
+
+        14:28:08.466 [go] Start to prepare Multiple-Stages-And-Jobs/1/First/1/Hello
+        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
+
+        14:28:08.474 [go] Skipping material update since stage is configured not to
+        fetch materials
+
+        14:28:08.483 [go] Start to build Multiple-Stages-And-Jobs/1/First/1/Hello
+        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
+
+        14:28:08.483 [go] Current job status: passed.
+
+
+        14:28:08.483 [go] Start to execute task: <exec command="echo" >
+
+        <arg>Hello</arg>
+
+        </exec>.
+
+        14:28:08.485 [go] setting environment variable ''GO_SERVER_URL'' to value
+        ''https://127.0.0.1:8154/go/''
+
+        14:28:08.485 [go] setting environment variable ''GO_TRIGGER_USER'' to value
+        ''changes''
+
+        14:28:08.486 [go] setting environment variable ''GO_PIPELINE_NAME'' to value
+        ''Multiple-Stages-And-Jobs''
+
+        14:28:08.486 [go] setting environment variable ''GO_PIPELINE_COUNTER'' to
+        value ''1''
+
+        14:28:08.486 [go] setting environment variable ''GO_PIPELINE_LABEL'' to value
+        ''1''
+
+        14:28:08.486 [go] setting environment variable ''GO_STAGE_NAME'' to value
+        ''First''
+
+        14:28:08.487 [go] setting environment variable ''GO_STAGE_COUNTER'' to value
+        ''1''
+
+        14:28:08.487 [go] setting environment variable ''GO_JOB_NAME'' to value ''Hello''
+
+        14:28:08.487 [go] setting environment variable ''GO_REVISION'' to value ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
+
+        14:28:08.487 [go] setting environment variable ''GO_TO_REVISION'' to value
+        ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
+
+        14:28:08.488 [go] setting environment variable ''GO_FROM_REVISION'' to value
+        ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
+
+        14:28:08.496 Hello
+
+        14:28:08.610 [go] Current job status: passed.
+
+
+        14:28:08.620 [go] Start to create properties Multiple-Stages-And-Jobs/1/First/1/Hello
+        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
+
+        14:28:08.620 [go] Start to upload Multiple-Stages-And-Jobs/1/First/1/Hello
+        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
+
+        14:28:08.639 [go] Job completed Multiple-Stages-And-Jobs/1/First/1/Hello on
+        arkham.local [/Users/ba/Library/Application Support/Go Agent]
+
+        '}
+    headers:
+      connection: [close]
+      content-disposition: [Inline; filename=fname.ext]
+      content-language: [en-US]
+      content-length: ['2093']
+      content-type: [text/plain; charset=utf-8]
+      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      server: [Jetty()]
+      set-cookie: ['JSESSIONID=108bvch5ocj8q1rkec91ff95nl;Path=/go;Expires=Wed, 02-Dec-2015
+          09:19:29 GMT']
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Cookie: [JSESSIONID=108bvch5ocj8q1rkec91ff95nl]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/files/Multiple-Stages-And-Jobs/1/First/1/Bye/cruise-output/console.log
+  response:
+    body: {string: !!python/unicode '14:28:28.468 [go] Job Started: 2015-11-18 14:28:28
+        SGT
+
+
+        14:28:28.468 [go] Start to prepare Multiple-Stages-And-Jobs/1/First/1/Bye
+        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
+
+        14:28:28.473 [go] Skipping material update since stage is configured not to
+        fetch materials
+
+        14:28:28.496 [go] Start to build Multiple-Stages-And-Jobs/1/First/1/Bye on
+        arkham.local [/Users/ba/Library/Application Support/Go Agent]
+
+        14:28:28.496 [go] Current job status: passed.
+
+
+        14:28:28.496 [go] Start to execute task: <exec command="echo" >
+
+        <arg>Good Bye</arg>
+
+        </exec>.
+
+        14:28:28.498 [go] setting environment variable ''GO_SERVER_URL'' to value
+        ''https://127.0.0.1:8154/go/''
+
+        14:28:28.498 [go] setting environment variable ''GO_TRIGGER_USER'' to value
+        ''changes''
+
+        14:28:28.498 [go] setting environment variable ''GO_PIPELINE_NAME'' to value
+        ''Multiple-Stages-And-Jobs''
+
+        14:28:28.499 [go] setting environment variable ''GO_PIPELINE_COUNTER'' to
+        value ''1''
+
+        14:28:28.499 [go] setting environment variable ''GO_PIPELINE_LABEL'' to value
+        ''1''
+
+        14:28:28.499 [go] setting environment variable ''GO_STAGE_NAME'' to value
+        ''First''
+
+        14:28:28.500 [go] setting environment variable ''GO_STAGE_COUNTER'' to value
+        ''1''
+
+        14:28:28.500 [go] setting environment variable ''GO_JOB_NAME'' to value ''Bye''
+
+        14:28:28.500 [go] setting environment variable ''GO_REVISION'' to value ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
+
+        14:28:28.501 [go] setting environment variable ''GO_TO_REVISION'' to value
+        ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
+
+        14:28:28.501 [go] setting environment variable ''GO_FROM_REVISION'' to value
+        ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
+
+        14:28:28.508 Good Bye
+
+        14:28:28.624 [go] Current job status: passed.
+
+
+        14:28:28.629 [go] Start to create properties Multiple-Stages-And-Jobs/1/First/1/Bye
+        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
+
+        14:28:28.629 [go] Start to upload Multiple-Stages-And-Jobs/1/First/1/Bye on
+        arkham.local [/Users/ba/Library/Application Support/Go Agent]
+
+        14:28:28.758 [go] Job completed Multiple-Stages-And-Jobs/1/First/1/Bye on
+        arkham.local [/Users/ba/Library/Application Support/Go Agent]
+
+        '}
+    headers:
+      connection: [close]
+      content-disposition: [Inline; filename=fname.ext]
+      content-language: [en-US]
+      content-length: ['2087']
+      content-type: [text/plain; charset=utf-8]
+      server: [Jetty()]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Cookie: [JSESSIONID=108bvch5ocj8q1rkec91ff95nl]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/files/Multiple-Stages-And-Jobs/1/Second/1/Ehlo/cruise-output/console.log
+  response:
+    body: {string: !!python/unicode '14:28:48.472 [go] Job Started: 2015-11-18 14:28:48
+        SGT
+
+
+        14:28:48.472 [go] Start to prepare Multiple-Stages-And-Jobs/1/Second/1/Ehlo
+        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
+
+        14:28:48.477 [go] Skipping material update since stage is configured not to
+        fetch materials
+
+        14:28:48.485 [go] Start to build Multiple-Stages-And-Jobs/1/Second/1/Ehlo
+        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
+
+        14:28:48.486 [go] Current job status: passed.
+
+
+        14:28:48.486 [go] Start to execute task: <exec command="echo" >
+
+        <arg>ehlo test.somewhere.tld</arg>
+
+        </exec>.
+
+        14:28:48.486 [go] setting environment variable ''GO_SERVER_URL'' to value
+        ''https://127.0.0.1:8154/go/''
+
+        14:28:48.486 [go] setting environment variable ''GO_TRIGGER_USER'' to value
+        ''changes''
+
+        14:28:48.487 [go] setting environment variable ''GO_PIPELINE_NAME'' to value
+        ''Multiple-Stages-And-Jobs''
+
+        14:28:48.487 [go] setting environment variable ''GO_PIPELINE_COUNTER'' to
+        value ''1''
+
+        14:28:48.487 [go] setting environment variable ''GO_PIPELINE_LABEL'' to value
+        ''1''
+
+        14:28:48.488 [go] setting environment variable ''GO_STAGE_NAME'' to value
+        ''Second''
+
+        14:28:48.488 [go] setting environment variable ''GO_STAGE_COUNTER'' to value
+        ''1''
+
+        14:28:48.488 [go] setting environment variable ''GO_JOB_NAME'' to value ''Ehlo''
+
+        14:28:48.489 [go] setting environment variable ''GO_REVISION'' to value ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
+
+        14:28:48.489 [go] setting environment variable ''GO_TO_REVISION'' to value
+        ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
+
+        14:28:48.490 [go] setting environment variable ''GO_FROM_REVISION'' to value
+        ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
+
+        14:28:48.499 ehlo test.somewhere.tld
+
+        14:28:48.611 [go] Current job status: passed.
+
+
+        14:28:48.615 [go] Start to create properties Multiple-Stages-And-Jobs/1/Second/1/Ehlo
+        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
+
+        14:28:48.616 [go] Start to upload Multiple-Stages-And-Jobs/1/Second/1/Ehlo
+        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
+
+        14:28:48.660 [go] Job completed Multiple-Stages-And-Jobs/1/Second/1/Ehlo on
+        arkham.local [/Users/ba/Library/Application Support/Go Agent]
+
+        '}
+    headers:
+      connection: [close]
+      content-disposition: [Inline; filename=fname.ext]
+      content-language: [en-US]
+      content-length: ['2129']
+      content-type: [text/plain; charset=utf-8]
+      server: [Jetty()]
+    status: {code: 200, message: OK}
+version: 1

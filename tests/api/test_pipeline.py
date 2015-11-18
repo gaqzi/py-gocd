@@ -19,6 +19,16 @@ def locked_pipeline(server):
     return server.pipeline('Simple-with-lock')
 
 
+@pytest.fixture
+def pipeline_multiple_stages(server):
+    return server.pipeline('Multiple-Stages-And-Jobs')
+
+
+@pytest.fixture
+def pipeline_multiple_stages_manual(server):
+    return server.pipeline('Multiple-Stages-And-Jobs-Manual')
+
+
 @pytest.mark.parametrize('cassette_name,offset,counter', [
     ('tests/fixtures/cassettes/api/pipeline/history-offset-0.yml', 0, 11),
     ('tests/fixtures/cassettes/api/pipeline/history-offset-10.yml', 10, 1)
@@ -193,3 +203,57 @@ def test_schedule_pipeline_and_return_new_instance(pipeline):
     assert response.content_type == 'application/json'
     assert response['counter'] != before_run['counter']
     assert (before_run['counter'] + 1) == response['counter']
+
+
+@vcr.use_cassette(
+    'tests/fixtures/cassettes/api/pipeline/console-output.yml'
+)
+def test_console_output_single_stage(pipeline):
+    instance = pipeline.instance()
+    metadata, output = next(pipeline.console_output(instance))
+
+    assert r'[go] Job completed' in output
+    assert {'pipeline': 'Simple',
+            'pipeline_counter': instance['counter'],
+            'stage': 'defaultStage',
+            'stage_counter': '1',
+            'job': 'defaultJob',
+            'job_result': 'Passed',
+            } == metadata
+
+
+@vcr.use_cassette(
+    'tests/fixtures/cassettes/api/pipeline/console-output-multiple-stages.yml'
+)
+def test_console_output_multiple_stages(pipeline_multiple_stages):
+    pipeline = pipeline_multiple_stages
+
+    valid_args = ['Good Bye', 'Hello', 'ehlo test.somewhere.tld']
+    valid = 0
+    for metadata, output in pipeline.console_output():
+        assert r'[go] Job completed' in output
+        assert True in (
+            '<arg>{0}</arg>'.format(job) in output for job in valid_args
+        ), 'No match for {0}'.format(metadata)
+        valid += 1
+
+    assert valid == 3
+
+
+@vcr.use_cassette(
+    'tests/fixtures/cassettes/api/pipeline/console-output-job-not-finished.yml'
+)
+def test_console_output_only_where_stage_has_finished(pipeline_multiple_stages_manual):
+    # The second stage has been scheduled but has no agent to run on, so the only output in
+    # the console.log is that there's no console.log To avoid showing that message it'll only
+    # output if the pipeline has gotten into a finalized state.
+    pipeline = pipeline_multiple_stages_manual
+
+    jobs_with_output = set()
+    for metadata, output in pipeline.console_output():
+        if output:
+            jobs_with_output.add(metadata['job'])
+
+    assert 'Ehlo' not in jobs_with_output
+    assert 'Hello' in jobs_with_output
+    assert 'Bye' in jobs_with_output
