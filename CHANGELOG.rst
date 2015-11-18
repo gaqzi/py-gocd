@@ -10,7 +10,13 @@ Change Log
 * `Pipeline.instance()`_ now returns the latest instance when no ``counter``
   is falsey.
 
+* `Pipeline.schedule()`_ has a new argument, ``return_new_instance`` which
+  will return the new instance that was scheduled. The instance information is
+  taken from the `Pipeline.history()`_ call and matches the last entry there.
+
 .. _Pipeline.instance(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Pipeline.instance
+.. _Pipeline.schedule(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Pipeline.schedule
+.. _Pipeline.history(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Pipeline.history
 
 `0.9.0`_ - 2015-11-02
 =====================
@@ -87,6 +93,7 @@ Changed
 
 Nothing much to say here, initial public release. :)
 
+.. _`0.10.0`: https://github.com/gaqzi/py-gocd/compare/v0.9.0...v0.10.0
 .. _`0.9.0`: https://github.com/gaqzi/py-gocd/compare/v0.8.0...v0.9.0
 .. _`0.8.0`: https://github.com/gaqzi/py-gocd/compare/v.0.7.1...v0.8.0
 .. _`0.7.1`: https://github.com/gaqzi/py-gocd/compare/v0.7.0.2...v.0.7.1

@@ -178,3 +178,18 @@ def test_schedule_when_pipeline_is_already_running(pipeline):
         'Failed to trigger pipeline [{pipeline}] {{ Stage [Hello] in '
         'pipeline [{pipeline}] is still in progress }}\n'
     ).format(pipeline=pipeline.name)
+
+
+@vcr.use_cassette(
+    'tests/fixtures/cassettes/api/pipeline/schedule-successful-and-return-new-instance.yml'
+)
+def test_schedule_pipeline_and_return_new_instance(pipeline):
+    before_run = pipeline.history()['pipelines'][0]
+    # By setting the backoff to 0 the test runs faster, since it's all mocked out anyway.
+    response = pipeline.schedule(return_new_instance=True, backoff_time=0)
+
+    assert response.status_code == 200
+    assert response.is_ok
+    assert response.content_type == 'application/json'
+    assert response['counter'] != before_run['counter']
+    assert (before_run['counter'] + 1) == response['counter']
