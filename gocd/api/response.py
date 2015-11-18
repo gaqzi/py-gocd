@@ -142,6 +142,10 @@ class Response(object):
             http_error.headers,
         )
 
+    @classmethod
+    def _from_json(cls, body):
+        return Response(200, json.dumps(body), {'content-type': 'application/json'})
+
     def _raise_non_json_response(self):
         raise AttributeError(
             "Can't lookup item in a non-JSON response.",

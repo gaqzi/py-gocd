@@ -2,6 +2,16 @@
 Change Log
 ==========
 
+`0.10.0`_ - 2015-11-xx
+======================
+
+**Changed**
+
+* `Pipeline.instance()`_ now returns the latest instance when no ``counter``
+  is falsey.
+
+.. _Pipeline.instance(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Pipeline.instance
+
 `0.9.0`_ - 2015-11-02
 =====================
 

@@ -98,6 +98,15 @@ def test_instance(pipeline):
     assert response['counter'] == 1
 
 
+@vcr.use_cassette('tests/fixtures/cassettes/api/pipeline/instance-return-latest.yml')
+def test_instance_without_argument_returns_latest(pipeline):
+    history_instance = pipeline.history()['pipelines'][0]
+    response = pipeline.instance()
+
+    assert response.is_ok
+    assert response['counter'] == history_instance['counter']
+
+
 @vcr.use_cassette('tests/fixtures/cassettes/api/pipeline/schedule-successful-no-args.yml')
 def test_schedule(pipeline):
     response = pipeline.schedule()
