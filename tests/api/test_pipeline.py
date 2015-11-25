@@ -212,7 +212,7 @@ def test_console_output_single_stage(pipeline):
     instance = pipeline.instance()
     metadata, output = next(pipeline.console_output(instance))
 
-    assert r'[go] Job completed' in output
+    assert r'[go] Job completed' in output.decode('utf8')
     assert {'pipeline': 'Simple',
             'pipeline_counter': instance['counter'],
             'stage': 'defaultStage',
@@ -231,6 +231,7 @@ def test_console_output_multiple_stages(pipeline_multiple_stages):
     valid_args = ['Good Bye', 'Hello', 'ehlo test.somewhere.tld']
     valid = 0
     for metadata, output in pipeline.console_output():
+        output = output.decode('utf8')
         assert r'[go] Job completed' in output
         assert True in (
             '<arg>{0}</arg>'.format(job) in output for job in valid_args

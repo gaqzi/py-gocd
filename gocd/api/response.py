@@ -94,7 +94,12 @@ class Response(object):
         """
         if self.is_json:
             if not self._body_parsed:
-                self._body_parsed = json.loads(self._body.decode('utf-8'))
+                if hasattr(self._body, 'decode'):
+                    body = self._body.decode('utf-8')
+                else:
+                    body = self._body
+
+                self._body_parsed = json.loads(body)
 
             return self._body_parsed
         else:
