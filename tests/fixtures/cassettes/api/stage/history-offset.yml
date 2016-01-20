@@ -1,0 +1,29 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Host: ['192.168.99.100:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://192.168.99.100:8153/go/api/stages/Dummy/stageOne/history/5
+  response:
+    body: {string: !!python/unicode '{"stages":[{"name":"stageOne","approved_by":"anonymous","jobs":[{"name":"jobA","result":"Passed","state":"Completed","id":11,"scheduled_date":1453307032785},{"name":"jobB","result":"Passed","state":"Completed","id":12,"scheduled_date":1453307032785}],"pipeline_counter":2,"pipeline_name":"Dummy","result":"Passed","approval_type":"success","id":6,"counter":"3","rerun_of_counter":null},{"name":"stageOne","approved_by":"anonymous","jobs":[{"name":"jobB","result":"Passed","state":"Completed","id":7,"scheduled_date":1453306076694},{"name":"jobA","result":"Passed","state":"Completed","id":8,"scheduled_date":1453306234367}],"pipeline_counter":2,"pipeline_name":"Dummy","result":"Passed","approval_type":"success","id":4,"counter":"2","rerun_of_counter":1},{"name":"stageOne","approved_by":"anonymous","jobs":[{"name":"jobA","result":"Passed","state":"Completed","id":3,"scheduled_date":1453306076694},{"name":"jobB","result":"Passed","state":"Completed","id":4,"scheduled_date":1453306076694}],"pipeline_counter":2,"pipeline_name":"Dummy","result":"Passed","approval_type":"success","id":2,"counter":"1","rerun_of_counter":null},{"name":"stageOne","approved_by":"anonymous","jobs":[{"name":"jobA","result":"Failed","state":"Completed","id":1,"scheduled_date":1453305946589},{"name":"jobB","result":"Failed","state":"Completed","id":2,"scheduled_date":1453305946589}],"pipeline_counter":1,"pipeline_name":"Dummy","result":"Failed","approval_type":"success","id":1,"counter":"1","rerun_of_counter":null}],"pagination":{"offset":5,"total":9,"page_size":10}}'}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 20 Jan 2016 19:43:32 GMT']
+      etag: ['"9ec27f47446ecb4a183a39ca41b78fec"']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=1xr24ywk3r8hj10sre1pdxvyri;Path=/go;Expires=Wed, 03-Feb-2016
+          19:43:32 GMT']
+      vary: ['Accept-Encoding, User-Agent']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [47c9515f-ea25-4f9f-a449-8230dd382584]
+      x-runtime: ['0.015000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1
