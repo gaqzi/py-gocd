@@ -29,7 +29,7 @@ except ImportError:
 
 from gocd.vendor.multidimensional_urlencode import urlencoder
 
-from gocd.api import Pipeline, PipelineGroups
+from gocd.api import Pipeline, PipelineGroups, Stage
 
 __all__ = ['Server', 'AuthenticationFailed']
 
@@ -204,6 +204,9 @@ class Server(object):
           PipelineGroups: an instantiated :class:`PipelineGroups`.
         """
         return PipelineGroups(self)
+
+    def stage(self, pipeline_name, pipeline_counter, stage_name):
+        return Stage(self, pipeline_name, pipeline_counter, stage_name)
 
     def _add_basic_auth(self):
         auth_handler = HTTPBasicAuthHandler(
