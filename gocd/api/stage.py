@@ -55,12 +55,15 @@ class Stage(Endpoint):
         Returns:
           Response: :class:`gocd.api.response.Response` object
         """
-        # if not counter:
-        #     history = self.history()
-        #     if not history:
-        #         return history
-        #     else:
-        #         return Response._from_json(history['stages'][0])
+        if not counter:
+            pipeline_instance = self.server.pipeline(self.pipeline_name).instance(self.pipeline_counter)
+            for stages in pipeline_instance['stages']:
+                if stages['name'] == self.stage_name:
+                    return self.instance(int(stages['counter']))
+            return None
+
+        print(self.pipeline_counter, counter)
+        print(type(self.pipeline_counter), type(counter))
 
         return self._get('/instance/{pipeline_counter:d}/{counter:d}'
                          .format(pipeline_counter=self.pipeline_counter,
