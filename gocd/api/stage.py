@@ -56,8 +56,11 @@ class Stage(Endpoint):
           Response: :class:`gocd.api.response.Response` object
         """
         if not counter:
-            pipeline_instance = self.server.pipeline(self.pipeline_name) \
-                                           .instance(self.pipeline_counter)
+            pipeline_instance = (
+                self.server
+                    .pipeline(self.pipeline_name)
+                    .instance(self.pipeline_counter)
+            )
             for stages in pipeline_instance['stages']:
                 if stages['name'] == self.stage_name:
                     return self.instance(int(stages['counter']))
