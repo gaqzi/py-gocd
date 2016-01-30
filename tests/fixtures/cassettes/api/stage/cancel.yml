@@ -1,0 +1,33 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      Connection: [close]
+      Content-Length: ['0']
+      Content-Type: [application/x-www-form-urlencoded]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: POST
+    uri: http://localhost:8153/go/api/stages/Dummy/stageOne/cancel
+  response:
+    body: {string: !!python/unicode 'Stage cancelled successfully.
+
+'}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [text/html; charset=UTF-8]
+      date: ['Sat, 30 Jan 2016 13:32:06 GMT']
+      etag: ['"de0c605449f5726111a2283041354c34"']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=ebyie53t4zg2r1h39xwd6hg2;Path=/go;Expires=Sat, 13-Feb-2016
+          13:32:06 GMT']
+      vary: ['Accept-Encoding, User-Agent']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [bdbd1dfe-328e-4a55-a0ee-e733e0003514]
+      x-runtime: ['0.128000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1

@@ -26,6 +26,14 @@ class Stage(Endpoint):
         return "{pipeline}/{stage}".format(pipeline=self.pipeline_name,
                                            stage=self.stage_name)
 
+    def cancel(self):
+        """Cancels a currently running stage
+
+        Returns:
+          Response: :class:`gocd.api.response.Response` object
+        """
+        return self._post('/cancel')
+
     def history(self, offset=0):
         """Lists previous instances/runs of the stage
 

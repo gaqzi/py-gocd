@@ -59,3 +59,11 @@ def test_instance_without_argument_returns_latest(stage):
 
     assert response.is_ok
     assert response['counter'] == history_instance['counter']
+
+
+@vcr.use_cassette('tests/fixtures/cassettes/api/stage/cancel.yml')
+def test_cancel(stage):
+    response = stage.cancel()
+
+    assert response.is_ok
+    assert response.body.strip() == 'Stage cancelled successfully.'
