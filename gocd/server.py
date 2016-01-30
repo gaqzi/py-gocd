@@ -251,9 +251,9 @@ class Server(object):
         return urljoin(self.host, path)
 
     def _inject_authenticity_token(self, data, path):
-        if(data is None
-           or not self._authenticity_token
-           or path.startswith('go/api')):
+        if (data is None or
+                not self._authenticity_token or
+                path.startswith('go/api')):
             return data
 
         if data == '':
