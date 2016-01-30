@@ -11,7 +11,7 @@ def server():
 
 @pytest.fixture
 def stage(server):
-    return server.stage('Dummy', 5, 'stageOne')
+    return server.stage('Dummy', 'stageOne', pipeline_counter=5)
 
 
 @vcr.use_cassette('tests/fixtures/cassettes/api/stage/history.yml')
@@ -59,6 +59,16 @@ def test_instance_without_argument_returns_latest(stage):
 
     assert response.is_ok
     assert response['counter'] == history_instance['counter']
+
+
+@vcr.use_cassette('tests/fixtures/cassettes/api/stage/instance-latest-pipeline.yml')
+def test_get_latest_stage(server):
+    stage = server.pipeline('Dummy').stage('stageOne')
+    response = stage.instance()
+
+    assert response.is_ok
+    assert response['pipeline_counter'] == 6
+    assert response['counter'] == 1
 
 
 @vcr.use_cassette('tests/fixtures/cassettes/api/stage/cancel.yml')

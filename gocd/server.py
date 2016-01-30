@@ -205,8 +205,8 @@ class Server(object):
         """
         return PipelineGroups(self)
 
-    def stage(self, pipeline_name, pipeline_counter, stage_name):
-        return Stage(self, pipeline_name, pipeline_counter, stage_name)
+    def stage(self, pipeline_name, stage_name, pipeline_counter=None):
+        return Stage(self, pipeline_name, stage_name, pipeline_counter=pipeline_counter)
 
     def _add_basic_auth(self):
         auth_handler = HTTPBasicAuthHandler(

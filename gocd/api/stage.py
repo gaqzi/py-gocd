@@ -6,7 +6,7 @@ __all__ = ['Stage']
 class Stage(Endpoint):
     base_path = 'go/api/stages/{id}'
 
-    def __init__(self, server, pipeline_name, pipeline_counter, stage_name):
+    def __init__(self, server, pipeline_name, stage_name, pipeline_counter=None):
         """A wrapper for the `Go stage API`__
 
         .. __: http://api.go.cd/current/#stages
@@ -49,7 +49,7 @@ class Stage(Endpoint):
         """
         return self._get('/history/{offset:d}'.format(offset=offset or 0))
 
-    def instance(self, counter=None):
+    def instance(self, counter=None, pipeline_counter=None):
         """Returns all the information regarding a specific stage run
 
         See the `Go stage instance documentation`__ for examples.
@@ -59,19 +59,31 @@ class Stage(Endpoint):
         Args:
           counter (int): The stage instance to fetch.
             If falsey returns the latest stage instance from :meth:`history`.
+          pipeline_counter (int): The pipeline instance for which to fetch
+            the stage. If falsey returns the latest pipeline instance.
 
         Returns:
           Response: :class:`gocd.api.response.Response` object
         """
+        pipeline_counter = pipeline_counter or self.pipeline_counter
+        pipeline_instance = None
+
+        if not pipeline_counter:
+            pipeline_instance = self.server.pipeline(self.pipeline_name).instance()
+            self.pipeline_counter = int(pipeline_instance['counter'])
+
         if not counter:
-            pipeline_instance = (
-                self.server
-                    .pipeline(self.pipeline_name)
-                    .instance(self.pipeline_counter)
-            )
+            if pipeline_instance is None:
+                pipeline_instance = (
+                    self.server
+                        .pipeline(self.pipeline_name)
+                        .instance(self.pipeline_counter or pipeline_counter)
+                )
+
             for stages in pipeline_instance['stages']:
                 if stages['name'] == self.stage_name:
                     return self.instance(int(stages['counter']))
+
             return None
 
         return self._get('/instance/{pipeline_counter:d}/{counter:d}'

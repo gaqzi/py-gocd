@@ -260,6 +260,7 @@ def test_console_output_only_where_stage_has_finished(pipeline_multiple_stages_m
     assert 'Hello' in jobs_with_output
     assert 'Bye' in jobs_with_output
 
+
 @vcr.use_cassette(
     'tests/fixtures/cassettes/api/pipeline/stage.yml'
 )
