@@ -3,10 +3,10 @@ interactions:
     body: null
     headers:
       Connection: [close]
-      Host: ['192.168.99.100:8153']
+      Host: ['localhost:8153']
       User-Agent: [py-gocd]
     method: GET
-    uri: http://192.168.99.100:8153/go/api/stages/Dummy/stageOne/instance/5/1
+    uri: http://localhost:8153/go/api/stages/Dummy/stageOne/instance/5/1
   response:
     body: {string: !!python/unicode '{"name":"stageOne","clean_working_directory":false,"approved_by":"anonymous","jobs":[{"agent_uuid":"4491bf6d-dbc3-4fff-9f90-f7401cb2e41d","name":"jobA","job_state_transitions":[{"state_change_time":1453314520220,"id":257,"state":"Scheduled"},{"state_change_time":1453314528618,"id":259,"state":"Assigned"},{"state_change_time":1453314538629,"id":262,"state":"Preparing"},{"state_change_time":1453314538654,"id":263,"state":"Building"},{"state_change_time":1453314538677,"id":264,"state":"Completing"},{"state_change_time":1453314538778,"id":265,"state":"Completed"}],"scheduled_date":1453314520220,"original_job_id":null,"pipeline_counter":null,"rerun":false,"pipeline_name":null,"result":"Passed","state":"Completed","id":97,"stage_counter":null,"stage_name":null},{"agent_uuid":"95391f0e-4e6a-4475-a6d6-cb4f0ff085df","name":"jobB","job_state_transitions":[{"state_change_time":1453314520220,"id":258,"state":"Scheduled"},{"state_change_time":1453314546396,"id":266,"state":"Assigned"},{"state_change_time":1453314556621,"id":268,"state":"Preparing"},{"state_change_time":1453314556687,"id":269,"state":"Building"},{"state_change_time":1453314556924,"id":270,"state":"Completing"},{"state_change_time":1453314557035,"id":271,"state":"Completed"}],"scheduled_date":1453314520220,"original_job_id":null,"pipeline_counter":null,"rerun":false,"pipeline_name":null,"result":"Passed","state":"Completed","id":98,"stage_counter":null,"stage_name":null}],"pipeline_counter":5,"pipeline_name":"Dummy","approval_type":"success","result":"Passed","counter":1,"id":97,"rerun_of_counter":null,"fetch_materials":false,"artifacts_deleted":false}'}
     headers:
@@ -31,10 +31,10 @@ interactions:
     headers:
       Connection: [close]
       Cookie: [JSESSIONID=1dtugh5pdkbtk1wg0yy1epwego]
-      Host: ['192.168.99.100:8153']
+      Host: ['localhost:8153']
       User-Agent: [py-gocd]
     method: GET
-    uri: http://192.168.99.100:8153/go/api/pipelines/Dummy/instance/5
+    uri: http://localhost:8153/go/api/pipelines/Dummy/instance/5
   response:
     body: {string: !!python/unicode '{"build_cause":{"approver":"anonymous","material_revisions":[{"modifications":[{"email_address":null,"id":65,"modified_time":1453314468000,"user_name":"Your
         Name \u003Cyou@example.com\u003E","comment":"MORE COMMITS","revision":"edea63ab74998e60e0938678ad14da8275349b9f"}],"material":{"description":"URL:
@@ -59,10 +59,10 @@ interactions:
     headers:
       Connection: [close]
       Cookie: [JSESSIONID=1dtugh5pdkbtk1wg0yy1epwego]
-      Host: ['192.168.99.100:8153']
+      Host: ['localhost:8153']
       User-Agent: [py-gocd]
     method: GET
-    uri: http://192.168.99.100:8153/go/api/stages/Dummy/stageOne/instance/5/1
+    uri: http://localhost:8153/go/api/stages/Dummy/stageOne/instance/5/1
   response:
     body: {string: !!python/unicode '{"name":"stageOne","clean_working_directory":false,"approved_by":"anonymous","jobs":[{"agent_uuid":"4491bf6d-dbc3-4fff-9f90-f7401cb2e41d","name":"jobA","job_state_transitions":[{"state_change_time":1453314520220,"id":257,"state":"Scheduled"},{"state_change_time":1453314528618,"id":259,"state":"Assigned"},{"state_change_time":1453314538629,"id":262,"state":"Preparing"},{"state_change_time":1453314538654,"id":263,"state":"Building"},{"state_change_time":1453314538677,"id":264,"state":"Completing"},{"state_change_time":1453314538778,"id":265,"state":"Completed"}],"scheduled_date":1453314520220,"original_job_id":null,"pipeline_counter":null,"rerun":false,"pipeline_name":null,"result":"Passed","state":"Completed","id":97,"stage_counter":null,"stage_name":null},{"agent_uuid":"95391f0e-4e6a-4475-a6d6-cb4f0ff085df","name":"jobB","job_state_transitions":[{"state_change_time":1453314520220,"id":258,"state":"Scheduled"},{"state_change_time":1453314546396,"id":266,"state":"Assigned"},{"state_change_time":1453314556621,"id":268,"state":"Preparing"},{"state_change_time":1453314556687,"id":269,"state":"Building"},{"state_change_time":1453314556924,"id":270,"state":"Completing"},{"state_change_time":1453314557035,"id":271,"state":"Completed"}],"scheduled_date":1453314520220,"original_job_id":null,"pipeline_counter":null,"rerun":false,"pipeline_name":null,"result":"Passed","state":"Completed","id":98,"stage_counter":null,"stage_name":null}],"pipeline_counter":5,"pipeline_name":"Dummy","approval_type":"success","result":"Passed","counter":1,"id":97,"rerun_of_counter":null,"fetch_materials":false,"artifacts_deleted":false}'}
     headers:

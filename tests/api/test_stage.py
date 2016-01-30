@@ -6,7 +6,7 @@ import gocd
 
 @pytest.fixture
 def server():
-    return gocd.Server('http://192.168.99.100:8153')
+    return gocd.Server('http://localhost:8153')
 
 
 @pytest.fixture
