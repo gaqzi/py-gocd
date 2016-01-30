@@ -2,6 +2,7 @@ import time
 from gocd.api.response import Response
 from gocd.api.endpoint import Endpoint
 from gocd.api.artifact import Artifact
+from gocd.api.stage import Stage
 
 __all__ = ['Pipeline']
 
@@ -242,3 +243,20 @@ class Pipeline(Endpoint):
                     },
                     output.body
                 )
+
+    def stage(self, name, pipeline_counter=None):
+        """Helper to instantiate a :class:`gocd.api.stage.Stage` object
+
+        Args:
+            name: The name of the stage
+            pipeline_counter:
+
+        Returns:
+
+        """
+        return Stage(
+            self.server,
+            pipeline_name=self.name,
+            stage_name=name,
+            pipeline_counter=pipeline_counter,
+        )

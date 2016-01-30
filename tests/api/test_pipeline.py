@@ -2,6 +2,7 @@ import pytest
 import vcr
 
 import gocd
+import gocd.api
 
 
 @pytest.fixture
@@ -258,3 +259,13 @@ def test_console_output_only_where_stage_has_finished(pipeline_multiple_stages_m
     assert 'Ehlo' not in jobs_with_output
     assert 'Hello' in jobs_with_output
     assert 'Bye' in jobs_with_output
+
+@vcr.use_cassette(
+    'tests/fixtures/cassettes/api/pipeline/stage.yml'
+)
+def test_get_stage_for_a_pipeline(pipeline):
+    stage = pipeline.stage('Hello')
+
+    assert isinstance(stage, gocd.api.Stage)
+    assert stage.pipeline_name == pipeline.name
+    assert stage.stage_name == 'Hello'
