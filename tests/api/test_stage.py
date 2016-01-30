@@ -24,7 +24,7 @@ def test_history(stage):
     run = response['stages'][0]
     assert run['name'] == 'stageOne'
     assert run['pipeline_name'] == 'Dummy'
-    assert run['counter'] == "1"
+    assert run['counter'] == '1'
 
 
 @vcr.use_cassette('tests/fixtures/cassettes/api/stage/history-offset.yml')
@@ -37,7 +37,7 @@ def test_history_offset(stage):
     run = response['stages'][0]
     assert run['name'] == 'stageOne'
     assert run['pipeline_name'] == 'Dummy'
-    assert run['counter'] == "3"
+    assert run['counter'] == '3'
 
 
 @vcr.use_cassette('tests/fixtures/cassettes/api/stage/instance.yml')
