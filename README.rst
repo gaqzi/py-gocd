@@ -78,6 +78,11 @@ Style
 This project aims to follow the `Google Python Style Guide`_ and particularly
 the section on `commenting the code`_.
 
+Versioning
+----------
+
+`Semantic versioning`_ is used.
+
 License
 -------
 
@@ -93,3 +98,4 @@ Github page: `gaqzi/py-gocd`_.
 .. _`Google Python Style Guide`: https://google-styleguide.googlecode.com/svn/trunk/pyguide.html
 .. _`commenting the code`: https://google-styleguide.googlecode.com/svn/trunk/pyguide.html?showone=Comments#Comments
 .. _`gaqzi/py-gocd`: https://github.com/gaqzi/py-gocd/
+.. _Semantic versioning: http://semver.org/
