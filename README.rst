@@ -88,14 +88,7 @@ License
 
 MIT License.
 
-
-Links
------
-
-Github page: `gaqzi/py-gocd`_.
-
 .. _`Go Continuous Delivery`: http://go.cd/
 .. _`Google Python Style Guide`: https://google-styleguide.googlecode.com/svn/trunk/pyguide.html
 .. _`commenting the code`: https://google-styleguide.googlecode.com/svn/trunk/pyguide.html?showone=Comments#Comments
-.. _`gaqzi/py-gocd`: https://github.com/gaqzi/py-gocd/
 .. _Semantic versioning: http://semver.org/
