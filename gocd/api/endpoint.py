@@ -1,7 +1,7 @@
 try:
     # python2
     from urllib2 import HTTPError
-except ImportError:
+except ImportError:  # pragma: no cover
     # python3
     from urllib.request import HTTPError
 

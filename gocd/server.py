@@ -13,7 +13,7 @@ try:
         build_opener,
         Request,
     )
-except ImportError:
+except ImportError:  # pragma: no cover
     # python3
     from urllib.parse import urljoin
     from urllib.request import (
