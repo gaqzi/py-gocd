@@ -76,4 +76,4 @@ def test_cancel(stage):
     response = stage.cancel()
 
     assert response.is_ok
-    assert response.body.strip() == 'Stage cancelled successfully.'
+    assert response.body.decode('utf-8').strip() == 'Stage cancelled successfully.'
