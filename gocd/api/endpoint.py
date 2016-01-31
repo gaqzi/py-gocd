@@ -15,6 +15,8 @@ class Endpoint(object):
     _id = None
 
     id = None  #: This points to an attribute that contains the id of this endpoint
+    base_path = None  #: URI base path to search for. Any URL generated will start with this.
+    server = None  #: An instance of :class:`gocd.Server`.
 
     def get_id(self):
         if self._id is None:
