@@ -52,6 +52,20 @@ def test_instance(stage):
     assert response['counter'] == 1
 
 
+@vcr.use_cassette('tests/fixtures/cassettes/api/stage/instance.yml')
+def test_instance_uses_pipeline_counter_in_recursion(server):
+    overridden_pipeline_counter = 5
+    stage = server.stage('Dummy', 'stageOne', pipeline_counter=4)
+    response = stage.instance(counter=1, pipeline_counter=overridden_pipeline_counter)
+
+    assert response.is_ok
+    assert response.content_type == 'application/json'
+    assert response['name'] == stage.stage_name
+    assert response['pipeline_name'] == stage.pipeline_name
+    assert response['pipeline_counter'] == overridden_pipeline_counter
+    assert response['counter'] == 1
+
+
 @vcr.use_cassette('tests/fixtures/cassettes/api/stage/instance-return-latest.yml')
 def test_instance_without_argument_returns_latest(stage):
     history_instance = stage.instance(1)

@@ -77,15 +77,15 @@ class Stage(Endpoint):
                 pipeline_instance = (
                     self.server
                         .pipeline(self.pipeline_name)
-                        .instance(self.pipeline_counter or pipeline_counter)
+                        .instance(pipeline_counter)
                 )
 
             for stages in pipeline_instance['stages']:
                 if stages['name'] == self.stage_name:
-                    return self.instance(int(stages['counter']))
-
-            return None
+                    return self.instance(
+                        counter=int(stages['counter']),
+                        pipeline_counter=pipeline_counter
+                    )
 
         return self._get('/instance/{pipeline_counter:d}/{counter:d}'
-                         .format(pipeline_counter=self.pipeline_counter,
-                                 counter=counter))
+                         .format(pipeline_counter=pipeline_counter, counter=counter))
