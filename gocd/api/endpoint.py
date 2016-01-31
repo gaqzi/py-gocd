@@ -14,9 +14,13 @@ class Endpoint(object):
     _base_path = None
     _id = None
 
+    id = None  #: This points to an attribute that contains the id of this endpoint
+
     def get_id(self):
         if self._id is None:
-            self._id = getattr(self, self.id, None)
+            if self.id is not None:
+                self._id = getattr(self, self.id, None)
+
             if self._id is None:
                 raise NotImplementedError(
                     'id is not set. It is needed when calling a specific '
