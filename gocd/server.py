@@ -13,6 +13,25 @@ try:
         build_opener,
         Request,
     )
+
+    class CustomRequest(Request):
+        """Python2's Request class has no support
+        for setting the HTTP method."""
+
+        def __init__(self, *args, **kargs):
+            if "method" in kargs:
+                self.__method = kargs["method"]
+                del kargs["method"]
+            else:
+                self.__method = None
+            Request.__init__(self, *args, **kargs)
+
+        def get_method(self):
+            if self.__method is not None:
+                return self.__method
+            else:
+                return Request.get_method(self)
+
 except ImportError:  # pragma: no cover
     # python3
     from urllib.parse import urljoin
@@ -26,6 +45,8 @@ except ImportError:  # pragma: no cover
         build_opener,
         Request,
     )
+
+    CustomRequest = Request
 
 from gocd.vendor.multidimensional_urlencode import urlencoder
 
@@ -241,14 +262,12 @@ class Server(object):
         default_headers.update(headers or {})
 
         data = self._inject_authenticity_token(data, path)
-        request = Request(
+        return CustomRequest(
             self._url(path),
             data=self._encode_data(data),  # None or False == GET request
-            headers=default_headers
+            headers=default_headers,
+            method=method,
         )
-        if method is not None:
-            request.get_method = lambda: method
-        return request
 
     def _encode_data(self, data):
         if isinstance(data, dict):
