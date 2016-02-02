@@ -1,4 +1,5 @@
 import json
+import re
 
 
 # TODO: Test this class explicitly, the implicit testing we got now
@@ -63,7 +64,8 @@ class Response(object):
         Returns:
           bool: True if `content_type` is `application/json`
         """
-        return self.content_type.startswith('application/json')
+        return (self.content_type.startswith('application/json') or
+                re.match(r'application/vnd.go.cd.v(\d+)\+json', self.content_type))
 
     def __bool__(self):
         # XXX
