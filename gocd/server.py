@@ -111,7 +111,7 @@ class Server(object):
         """
         return self.request(path, data=post_args or {})
 
-    def request(self, path, data=None, headers=None):
+    def request(self, path, data=None, headers=None, method=None):
         """Performs a HTTP request to the Go server
 
         Args:
@@ -131,7 +131,7 @@ class Server(object):
         """
         if isinstance(data, str):
             data = data.encode('utf-8')
-        response = urlopen(self._request(path, data=data, headers=headers))
+        response = urlopen(self._request(path, data=data, headers=headers, method=method))
         self._set_session_cookie(response)
 
         return response
@@ -234,18 +234,21 @@ class Server(object):
             HTTPSHandler(debuglevel=self.request_debug_level),
         ))
 
-    def _request(self, path, data=None, headers=None):
+    def _request(self, path, data=None, headers=None, method=None):
         default_headers = {'User-Agent': 'py-gocd'}
         if self._session_id:
             default_headers['Cookie'] = self._session_id
         default_headers.update(headers or {})
 
         data = self._inject_authenticity_token(data, path)
-        return Request(
+        request = Request(
             self._url(path),
             data=self._encode_data(data),  # None or False == GET request
             headers=default_headers
         )
+        if method is not None:
+            request.get_method = lambda: method
+        return request
 
     def _encode_data(self, data):
         if isinstance(data, dict):

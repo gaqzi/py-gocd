@@ -1,3 +1,4 @@
+import json
 from gocd.api.endpoint import Endpoint
 
 __all__ = ['PipelineConfig']
@@ -34,7 +35,7 @@ class PipelineConfig(Endpoint):
         """
         return self._get(self.name, headers={"Accept": "application/vnd.go.cd.v1+json"})
 
-    def edit(self, config):
+    def edit(self, config, etag):
         """Update pipeline config for specified pipeline name.
 
         .. __: https://api.go.cd/current/#edit-pipeline-config
@@ -43,10 +44,17 @@ class PipelineConfig(Endpoint):
           Response: :class:`gocd.api.response.Response` object
         """
 
+        data = self._json_encode(config)
+        headers = self._default_headers()
+
+        if etag is not None:
+            headers["If-Match"] = etag
+
         return self._request(self.name,
                              ok_status=None,
-                             data=config,
-                             headers={"Accept": "application/vnd.go.cd.v1+json"})
+                             data=data,
+                             headers=headers,
+                             method="PUT")
 
     def create(self, config):
         """Update pipeline config for specified pipeline name.
@@ -57,7 +65,18 @@ class PipelineConfig(Endpoint):
           Response: :class:`gocd.api.response.Response` object
         """
 
+        data = self._json_encode(config)
+        headers = self._default_headers()
+
         return self._request("",
                              ok_status=None,
-                             data=config,
-                             headers={"Accept": "application/vnd.go.cd.v1+json"})
+                             data=data,
+                             headers=headers)
+
+    def _default_headers(self):
+        return {"Accept": "application/vnd.go.cd.v1+json",
+                "Content-Type": "application/json"}
+
+    @staticmethod
+    def _json_encode(config):
+        return json.dumps(config)

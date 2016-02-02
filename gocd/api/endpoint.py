@@ -54,13 +54,14 @@ class Endpoint(object):
         return self._request(path, ok_status=ok_status, data=post_args or {}, headers=headers)
 
     # TODO: Add tests for adding headers
-    def _request(self, path, ok_status, data=None, headers=None):
+    def _request(self, path, ok_status, data=None, headers=None, method=None):
         try:
             return Response._from_request(
                 self.server.request(
                     self._join_path(path),
                     data=data,
-                    headers=headers
+                    headers=headers,
+                    method=method,
                 ),
                 ok_status=ok_status
             )
