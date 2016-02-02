@@ -4,7 +4,7 @@ __all__ = ['PipelineConfig']
 
 
 class PipelineConfig(Endpoint):
-    base_path = 'go/api/admin/pipelines/{id}'
+    base_path = 'go/api/admin/pipelines'
     id = 'name'
     #: The result of a job/stage has been finalised when these values are set
     final_results = ['Passed', 'Failed']
@@ -32,7 +32,7 @@ class PipelineConfig(Endpoint):
         Returns:
           Response: :class:`gocd.api.response.Response` object
         """
-        return self._get('')
+        return self._get(self.name, headers={"Accept": "application/vnd.go.cd.v1+json"})
 
     def edit(self, config):
         """Update pipeline config for specified pipeline name.
@@ -43,5 +43,21 @@ class PipelineConfig(Endpoint):
           Response: :class:`gocd.api.response.Response` object
         """
 
-        raise NotImplementedError()
-        return self._put('')
+        return self._request(self.name,
+                             ok_status=None,
+                             data=config,
+                             headers={"Accept": "application/vnd.go.cd.v1+json"})
+
+    def create(self, config):
+        """Update pipeline config for specified pipeline name.
+
+        .. __: https://api.go.cd/current/#edit-pipeline-config
+
+        Returns:
+          Response: :class:`gocd.api.response.Response` object
+        """
+
+        return self._request("",
+                             ok_status=None,
+                             data=config,
+                             headers={"Accept": "application/vnd.go.cd.v1+json"})
