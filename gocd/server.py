@@ -39,11 +39,6 @@ class AuthenticationFailed(Exception):
 
 
 class Server(object):
-    SESSION_COOKIE_NAME = 'JSESSIONID'
-
-    #: Sets the debug level for the urllib2 HTTP(s) handlers
-    request_debug_level = 0
-
     """Interacting with the Go server
 
     If user and password is supplied the client will try to login using
@@ -69,6 +64,8 @@ class Server(object):
       request_debug_level (int): Corresponds to the debug level in
         :mod:`httplib`, any non-zero value will enable debugging. Default: 0
     """
+    SESSION_COOKIE_NAME = 'JSESSIONID'
+
     _session_id = None
     _authenticity_token = None
 
