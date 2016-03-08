@@ -66,17 +66,19 @@ class Server(object):
         Example: http://go.example.com/
       user (str): The username to login as
       password (str): The password for this user
+      request_debug_level (int): Corresponds to the debug level in
+        :mod:`httplib`, any non-zero value will enable debugging. Default: 0
     """
     _session_id = None
     _authenticity_token = None
 
-    def __init__(self, host, user=None, password=None):
+    def __init__(self, host, user=None, password=None, request_debug_level=0):
         self.host = host
         self.user = user
         self.password = password
+        self.request_debug_level = request_debug_level
 
-        if self.user and self.password:
-            self._add_basic_auth()
+        self._install_opener()
 
     def get(self, path):
         """Performs a HTTP GET request to the Go server
@@ -208,21 +210,24 @@ class Server(object):
     def stage(self, pipeline_name, pipeline_counter, stage_name):
         return Stage(self, pipeline_name, pipeline_counter, stage_name)
 
-    def _add_basic_auth(self):
-        auth_handler = HTTPBasicAuthHandler(
-            HTTPPasswordMgrWithDefaultRealm()
-        )
-        auth_handler.add_password(
-            realm=None,
-            uri=self.host,
-            user=self.user,
-            passwd=self.password,
-        )
-        install_opener(build_opener(
-            auth_handler,
+    def _install_opener(self):
+        handlers = [
             HTTPHandler(debuglevel=self.request_debug_level),
             HTTPSHandler(debuglevel=self.request_debug_level),
-        ))
+        ]
+        if self.user and self.password:
+            auth_handler = HTTPBasicAuthHandler(
+                HTTPPasswordMgrWithDefaultRealm()
+            )
+            auth_handler.add_password(
+                realm=None,
+                uri=self.host,
+                user=self.user,
+                passwd=self.password,
+            )
+            handlers.append(auth_handler)
+
+        install_opener(build_opener(*handlers))
 
     def _request(self, path, data=None, headers=None):
         default_headers = {'User-Agent': 'py-gocd'}
