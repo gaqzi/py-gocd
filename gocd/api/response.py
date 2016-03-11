@@ -132,6 +132,10 @@ class Response(object):
 
         return None
 
+    @property
+    def etag(self):
+        return self.headers["ETag"]
+
     @classmethod
     def _from_request(cls, response, ok_status=None):
         return Response(
