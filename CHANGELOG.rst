@@ -2,6 +2,19 @@
 Change Log
 ==========
 
+`0.11.1`_ - 2016-XX-XX
+======================
+
+**Changed**
+
+* Fixes `Pipeline.pause()`_, `Pipeline.unpause()`_, `Pipeline.release()`_, `Pipeline.schedule()`_ and `Stage.cancel()`_ for Go CD 16.3.0.
+
+.. _Pipeline.pause(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Pipeline.pause
+.. _Pipeline.unpause(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Pipeline.unpause
+.. _Pipeline.release(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Pipeline.release
+.. _Pipeline.schedule(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Pipeline.schedule
+.. _Stage.cancel(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Stage.cancel
+
 `0.11.0`_ - 2016-02-02
 ======================
 
