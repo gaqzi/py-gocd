@@ -2,7 +2,7 @@
 Change Log
 ==========
 
-`0.11.1`_ - 2016-XX-XX
+`0.11.1`_ - 2016-04-19
 ======================
 
 **Changed**
@@ -12,7 +12,6 @@ Change Log
 .. _Pipeline.pause(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Pipeline.pause
 .. _Pipeline.unpause(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Pipeline.unpause
 .. _Pipeline.release(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Pipeline.release
-.. _Pipeline.schedule(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Pipeline.schedule
 .. _Stage.cancel(): http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.Stage.cancel
 
 `0.11.0`_ - 2016-02-02
@@ -132,6 +131,7 @@ Changed
 
 Nothing much to say here, initial public release. :)
 
+.. _`0.11.1`: https://github.com/gaqzi/py-gocd/compare/v0.11.0...v0.11.1
 .. _`0.11.0`: https://github.com/gaqzi/py-gocd/compare/v0.10.0...v0.11.0
 .. _`0.10.0`: https://github.com/gaqzi/py-gocd/compare/v0.9.0...v0.10.0
 .. _`0.9.0`: https://github.com/gaqzi/py-gocd/compare/v0.8.0...v0.9.0
