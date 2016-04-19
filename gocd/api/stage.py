@@ -32,7 +32,7 @@ class Stage(Endpoint):
         Returns:
           Response: :class:`gocd.api.response.Response` object
         """
-        return self._post('/cancel')
+        return self._post('/cancel', headers={"Confirm": True})
 
     def history(self, offset=0):
         """Lists previous instances/runs of the stage

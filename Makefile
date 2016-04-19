@@ -52,7 +52,7 @@ lint-rst:
 	rst-lint README.rst CHANGELOG.rst
 
 lint-pep8:
-	flake8 gocd tests
+	flake8 --ignore E402 gocd tests
 
 lint: lint-rst lint-pep8
 
