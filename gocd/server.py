@@ -274,6 +274,8 @@ class Server(object):
             return urlencoder.urlencode(data).encode('utf-8')
         elif isinstance(data, str):
             return data.encode('utf-8')
+        elif isinstance(data, bytes):
+            return data
         elif data is True:
             return ''.encode('utf-8')
         else:
