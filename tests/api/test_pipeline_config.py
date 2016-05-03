@@ -107,9 +107,10 @@ def test_get_missing(server):
 
 def test_edit_successful(server, pipeline_json):
     api_config = gocd.api.PipelineConfig(server, "PyGoCd")
-    pipeline_json["materials"][0]["attributes"]["url"] = "https://github.com/henriquegemignani/py-gocd.git"
+    pipeline_json["materials"][0][
+        "attributes"]["url"] = "https://github.com/henriquegemignani/py-gocd.git"
 
     response = api_config.get()
-    response = api_config.edit({}, response.etag)
+    response = api_config.edit(pipeline_json, response.etag)
 
     assert response.is_ok
