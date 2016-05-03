@@ -2,6 +2,17 @@
 Change Log
 ==========
 
+`0.12.0`_ - 2016-XX-XX
+======================
+
+**Added**
+
+* `PipelineConfig`_ API endpoint.
+
+  Added by `@henriquegemignani`_
+
+.. _PipelineConfig: http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.PipelineConfig
+
 `0.11.1`_ - 2016-04-19
 ======================
 
@@ -131,6 +142,7 @@ Changed
 
 Nothing much to say here, initial public release. :)
 
+.. _`0.12.0`: https://github.com/gaqzi/py-gocd/compare/v0.11.1...v0.12.0
 .. _`0.11.1`: https://github.com/gaqzi/py-gocd/compare/v0.11.0...v0.11.1
 .. _`0.11.0`: https://github.com/gaqzi/py-gocd/compare/v0.10.0...v0.11.0
 .. _`0.10.0`: https://github.com/gaqzi/py-gocd/compare/v0.9.0...v0.10.0
