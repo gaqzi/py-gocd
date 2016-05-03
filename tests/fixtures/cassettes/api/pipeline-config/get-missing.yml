@@ -1,0 +1,51 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Connection: [close]
+      Host: ['192.168.99.100:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://192.168.99.100:8153/go/api/admin/pipelines/MissingPipeline
+  response:
+    body: {string: !!python/unicode "{\n  \"message\": \"You are not authorized to
+        access this resource!\"\n}\n"}
+    headers:
+      connection: [close]
+      content-type: [application/vnd.go.cd.v1+json]
+      date: ['Tue, 03 May 2016 20:50:12 GMT']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=1ch2ary2jtzme1vikydy76acat;Path=/go;Expires=Tue, 17-May-2016
+          20:50:12 GMT']
+      www-authenticate: [Basic realm="GoCD"]
+    status: {code: 401, message: Unauthorized}
+- request:
+    body: null
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Authorization: [Basic Ym90OjEyMzQ1Njc4]
+      Connection: [close]
+      Host: ['192.168.99.100:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://192.168.99.100:8153/go/api/admin/pipelines/MissingPipeline
+  response:
+    body: {string: !!python/unicode "{\n  \"message\": \"Either the resource you requested
+        was not found, or you are not authorized to perform this action.\"\n}\n"}
+    headers:
+      cache-control: [no-cache]
+      connection: [close]
+      content-type: [application/vnd.go.cd.v1+json; charset=utf-8]
+      date: ['Tue, 03 May 2016 20:50:12 GMT']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=73o5qwcfi68oope8aqugogab;Path=/go;Expires=Tue, 17-May-2016
+          20:50:12 GMT']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [18710b11-0b32-4edf-b92a-4d2e4e84e10c]
+      x-runtime: ['0.016000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 404, message: Not Found}
+version: 1
