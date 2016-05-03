@@ -115,3 +115,13 @@ def test_edit_successful(server, pipeline_json):
     response = api_config.edit(pipeline_json, etag)
 
     assert response.is_ok
+
+
+@vcr.use_cassette('tests/fixtures/cassettes/api/pipeline-config/edit-error.yml')
+def test_edit_error(server, pipeline_json):
+    api_config = gocd.api.PipelineConfig(server, "PyGoCd")
+    etag = 'invalid etag'
+
+    response = api_config.edit(pipeline_json, etag)
+
+    assert not response.is_ok
