@@ -1,0 +1,78 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Connection: [close]
+      Host: ['192.168.99.100:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://192.168.99.100:8153/go/api/admin/pipelines/PyGoCd
+  response:
+    body: {string: !!python/unicode "{\n  \"message\": \"You are not authorized to
+        access this resource!\"\n}\n"}
+    headers:
+      connection: [close]
+      content-type: [application/vnd.go.cd.v1+json]
+      date: ['Tue, 03 May 2016 20:45:03 GMT']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=ns41r4cyxzod1nisgsy6uzbng;Path=/go;Expires=Tue, 17-May-2016
+          20:45:03 GMT']
+      www-authenticate: [Basic realm="GoCD"]
+    status: {code: 401, message: Unauthorized}
+- request:
+    body: null
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Authorization: [Basic Ym90OjEyMzQ1Njc4]
+      Connection: [close]
+      Host: ['192.168.99.100:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://192.168.99.100:8153/go/api/admin/pipelines/PyGoCd
+  response:
+    body: {string: !!python/unicode "{\n  \"_links\": {\n    \"self\": {\n      \"href\":
+        \"https://live.dev/go/api/admin/pipelines/PyGoCd\"\n    },\n    \"doc\": {\n
+        \     \"href\": \"http://api.go.cd/#pipeline_config\"\n    },\n    \"find\":
+        {\n      \"href\": \"https://live.dev/go/api/admin/pipelines/:pipeline_name\"\n
+        \   }\n  },\n  \"label_template\": \"${COUNT}\",\n  \"enable_pipeline_locking\":
+        false,\n  \"name\": \"PyGoCd\",\n  \"template\": null,\n  \"parameters\":
+        [\n\n  ],\n  \"environment_variables\": [\n\n  ],\n  \"materials\": [\n    {\n
+        \     \"type\": \"git\",\n      \"attributes\": {\n        \"url\": \"https://github.com/gaqzi/py-gocd.git\",\n
+        \       \"destination\": null,\n        \"filter\": null,\n        \"name\":
+        null,\n        \"auto_update\": true,\n        \"branch\": \"master\",\n        \"submodule_folder\":
+        null,\n        \"shallow_clone\": true\n      }\n    }\n  ],\n  \"stages\":
+        [\n    {\n      \"name\": \"defaultStage\",\n      \"fetch_materials\": true,\n
+        \     \"clean_working_directory\": false,\n      \"never_cleanup_artifacts\":
+        false,\n      \"approval\": {\n        \"type\": \"success\",\n        \"authorization\":
+        {\n          \"roles\": [\n\n          ],\n          \"users\": [\n\n          ]\n
+        \       }\n      },\n      \"environment_variables\": [\n\n      ],\n      \"jobs\":
+        [\n        {\n          \"name\": \"defaultJob\",\n          \"run_instance_count\":
+        null,\n          \"timeout\": null,\n          \"environment_variables\":
+        [\n\n          ],\n          \"resources\": [\n\n          ],\n          \"tasks\":
+        [\n            {\n              \"type\": \"exec\",\n              \"attributes\":
+        {\n                \"run_if\": [\n\n                ],\n                \"on_cancel\":
+        null,\n                \"command\": \"make\",\n                \"arguments\":
+        [\n                  \"pre-commit\"\n                ],\n                \"working_directory\":
+        null\n              }\n            }\n          ],\n          \"tabs\": [\n\n
+        \         ],\n          \"artifacts\": [\n\n          ],\n          \"properties\":
+        null\n        }\n      ]\n    }\n  ],\n  \"tracking_tool\": null,\n  \"timer\":
+        null\n}\n"}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [application/vnd.go.cd.v1+json; charset=utf-8]
+      date: ['Tue, 03 May 2016 20:45:03 GMT']
+      etag: ['"6b60a77d27312e3a21bfd59163db1e48"']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=zsrfc5u2eoqex0ggawozx31w;Path=/go;Expires=Tue, 17-May-2016
+          20:45:03 GMT']
+      vary: ['Accept-Encoding, User-Agent']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [ceeb35d8-ec19-43a5-bab4-74da7d3741c5]
+      x-runtime: ['0.048000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1
