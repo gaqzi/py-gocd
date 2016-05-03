@@ -65,6 +65,9 @@ class PipelineConfig(Endpoint):
           Response: :class:`gocd.api.response.Response` object
         """
 
+        assert config["name"] == self.name, "Given config is not for this pipeline"
+        assert "group" in config, "Given config has no group"
+
         data = self._json_encode(config)
         headers = self._default_headers()
 

@@ -125,3 +125,14 @@ def test_edit_error(server, pipeline_json):
     response = api_config.edit(pipeline_json, etag)
 
     assert not response.is_ok
+
+
+@vcr.use_cassette('tests/fixtures/cassettes/api/pipeline-config/create-successful.yml')
+def test_create_successful(server, pipeline_json):
+    api_config = gocd.api.PipelineConfig(server, "PyGoCd-Copy")
+    pipeline_json["name"] = "PyGoCd-Copy"
+    pipeline_json["group"] = "Tools"
+
+    response = api_config.create(pipeline_json)
+
+    assert response.is_ok
