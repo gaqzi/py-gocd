@@ -136,3 +136,13 @@ def test_create_successful(server, pipeline_json):
     response = api_config.create(pipeline_json)
 
     assert response.is_ok
+
+
+@vcr.use_cassette('tests/fixtures/cassettes/api/pipeline-config/create-error.yml')
+def test_create_error(server, pipeline_json):
+    api_config = gocd.api.PipelineConfig(server, "PyGoCd")
+    pipeline_json["group"] = "Tools"
+
+    response = api_config.create(pipeline_json)
+
+    assert not response.is_ok

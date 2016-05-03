@@ -1,0 +1,90 @@
+interactions:
+- request:
+    body: !!binary |
+      eyJlbnZpcm9ubWVudF92YXJpYWJsZXMiOiBbXSwgInN0YWdlcyI6IFt7ImVudmlyb25tZW50X3Zh
+      cmlhYmxlcyI6IFtdLCAiam9icyI6IFt7ImVudmlyb25tZW50X3ZhcmlhYmxlcyI6IFtdLCAicHJv
+      cGVydGllcyI6IG51bGwsICJ0aW1lb3V0IjogbnVsbCwgInRhc2tzIjogW3sidHlwZSI6ICJleGVj
+      IiwgImF0dHJpYnV0ZXMiOiB7InJ1bl9pZiI6IFtdLCAib25fY2FuY2VsIjogbnVsbCwgImFyZ3Vt
+      ZW50cyI6IFsicHJlLWNvbW1pdCJdLCAid29ya2luZ19kaXJlY3RvcnkiOiBudWxsLCAiY29tbWFu
+      ZCI6ICJtYWtlIn19XSwgInJlc291cmNlcyI6IFtdLCAibmFtZSI6ICJkZWZhdWx0Sm9iIiwgImFy
+      dGlmYWN0cyI6IFtdLCAicnVuX2luc3RhbmNlX2NvdW50IjogbnVsbCwgInRhYnMiOiBbXX1dLCAi
+      ZmV0Y2hfbWF0ZXJpYWxzIjogdHJ1ZSwgIm5hbWUiOiAiZGVmYXVsdFN0YWdlIiwgImFwcHJvdmFs
+      IjogeyJ0eXBlIjogInN1Y2Nlc3MiLCAiYXV0aG9yaXphdGlvbiI6IHsicm9sZXMiOiBbXSwgInVz
+      ZXJzIjogW119fSwgImNsZWFuX3dvcmtpbmdfZGlyZWN0b3J5IjogZmFsc2UsICJuZXZlcl9jbGVh
+      bnVwX2FydGlmYWN0cyI6IGZhbHNlfV0sICJlbmFibGVfcGlwZWxpbmVfbG9ja2luZyI6IGZhbHNl
+      LCAibGFiZWxfdGVtcGxhdGUiOiAiJHtDT1VOVH0iLCAibWF0ZXJpYWxzIjogW3sidHlwZSI6ICJn
+      aXQiLCAiYXR0cmlidXRlcyI6IHsiYXV0b191cGRhdGUiOiB0cnVlLCAic2hhbGxvd19jbG9uZSI6
+      IHRydWUsICJ1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tL2dhcXppL3B5LWdvY2QuZ2l0IiwgInN1
+      Ym1vZHVsZV9mb2xkZXIiOiBudWxsLCAiYnJhbmNoIjogIm1hc3RlciIsICJuYW1lIjogbnVsbCwg
+      ImZpbHRlciI6IG51bGwsICJkZXN0aW5hdGlvbiI6IG51bGx9fV0sICJ0cmFja2luZ190b29sIjog
+      bnVsbCwgInRlbXBsYXRlIjogbnVsbCwgIm5hbWUiOiAiUHlHb0NkIiwgInBhcmFtZXRlcnMiOiBb
+      XSwgImdyb3VwIjogIlRvb2xzIiwgInRpbWVyIjogbnVsbH0=
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Connection: [close]
+      Content-Length: ['1004']
+      Content-Type: [application/json]
+      Host: ['192.168.99.100:8153']
+      User-Agent: [py-gocd]
+    method: POST
+    uri: http://192.168.99.100:8153/go/api/admin/pipelines/
+  response:
+    body: {string: "{\n  \"message\": \"You are not authorized to access this resource!\"\n}\n"}
+    headers:
+      Connection: [close]
+      Content-Type: [application/vnd.go.cd.v1+json]
+      Date: ['Tue, 03 May 2016 23:28:22 GMT']
+      Expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      Set-Cookie: ['JSESSIONID=ui8w1cw7ewnekxrafusv1ocg;Path=/go;Expires=Tue, 17-May-2016
+          23:28:22 GMT']
+      WWW-Authenticate: [Basic realm="GoCD"]
+    status: {code: 401, message: Unauthorized}
+- request:
+    body: !!binary |
+      eyJlbnZpcm9ubWVudF92YXJpYWJsZXMiOiBbXSwgInN0YWdlcyI6IFt7ImVudmlyb25tZW50X3Zh
+      cmlhYmxlcyI6IFtdLCAiam9icyI6IFt7ImVudmlyb25tZW50X3ZhcmlhYmxlcyI6IFtdLCAicHJv
+      cGVydGllcyI6IG51bGwsICJ0aW1lb3V0IjogbnVsbCwgInRhc2tzIjogW3sidHlwZSI6ICJleGVj
+      IiwgImF0dHJpYnV0ZXMiOiB7InJ1bl9pZiI6IFtdLCAib25fY2FuY2VsIjogbnVsbCwgImFyZ3Vt
+      ZW50cyI6IFsicHJlLWNvbW1pdCJdLCAid29ya2luZ19kaXJlY3RvcnkiOiBudWxsLCAiY29tbWFu
+      ZCI6ICJtYWtlIn19XSwgInJlc291cmNlcyI6IFtdLCAibmFtZSI6ICJkZWZhdWx0Sm9iIiwgImFy
+      dGlmYWN0cyI6IFtdLCAicnVuX2luc3RhbmNlX2NvdW50IjogbnVsbCwgInRhYnMiOiBbXX1dLCAi
+      ZmV0Y2hfbWF0ZXJpYWxzIjogdHJ1ZSwgIm5hbWUiOiAiZGVmYXVsdFN0YWdlIiwgImFwcHJvdmFs
+      IjogeyJ0eXBlIjogInN1Y2Nlc3MiLCAiYXV0aG9yaXphdGlvbiI6IHsicm9sZXMiOiBbXSwgInVz
+      ZXJzIjogW119fSwgImNsZWFuX3dvcmtpbmdfZGlyZWN0b3J5IjogZmFsc2UsICJuZXZlcl9jbGVh
+      bnVwX2FydGlmYWN0cyI6IGZhbHNlfV0sICJlbmFibGVfcGlwZWxpbmVfbG9ja2luZyI6IGZhbHNl
+      LCAibGFiZWxfdGVtcGxhdGUiOiAiJHtDT1VOVH0iLCAibWF0ZXJpYWxzIjogW3sidHlwZSI6ICJn
+      aXQiLCAiYXR0cmlidXRlcyI6IHsiYXV0b191cGRhdGUiOiB0cnVlLCAic2hhbGxvd19jbG9uZSI6
+      IHRydWUsICJ1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tL2dhcXppL3B5LWdvY2QuZ2l0IiwgInN1
+      Ym1vZHVsZV9mb2xkZXIiOiBudWxsLCAiYnJhbmNoIjogIm1hc3RlciIsICJuYW1lIjogbnVsbCwg
+      ImZpbHRlciI6IG51bGwsICJkZXN0aW5hdGlvbiI6IG51bGx9fV0sICJ0cmFja2luZ190b29sIjog
+      bnVsbCwgInRlbXBsYXRlIjogbnVsbCwgIm5hbWUiOiAiUHlHb0NkIiwgInBhcmFtZXRlcnMiOiBb
+      XSwgImdyb3VwIjogIlRvb2xzIiwgInRpbWVyIjogbnVsbH0=
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Authorization: [Basic Ym90OjEyMzQ1Njc4]
+      Connection: [close]
+      Content-Length: ['1004']
+      Content-Type: [application/json]
+      Host: ['192.168.99.100:8153']
+      User-Agent: [py-gocd]
+    method: POST
+    uri: http://192.168.99.100:8153/go/api/admin/pipelines/
+  response:
+    body: {string: "{\n  \"message\": \"Failed to create pipeline 'PyGoCd' as another
+        pipeline by the same name already exists.\"\n}\n"}
+    headers:
+      Cache-Control: [no-cache]
+      Connection: [close]
+      Content-Type: [application/vnd.go.cd.v1+json; charset=utf-8]
+      Date: ['Tue, 03 May 2016 23:28:22 GMT']
+      Expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      Set-Cookie: ['JSESSIONID=mgoszcoj8wwgeqw6ihipf6lq;Path=/go;Expires=Tue, 17-May-2016
+          23:28:22 GMT']
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-Request-Id: [00a30246-e365-4479-bed9-a22c5979651b]
+      X-Runtime: ['0.015000']
+      X-UA-Compatible: [chrome=1]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 422, message: Unprocessable Entity}
+version: 1
