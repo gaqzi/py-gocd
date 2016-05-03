@@ -1,0 +1,118 @@
+interactions:
+- request:
+    body: !!binary |
+      eyJtYXRlcmlhbHMiOiBbeyJ0eXBlIjogImdpdCIsICJhdHRyaWJ1dGVzIjogeyJuYW1lIjogbnVs
+      bCwgInN1Ym1vZHVsZV9mb2xkZXIiOiBudWxsLCAiYXV0b191cGRhdGUiOiB0cnVlLCAiYnJhbmNo
+      IjogIm1hc3RlciIsICJ1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tL2hlbnJpcXVlZ2VtaWduYW5p
+      L3B5LWdvY2QuZ2l0IiwgImZpbHRlciI6IG51bGwsICJkZXN0aW5hdGlvbiI6IG51bGwsICJzaGFs
+      bG93X2Nsb25lIjogdHJ1ZX19XSwgInRlbXBsYXRlIjogbnVsbCwgImVuYWJsZV9waXBlbGluZV9s
+      b2NraW5nIjogZmFsc2UsICJsYWJlbF90ZW1wbGF0ZSI6ICIke0NPVU5UfSIsICJ0cmFja2luZ190
+      b29sIjogbnVsbCwgInN0YWdlcyI6IFt7Im5hbWUiOiAiZGVmYXVsdFN0YWdlIiwgImpvYnMiOiBb
+      eyJydW5faW5zdGFuY2VfY291bnQiOiBudWxsLCAibmFtZSI6ICJkZWZhdWx0Sm9iIiwgImVudmly
+      b25tZW50X3ZhcmlhYmxlcyI6IFtdLCAidGFicyI6IFtdLCAidGltZW91dCI6IG51bGwsICJwcm9w
+      ZXJ0aWVzIjogbnVsbCwgInRhc2tzIjogW3sidHlwZSI6ICJleGVjIiwgImF0dHJpYnV0ZXMiOiB7
+      InJ1bl9pZiI6IFtdLCAid29ya2luZ19kaXJlY3RvcnkiOiBudWxsLCAiY29tbWFuZCI6ICJtYWtl
+      IiwgImFyZ3VtZW50cyI6IFsicHJlLWNvbW1pdCJdLCAib25fY2FuY2VsIjogbnVsbH19XSwgInJl
+      c291cmNlcyI6IFtdLCAiYXJ0aWZhY3RzIjogW119XSwgIm5ldmVyX2NsZWFudXBfYXJ0aWZhY3Rz
+      IjogZmFsc2UsICJlbnZpcm9ubWVudF92YXJpYWJsZXMiOiBbXSwgImFwcHJvdmFsIjogeyJhdXRo
+      b3JpemF0aW9uIjogeyJ1c2VycyI6IFtdLCAicm9sZXMiOiBbXX0sICJ0eXBlIjogInN1Y2Nlc3Mi
+      fSwgImZldGNoX21hdGVyaWFscyI6IHRydWUsICJjbGVhbl93b3JraW5nX2RpcmVjdG9yeSI6IGZh
+      bHNlfV0sICJ0aW1lciI6IG51bGwsICJlbnZpcm9ubWVudF92YXJpYWJsZXMiOiBbXSwgIm5hbWUi
+      OiAiUHlHb0NkIiwgInBhcmFtZXRlcnMiOiBbXX0=
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Connection: [close]
+      Content-Length: ['998']
+      Content-Type: [application/json]
+      Host: ['192.168.99.100:8153']
+      If-Match: ['"6b60a77d27312e3a21bfd59163db1e48"']
+      User-Agent: [py-gocd]
+    method: PUT
+    uri: http://192.168.99.100:8153/go/api/admin/pipelines/PyGoCd
+  response:
+    body: {string: "{\n  \"message\": \"You are not authorized to access this resource!\"\n}\n"}
+    headers:
+      Connection: [close]
+      Content-Type: [application/vnd.go.cd.v1+json]
+      Date: ['Tue, 03 May 2016 23:11:08 GMT']
+      Expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      Set-Cookie: ['JSESSIONID=mhpup5wpf5011ofhult7iwzb8;Path=/go;Expires=Tue, 17-May-2016
+          23:11:08 GMT']
+      WWW-Authenticate: [Basic realm="GoCD"]
+    status: {code: 401, message: Unauthorized}
+- request:
+    body: !!binary |
+      eyJtYXRlcmlhbHMiOiBbeyJ0eXBlIjogImdpdCIsICJhdHRyaWJ1dGVzIjogeyJuYW1lIjogbnVs
+      bCwgInN1Ym1vZHVsZV9mb2xkZXIiOiBudWxsLCAiYXV0b191cGRhdGUiOiB0cnVlLCAiYnJhbmNo
+      IjogIm1hc3RlciIsICJ1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tL2hlbnJpcXVlZ2VtaWduYW5p
+      L3B5LWdvY2QuZ2l0IiwgImZpbHRlciI6IG51bGwsICJkZXN0aW5hdGlvbiI6IG51bGwsICJzaGFs
+      bG93X2Nsb25lIjogdHJ1ZX19XSwgInRlbXBsYXRlIjogbnVsbCwgImVuYWJsZV9waXBlbGluZV9s
+      b2NraW5nIjogZmFsc2UsICJsYWJlbF90ZW1wbGF0ZSI6ICIke0NPVU5UfSIsICJ0cmFja2luZ190
+      b29sIjogbnVsbCwgInN0YWdlcyI6IFt7Im5hbWUiOiAiZGVmYXVsdFN0YWdlIiwgImpvYnMiOiBb
+      eyJydW5faW5zdGFuY2VfY291bnQiOiBudWxsLCAibmFtZSI6ICJkZWZhdWx0Sm9iIiwgImVudmly
+      b25tZW50X3ZhcmlhYmxlcyI6IFtdLCAidGFicyI6IFtdLCAidGltZW91dCI6IG51bGwsICJwcm9w
+      ZXJ0aWVzIjogbnVsbCwgInRhc2tzIjogW3sidHlwZSI6ICJleGVjIiwgImF0dHJpYnV0ZXMiOiB7
+      InJ1bl9pZiI6IFtdLCAid29ya2luZ19kaXJlY3RvcnkiOiBudWxsLCAiY29tbWFuZCI6ICJtYWtl
+      IiwgImFyZ3VtZW50cyI6IFsicHJlLWNvbW1pdCJdLCAib25fY2FuY2VsIjogbnVsbH19XSwgInJl
+      c291cmNlcyI6IFtdLCAiYXJ0aWZhY3RzIjogW119XSwgIm5ldmVyX2NsZWFudXBfYXJ0aWZhY3Rz
+      IjogZmFsc2UsICJlbnZpcm9ubWVudF92YXJpYWJsZXMiOiBbXSwgImFwcHJvdmFsIjogeyJhdXRo
+      b3JpemF0aW9uIjogeyJ1c2VycyI6IFtdLCAicm9sZXMiOiBbXX0sICJ0eXBlIjogInN1Y2Nlc3Mi
+      fSwgImZldGNoX21hdGVyaWFscyI6IHRydWUsICJjbGVhbl93b3JraW5nX2RpcmVjdG9yeSI6IGZh
+      bHNlfV0sICJ0aW1lciI6IG51bGwsICJlbnZpcm9ubWVudF92YXJpYWJsZXMiOiBbXSwgIm5hbWUi
+      OiAiUHlHb0NkIiwgInBhcmFtZXRlcnMiOiBbXX0=
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Authorization: [Basic Ym90OjEyMzQ1Njc4]
+      Connection: [close]
+      Content-Length: ['998']
+      Content-Type: [application/json]
+      Host: ['192.168.99.100:8153']
+      If-Match: ['"6b60a77d27312e3a21bfd59163db1e48"']
+      User-Agent: [py-gocd]
+    method: PUT
+    uri: http://192.168.99.100:8153/go/api/admin/pipelines/PyGoCd
+  response:
+    body: {string: "{\n  \"_links\": {\n    \"self\": {\n      \"href\": \"https://live.dev/go/api/admin/pipelines/PyGoCd\"\n
+        \   },\n    \"doc\": {\n      \"href\": \"http://api.go.cd/#pipeline_config\"\n
+        \   },\n    \"find\": {\n      \"href\": \"https://live.dev/go/api/admin/pipelines/:pipeline_name\"\n
+        \   }\n  },\n  \"label_template\": \"${COUNT}\",\n  \"enable_pipeline_locking\":
+        false,\n  \"name\": \"PyGoCd\",\n  \"template\": null,\n  \"parameters\":
+        [\n\n  ],\n  \"environment_variables\": [\n\n  ],\n  \"materials\": [\n    {\n
+        \     \"type\": \"git\",\n      \"attributes\": {\n        \"url\": \"https://github.com/henriquegemignani/py-gocd.git\",\n
+        \       \"destination\": null,\n        \"filter\": null,\n        \"name\":
+        null,\n        \"auto_update\": true,\n        \"branch\": \"master\",\n        \"submodule_folder\":
+        null,\n        \"shallow_clone\": true\n      }\n    }\n  ],\n  \"stages\":
+        [\n    {\n      \"name\": \"defaultStage\",\n      \"fetch_materials\": true,\n
+        \     \"clean_working_directory\": false,\n      \"never_cleanup_artifacts\":
+        false,\n      \"approval\": {\n        \"type\": \"success\",\n        \"authorization\":
+        {\n          \"roles\": [\n\n          ],\n          \"users\": [\n\n          ]\n
+        \       }\n      },\n      \"environment_variables\": [\n\n      ],\n      \"jobs\":
+        [\n        {\n          \"name\": \"defaultJob\",\n          \"run_instance_count\":
+        null,\n          \"timeout\": null,\n          \"environment_variables\":
+        [\n\n          ],\n          \"resources\": [\n\n          ],\n          \"tasks\":
+        [\n            {\n              \"type\": \"exec\",\n              \"attributes\":
+        {\n                \"run_if\": [\n\n                ],\n                \"on_cancel\":
+        null,\n                \"command\": \"make\",\n                \"arguments\":
+        [\n                  \"pre-commit\"\n                ],\n                \"working_directory\":
+        null\n              }\n            }\n          ],\n          \"tabs\": [\n\n
+        \         ],\n          \"artifacts\": [\n\n          ],\n          \"properties\":
+        null\n        }\n      ]\n    }\n  ],\n  \"tracking_tool\": null,\n  \"timer\":
+        null\n}\n"}
+    headers:
+      Cache-Control: ['max-age=0, private, must-revalidate']
+      Connection: [close]
+      Content-Type: [application/vnd.go.cd.v1+json; charset=utf-8]
+      Date: ['Tue, 03 May 2016 23:11:08 GMT']
+      ETag: ['"d5063b57d52e43903c87daf171332d0f"']
+      Expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      Set-Cookie: ['JSESSIONID=wk53nkg5t1491uzh9j20wb78f;Path=/go;Expires=Tue, 17-May-2016
+          23:11:08 GMT']
+      Vary: ['Accept-Encoding, User-Agent']
+      X-Content-Type-Options: [nosniff]
+      X-Frame-Options: [SAMEORIGIN]
+      X-Request-Id: [f89fd159-12e5-40d7-90d6-0c24cf7a90e0]
+      X-Runtime: ['0.140000']
+      X-UA-Compatible: [chrome=1]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1

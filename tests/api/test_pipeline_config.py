@@ -105,12 +105,13 @@ def test_get_missing(server):
     assert not response.is_ok
 
 
+@vcr.use_cassette('tests/fixtures/cassettes/api/pipeline-config/edit-successful.yml')
 def test_edit_successful(server, pipeline_json):
     api_config = gocd.api.PipelineConfig(server, "PyGoCd")
+    etag = '"6b60a77d27312e3a21bfd59163db1e48"'
     pipeline_json["materials"][0][
         "attributes"]["url"] = "https://github.com/henriquegemignani/py-gocd.git"
 
-    response = api_config.get()
-    response = api_config.edit(pipeline_json, response.etag)
+    response = api_config.edit(pipeline_json, etag)
 
     assert response.is_ok
