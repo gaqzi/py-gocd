@@ -2,6 +2,15 @@
 Change Log
 ==========
 
+`0.13.0`_ - 2016-09-30
+======================
+
+**Changed**
+
+* `PipelineConfig`_ now receives an API version, currently defaulting to v2.
+
+  Added by `@henriquegemignani`_
+
 `0.12.1`_ - 2016-06-03
 ======================
 
@@ -152,6 +161,7 @@ Changed
 
 Nothing much to say here, initial public release. :)
 
+.. _`0.13.0`: https://github.com/gaqzi/py-gocd/compare/v0.12.1...v0.13.0
 .. _`0.12.1`: https://github.com/gaqzi/py-gocd/compare/v0.12.0...v0.12.1
 .. _`0.12.0`: https://github.com/gaqzi/py-gocd/compare/v0.11.1...v0.12.0
 .. _`0.11.1`: https://github.com/gaqzi/py-gocd/compare/v0.11.0...v0.11.1
