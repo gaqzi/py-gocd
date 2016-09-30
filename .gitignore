@@ -8,3 +8,5 @@ dist
 docs/_build
 .cache
 .DS_Store
+/venv
+/.idea

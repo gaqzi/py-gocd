@@ -10,7 +10,7 @@ class PipelineConfig(Endpoint):
     #: The result of a job/stage has been finalised when these values are set
     final_results = ['Passed', 'Failed']
 
-    def __init__(self, server, name):
+    def __init__(self, server, name, api_version=2):
         """A wrapper for the `Go pipeline config API`__
 
         .. __: https://api.go.cd/current/#pipeline-config
@@ -22,6 +22,7 @@ class PipelineConfig(Endpoint):
         """
         self.server = server
         self.name = name
+        self.api_version = api_version
 
     def get(self):
         """Gets pipeline config for specified pipeline name.
@@ -33,7 +34,7 @@ class PipelineConfig(Endpoint):
         Returns:
           Response: :class:`gocd.api.response.Response` object
         """
-        return self._get(self.name, headers={"Accept": "application/vnd.go.cd.v1+json"})
+        return self._get(self.name, headers={"Accept": self._accept_header_value})
 
     def edit(self, config, etag):
         """Update pipeline config for specified pipeline name.
@@ -77,8 +78,12 @@ class PipelineConfig(Endpoint):
                              headers=headers)
 
     def _default_headers(self):
-        return {"Accept": "application/vnd.go.cd.v1+json",
+        return {"Accept": self._accept_header_value,
                 "Content-Type": "application/json"}
+
+    @property
+    def _accept_header_value(self):
+        return "application/vnd.go.cd.v{0}+json".format(self.api_version)
 
     @staticmethod
     def _json_encode(config):
