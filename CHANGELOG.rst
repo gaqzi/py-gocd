@@ -2,6 +2,18 @@
 Change Log
 ==========
 
+`0.14.0`_ - 2016-10-13
+======================
+
+**Added**
+
+* `PluggableSCM`_ API endpoint.
+
+  Added by `@rogerioyuuki`_
+
+.. _PluggableSCM: http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.PluggableSCM
+.. _@rogerioyuuki: https://github.com/rogerioyuuki
+
 `0.13.0`_ - 2016-09-30
 ======================
 
@@ -161,6 +173,7 @@ Changed
 
 Nothing much to say here, initial public release. :)
 
+.. _`0.14.0`: https://github.com/gaqzi/py-gocd/compare/v0.13.0...v0.14.0
 .. _`0.13.0`: https://github.com/gaqzi/py-gocd/compare/v0.12.1...v0.13.0
 .. _`0.12.1`: https://github.com/gaqzi/py-gocd/compare/v0.12.0...v0.12.1
 .. _`0.12.0`: https://github.com/gaqzi/py-gocd/compare/v0.11.1...v0.12.0
