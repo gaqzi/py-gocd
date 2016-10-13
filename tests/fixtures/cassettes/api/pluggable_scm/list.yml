@@ -1,0 +1,80 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Connection: [close]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/api/admin/scms/
+  response:
+    body: {string: !!python/unicode "{\n  \"message\": \"You are not authorized to
+        access this resource!\"\n}\n"}
+    headers:
+      connection: [close]
+      content-type: [application/vnd.go.cd.v1+json]
+      date: ['Thu, 13 Oct 2016 18:53:33 GMT']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=1mdu17ci2u61vh4x7jt250lp1;Path=/go;Expires=Thu, 27-Oct-2016
+          18:53:33 GMT;HttpOnly']
+      www-authenticate: [Basic realm="GoCD"]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 401, message: Unauthorized}
+- request:
+    body: null
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Authorization: [Basic Ym90OjEyMzQ1Njc4]
+      Connection: [close]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/api/admin/scms/
+  response:
+    body: {string: !!python/unicode "{\n  \"_links\": {\n    \"self\": {\n      \"href\":
+        \"http://localhost:8153/go/api/admin/scms\"\n    },\n    \"doc\": {\n      \"href\":
+        \"https://api.go.cd/#scms\"\n    }\n  },\n  \"_embedded\": {\n    \"scms\":
+        [\n      {\n        \"_links\": {\n          \"self\": {\n            \"href\":
+        \"http://localhost/go/api/admin/scms/SCM-NAME\"\n          },\n          \"doc\":
+        {\n            \"href\": \"https://api.go.cd/#scms\"\n          },\n          \"find\":
+        {\n            \"href\": \"http://localhost/go/api/admin/scms/:material_name\"\n
+        \         }\n        },\n        \"id\": \"5fcdd3bd-8dfa-4ae2-8455-3f8eaa644d9e\",\n
+        \       \"name\": \"SCM-NAME\",\n        \"plugin_metadata\": {\n          \"id\":
+        \"gocd.scm.material\",\n          \"version\": \"1\"\n        }\n      },\n
+        \     {\n        \"_links\": {\n          \"self\": {\n            \"href\":
+        \"http://localhost/go/api/admin/scms/ABC\"\n          },\n          \"doc\":
+        {\n            \"href\": \"https://api.go.cd/#scms\"\n          },\n          \"find\":
+        {\n            \"href\": \"http://localhost/go/api/admin/scms/:material_name\"\n
+        \         }\n        },\n        \"id\": \"c1a4fbcf-fb9d-4cd2-a7b8-4570603f66d5\",\n
+        \       \"name\": \"ABC\",\n        \"plugin_metadata\": {\n          \"id\":
+        \"gocd.scm.material\",\n          \"version\": \"1\"\n        }\n      },\n
+        \     {\n        \"_links\": {\n          \"self\": {\n            \"href\":
+        \"http://localhost/go/api/admin/scms/foobar\"\n          },\n          \"doc\":
+        {\n            \"href\": \"https://api.go.cd/#scms\"\n          },\n          \"find\":
+        {\n            \"href\": \"http://localhost/go/api/admin/scms/:material_name\"\n
+        \         }\n        },\n        \"id\": \"8c9a502a-67e0-41c5-8bbe-53c901055ac9\",\n
+        \       \"name\": \"foobar\",\n        \"plugin_metadata\": {\n          \"id\":
+        \"gocd.scm.material\",\n          \"version\": \"1\"\n        }\n      }\n
+        \   ]\n  }\n}\n"}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [application/vnd.go.cd.v1+json; charset=utf-8]
+      date: ['Thu, 13 Oct 2016 18:53:33 GMT']
+      etag: ['"a771e3900400847abd70f1a5be372ada"']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=17yao6tma219e8cizu9nhr0qm;Path=/go;Expires=Thu, 27-Oct-2016
+          18:53:33 GMT;HttpOnly']
+      vary: ['Accept-Encoding, User-Agent']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [a8837c02-2140-4688-bcf7-74e537987a17]
+      x-runtime: ['0.043000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1

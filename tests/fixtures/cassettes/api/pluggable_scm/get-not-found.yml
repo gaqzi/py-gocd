@@ -1,0 +1,55 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Connection: [close]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/api/admin/scms/abcd-invalid
+  response:
+    body: {string: !!python/unicode "{\n  \"message\": \"You are not authorized to
+        access this resource!\"\n}\n"}
+    headers:
+      connection: [close]
+      content-type: [application/vnd.go.cd.v1+json]
+      date: ['Thu, 13 Oct 2016 18:53:33 GMT']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=p42w4a9lcduw4zizoepexpwp;Path=/go;Expires=Thu, 27-Oct-2016
+          18:53:33 GMT;HttpOnly']
+      www-authenticate: [Basic realm="GoCD"]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 401, message: Unauthorized}
+- request:
+    body: null
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Authorization: [Basic Ym90OjEyMzQ1Njc4]
+      Connection: [close]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/api/admin/scms/abcd-invalid
+  response:
+    body: {string: !!python/unicode "{\n  \"message\": \"Either the resource you requested
+        was not found, or you are not authorized to perform this action.\"\n}\n"}
+    headers:
+      cache-control: [no-cache]
+      connection: [close]
+      content-type: [application/vnd.go.cd.v1+json; charset=utf-8]
+      date: ['Thu, 13 Oct 2016 18:53:33 GMT']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=jrtq0aw89dmlag6a9tj1105o;Path=/go;Expires=Thu, 27-Oct-2016
+          18:53:33 GMT;HttpOnly']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [64dcc8e9-3250-43a5-85af-3959e92da663]
+      x-runtime: ['0.014000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 404, message: Not Found}
+version: 1
