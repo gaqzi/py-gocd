@@ -1,0 +1,64 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Connection: [close]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/api/admin/scms/SCM-NAME
+  response:
+    body: {string: !!python/unicode "{\n  \"message\": \"You are not authorized to
+        access this resource!\"\n}\n"}
+    headers:
+      connection: [close]
+      content-type: [application/vnd.go.cd.v1+json]
+      date: ['Thu, 13 Oct 2016 18:53:33 GMT']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=yswhb3zslapl1nks6mqvy64iy;Path=/go;Expires=Thu, 27-Oct-2016
+          18:53:33 GMT;HttpOnly']
+      www-authenticate: [Basic realm="GoCD"]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 401, message: Unauthorized}
+- request:
+    body: null
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Authorization: [Basic Ym90OjEyMzQ1Njc4]
+      Connection: [close]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/api/admin/scms/SCM-NAME
+  response:
+    body: {string: !!python/unicode "{\n  \"_links\": {\n    \"self\": {\n      \"href\":
+        \"http://localhost/go/api/admin/scms/SCM-NAME\"\n    },\n    \"doc\": {\n      \"href\":
+        \"https://api.go.cd/#scms\"\n    },\n    \"find\": {\n      \"href\": \"http://localhost/go/api/admin/scms/:material_name\"\n
+        \   }\n  },\n  \"id\": \"5fcdd3bd-8dfa-4ae2-8455-3f8eaa644d9e\",\n  \"name\":
+        \"SCM-NAME\",\n  \"plugin_metadata\": {\n    \"id\": \"gocd.scm.material\",\n
+        \   \"version\": \"1\"\n  },\n  \"auto_update\": true,\n  \"configuration\":
+        [\n    {\n      \"key\": \"BASE_URL\",\n      \"value\": \"https://localhost\"\n
+        \   },\n    {\n      \"key\": \"APP_NAME\",\n      \"value\": \"Test\"\n    },\n
+        \   {\n      \"key\": \"name\",\n      \"value\": \"SCM-NAME\"\n    }\n  ]\n}\n"}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [application/vnd.go.cd.v1+json; charset=utf-8]
+      date: ['Thu, 13 Oct 2016 18:53:33 GMT']
+      etag: ['"5015e6a3cf71909bf26b59486791c2e1"']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=1tbcpbig3jjajkk0k941on2mh;Path=/go;Expires=Thu, 27-Oct-2016
+          18:53:33 GMT;HttpOnly']
+      vary: ['Accept-Encoding, User-Agent']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [baac7d7b-ab5a-482b-a48b-4f9f36cb962b]
+      x-runtime: ['0.015000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1

@@ -1,0 +1,75 @@
+interactions:
+- request:
+    body: !!python/unicode '{"auto_update": true, "configuration": [{"value": "https://localhost",
+      "key": "BASE_URL"}, {"value": "Foobar", "key": "APP_NAME"}, {"value": "foobar",
+      "key": "name"}], "plugin_metadata": {"version": "1", "id": "gocd.scm.material"},
+      "id": "8c9a502a-67e0-41c5-8bbe-53c901055ac9", "name": "foobar"}'
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Connection: [close]
+      Content-Length: ['294']
+      Content-Type: [application/json]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: POST
+    uri: http://localhost:8153/go/api/admin/scms/
+  response:
+    body: {string: !!python/unicode "{\n  \"message\": \"You are not authorized to
+        access this resource!\"\n}\n"}
+    headers:
+      connection: [close]
+      content-type: [application/vnd.go.cd.v1+json]
+      date: ['Thu, 13 Oct 2016 19:08:32 GMT']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=18p4hsfnikbvpzg0rlm95bto9;Path=/go;Expires=Thu, 27-Oct-2016
+          19:08:32 GMT;HttpOnly']
+      www-authenticate: [Basic realm="GoCD"]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 401, message: Unauthorized}
+- request:
+    body: !!python/unicode '{"auto_update": true, "configuration": [{"value": "https://localhost",
+      "key": "BASE_URL"}, {"value": "Foobar", "key": "APP_NAME"}, {"value": "foobar",
+      "key": "name"}], "plugin_metadata": {"version": "1", "id": "gocd.scm.material"},
+      "id": "8c9a502a-67e0-41c5-8bbe-53c901055ac9", "name": "foobar"}'
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Authorization: [Basic Ym90OjEyMzQ1Njc4]
+      Connection: [close]
+      Content-Length: ['294']
+      Content-Type: [application/json]
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: POST
+    uri: http://localhost:8153/go/api/admin/scms/
+  response:
+    body: {string: !!python/unicode "{\n  \"_links\": {\n    \"self\": {\n      \"href\":
+        \"http://localhost/go/api/admin/scms/foobar\"\n    },\n    \"doc\": {\n      \"href\":
+        \"https://api.go.cd/#scms\"\n    },\n    \"find\": {\n      \"href\": \"http://localhost/go/api/admin/scms/:material_name\"\n
+        \   }\n  },\n  \"id\": \"8c9a502a-67e0-41c5-8bbe-53c901055ac9\",\n  \"name\":
+        \"foobar\",\n  \"plugin_metadata\": {\n    \"id\": \"gocd.scm.material\",\n
+        \   \"version\": \"1\"\n  },\n  \"auto_update\": true,\n  \"configuration\":
+        [\n    {\n      \"key\": \"BASE_URL\",\n      \"value\": \"https://localhost\"\n
+        \   },\n    {\n      \"key\": \"APP_NAME\",\n      \"value\": \"Foobar\"\n
+        \   },\n    {\n      \"key\": \"name\",\n      \"value\": \"foobar\"\n    }\n
+        \ ]\n}\n"}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [application/vnd.go.cd.v1+json; charset=utf-8]
+      date: ['Thu, 13 Oct 2016 19:08:32 GMT']
+      etag: ['"483ba431cc141323e3c7c00c944d4878"']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=sdvtbv26wgm91lxke7xj0144c;Path=/go;Expires=Thu, 27-Oct-2016
+          19:08:32 GMT;HttpOnly']
+      vary: ['Accept-Encoding, User-Agent']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [0f774965-b872-41ba-a483-2f8b9efe68b3]
+      x-runtime: ['0.192000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1
