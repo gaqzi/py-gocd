@@ -1,0 +1,67 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: [application/vnd.go.cd.v2+json]
+      Connection: [close]
+      Host: ['127.0.0.1:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://127.0.0.1:8153/go/api/admin/templates/MyTemplate
+  response:
+    body: {string: !!python/unicode "{\n  \"_links\": {\n    \"self\": {\n      \"href\":
+        \"http://127.0.0.1:8153/go/api/admin/templates/MyTemplate\"\n    },\n    \"doc\":
+        {\n      \"href\": \"https://api.go.cd/#template-config\"\n    },\n    \"find\":
+        {\n      \"href\": \"http://127.0.0.1:8153/go/api/admin/templates/:template_name\"\n
+        \   }\n  },\n  \"name\": \"MyTemplate\",\n  \"stages\": [\n    {\n      \"name\":
+        \"defaultStage\",\n      \"fetch_materials\": true,\n      \"clean_working_directory\":
+        false,\n      \"never_cleanup_artifacts\": false,\n      \"approval\": {\n
+        \       \"type\": \"success\",\n        \"authorization\": {\n          \"roles\":
+        [\n\n          ],\n          \"users\": [\n\n          ]\n        }\n      },\n
+        \     \"environment_variables\": [\n\n      ],\n      \"jobs\": [\n        {\n
+        \         \"name\": \"defaultJob\",\n          \"run_instance_count\": null,\n
+        \         \"timeout\": null,\n          \"environment_variables\": [\n\n          ],\n
+        \         \"resources\": [\n            \"resource1\"\n          ],\n          \"tasks\":
+        [\n            {\n              \"type\": \"exec\",\n              \"attributes\":
+        {\n                \"run_if\": [\n                  \"passed\"\n                ],\n
+        \               \"on_cancel\": null,\n                \"command\": \"/bin/bash\",\n
+        \               \"arguments\": [\n                  \"-c\",\n                  \"echo
+        i am a default job\"\n                ],\n                \"working_directory\":
+        null\n              }\n            }\n          ],\n          \"tabs\": [\n\n
+        \         ],\n          \"artifacts\": [\n\n          ],\n          \"properties\":
+        null\n        }\n      ]\n    },\n    {\n      \"name\": \"PostStage\",\n
+        \     \"fetch_materials\": true,\n      \"clean_working_directory\": false,\n
+        \     \"never_cleanup_artifacts\": false,\n      \"approval\": {\n        \"type\":
+        \"success\",\n        \"authorization\": {\n          \"roles\": [\n\n          ],\n
+        \         \"users\": [\n\n          ]\n        }\n      },\n      \"environment_variables\":
+        [\n        {\n          \"secure\": false,\n          \"name\": \"ENV_VAR1\",\n
+        \         \"value\": \"value1\"\n        }\n      ],\n      \"jobs\": [\n
+        \       {\n          \"name\": \"PostJob\",\n          \"run_instance_count\":
+        null,\n          \"timeout\": null,\n          \"environment_variables\":
+        [\n\n          ],\n          \"resources\": [\n\n          ],\n          \"tasks\":
+        [\n            {\n              \"type\": \"exec\",\n              \"attributes\":
+        {\n                \"run_if\": [\n\n                ],\n                \"on_cancel\":
+        null,\n                \"command\": \"/bin/bash\",\n                \"arguments\":
+        [\n                  \"-c\",\n                  \"echo i am a post job\"\n
+        \               ],\n                \"working_directory\": null\n              }\n
+        \           }\n          ],\n          \"tabs\": [\n\n          ],\n          \"artifacts\":
+        [\n\n          ],\n          \"properties\": null\n        }\n      ]\n    }\n
+        \ ]\n}\n"}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [application/vnd.go.cd.v2+json; charset=utf-8]
+      date: ['Mon, 21 Nov 2016 15:01:34 GMT']
+      etag: ['"daee15ed82d2286d7a5956a6c88f5069"']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=rv5qvgujk7084izgh5xeeaer;Path=/go;Expires=Mon, 05-Dec-2016
+          15:01:34 GMT;HttpOnly']
+      vary: ['Accept-Encoding, User-Agent']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [ce0f3ebe-c57c-4008-b995-e74431e27a4e]
+      x-runtime: ['0.221000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1

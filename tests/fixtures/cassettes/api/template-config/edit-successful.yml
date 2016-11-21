@@ -1,0 +1,87 @@
+interactions:
+- request:
+    body: !!python/unicode '{"stages": [{"approval": {"type": "success", "authorization":
+      {"users": [], "roles": []}}, "clean_working_directory": false, "name": "defaultStage",
+      "never_cleanup_artifacts": false, "jobs": [{"name": "defaultJob", "resources":
+      ["resource1"], "run_instance_count": null, "tabs": [], "artifacts": [], "tasks":
+      [{"type": "exec", "attributes": {"on_cancel": null, "working_directory": null,
+      "run_if": ["passed"], "command": "/bin/bash", "arguments": ["-c", "echo i am
+      a default job"]}}], "timeout": null, "properties": null, "environment_variables":
+      []}], "fetch_materials": true, "environment_variables": [{"secure": false, "name":
+      "NEW_VAR", "value": "NEW_VALUE"}]}, {"approval": {"type": "success", "authorization":
+      {"users": [], "roles": []}}, "clean_working_directory": false, "name": "PostStage",
+      "never_cleanup_artifacts": false, "jobs": [{"name": "PostJob", "resources":
+      [], "run_instance_count": null, "tabs": [], "artifacts": [], "tasks": [{"type":
+      "exec", "attributes": {"on_cancel": null, "working_directory": null, "run_if":
+      [], "command": "/bin/bash", "arguments": ["-c", "echo i am a post job"]}}],
+      "timeout": null, "properties": null, "environment_variables": []}], "fetch_materials":
+      true, "environment_variables": [{"secure": false, "name": "ENV_VAR1", "value":
+      "value1"}]}], "name": "MyTemplate"}'
+    headers:
+      Accept: [application/vnd.go.cd.v2+json]
+      Connection: [close]
+      Content-Length: ['1312']
+      Content-Type: [application/json]
+      Host: ['127.0.0.1:8153']
+      If-Match: ['"daee15ed82d2286d7a5956a6c88f5069"']
+      User-Agent: [py-gocd]
+    method: PUT
+    uri: http://127.0.0.1:8153/go/api/admin/templates/MyTemplate
+  response:
+    body: {string: !!python/unicode "{\n  \"_links\": {\n    \"self\": {\n      \"href\":
+        \"http://127.0.0.1:8153/go/api/admin/templates/MyTemplate\"\n    },\n    \"doc\":
+        {\n      \"href\": \"https://api.go.cd/#template-config\"\n    },\n    \"find\":
+        {\n      \"href\": \"http://127.0.0.1:8153/go/api/admin/templates/:template_name\"\n
+        \   }\n  },\n  \"name\": \"MyTemplate\",\n  \"stages\": [\n    {\n      \"name\":
+        \"defaultStage\",\n      \"fetch_materials\": true,\n      \"clean_working_directory\":
+        false,\n      \"never_cleanup_artifacts\": false,\n      \"approval\": {\n
+        \       \"type\": \"success\",\n        \"authorization\": {\n          \"roles\":
+        [\n\n          ],\n          \"users\": [\n\n          ]\n        }\n      },\n
+        \     \"environment_variables\": [\n        {\n          \"secure\": false,\n
+        \         \"name\": \"NEW_VAR\",\n          \"value\": \"NEW_VALUE\"\n        }\n
+        \     ],\n      \"jobs\": [\n        {\n          \"name\": \"defaultJob\",\n
+        \         \"run_instance_count\": null,\n          \"timeout\": null,\n          \"environment_variables\":
+        [\n\n          ],\n          \"resources\": [\n            \"resource1\"\n
+        \         ],\n          \"tasks\": [\n            {\n              \"type\":
+        \"exec\",\n              \"attributes\": {\n                \"run_if\": [\n
+        \                 \"passed\"\n                ],\n                \"on_cancel\":
+        null,\n                \"command\": \"/bin/bash\",\n                \"arguments\":
+        [\n                  \"-c\",\n                  \"echo i am a default job\"\n
+        \               ],\n                \"working_directory\": null\n              }\n
+        \           }\n          ],\n          \"tabs\": [\n\n          ],\n          \"artifacts\":
+        [\n\n          ],\n          \"properties\": null\n        }\n      ]\n    },\n
+        \   {\n      \"name\": \"PostStage\",\n      \"fetch_materials\": true,\n
+        \     \"clean_working_directory\": false,\n      \"never_cleanup_artifacts\":
+        false,\n      \"approval\": {\n        \"type\": \"success\",\n        \"authorization\":
+        {\n          \"roles\": [\n\n          ],\n          \"users\": [\n\n          ]\n
+        \       }\n      },\n      \"environment_variables\": [\n        {\n          \"secure\":
+        false,\n          \"name\": \"ENV_VAR1\",\n          \"value\": \"value1\"\n
+        \       }\n      ],\n      \"jobs\": [\n        {\n          \"name\": \"PostJob\",\n
+        \         \"run_instance_count\": null,\n          \"timeout\": null,\n          \"environment_variables\":
+        [\n\n          ],\n          \"resources\": [\n\n          ],\n          \"tasks\":
+        [\n            {\n              \"type\": \"exec\",\n              \"attributes\":
+        {\n                \"run_if\": [\n\n                ],\n                \"on_cancel\":
+        null,\n                \"command\": \"/bin/bash\",\n                \"arguments\":
+        [\n                  \"-c\",\n                  \"echo i am a post job\"\n
+        \               ],\n                \"working_directory\": null\n              }\n
+        \           }\n          ],\n          \"tabs\": [\n\n          ],\n          \"artifacts\":
+        [\n\n          ],\n          \"properties\": null\n        }\n      ]\n    }\n
+        \ ]\n}\n"}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [application/vnd.go.cd.v2+json; charset=utf-8]
+      date: ['Mon, 21 Nov 2016 15:17:47 GMT']
+      etag: ['"fac2d22ead12819eb10fe0763b0ff534"']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=xyywpvto9u7i1i33selk6kbvo;Path=/go;Expires=Mon, 05-Dec-2016
+          15:17:47 GMT;HttpOnly']
+      vary: ['Accept-Encoding, User-Agent']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [2322b0cf-345d-4393-be4f-60141c3567e6]
+      x-runtime: ['0.368000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1

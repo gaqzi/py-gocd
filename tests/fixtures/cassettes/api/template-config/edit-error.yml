@@ -1,0 +1,48 @@
+interactions:
+- request:
+    body: !!python/unicode '{"stages": [{"clean_working_directory": false, "name":
+      "defaultStage", "environment_variables": [], "jobs": [{"artifacts": [], "tabs":
+      [], "tasks": [{"type": "exec", "attributes": {"on_cancel": null, "command":
+      "/bin/bash", "run_if": ["passed"], "arguments": ["-c", "echo i am a default
+      job"], "working_directory": null}}], "name": "defaultJob", "resources": ["resource1"],
+      "run_instance_count": null, "environment_variables": [], "properties": null,
+      "timeout": null}], "fetch_materials": true, "approval": {"type": "success",
+      "authorization": {"users": [], "roles": []}}, "never_cleanup_artifacts": false},
+      {"clean_working_directory": false, "name": "PostStage", "environment_variables":
+      [{"value": "value1", "secure": false, "name": "ENV_VAR1"}], "jobs": [{"artifacts":
+      [], "tabs": [], "tasks": [{"type": "exec", "attributes": {"on_cancel": null,
+      "command": "/bin/bash", "run_if": [], "arguments": ["-c", "echo i am a post
+      job"], "working_directory": null}}], "name": "PostJob", "resources": [], "run_instance_count":
+      null, "environment_variables": [], "properties": null, "timeout": null}], "fetch_materials":
+      true, "approval": {"type": "success", "authorization": {"users": [], "roles":
+      []}}, "never_cleanup_artifacts": false}], "name": "MyTemplate"}'
+    headers:
+      Accept: [application/vnd.go.cd.v2+json]
+      Connection: [close]
+      Content-Length: ['1254']
+      Content-Type: [application/json]
+      Host: ['127.0.0.1:8153']
+      If-Match: [invalid etag]
+      User-Agent: [py-gocd]
+    method: PUT
+    uri: http://127.0.0.1:8153/go/api/admin/templates/MyTemplate
+  response:
+    body: {string: !!python/unicode "{\n  \"message\": \"Someone has modified the
+        configuration for Template 'MyTemplate'. Please update your copy of the config
+        with the changes.\"\n}\n"}
+    headers:
+      cache-control: [no-cache]
+      connection: [close]
+      content-type: [application/vnd.go.cd.v2+json; charset=utf-8]
+      date: ['Mon, 21 Nov 2016 15:18:43 GMT']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=11xso1ho5t2tkwhl9w3a5s6ja;Path=/go;Expires=Mon, 05-Dec-2016
+          15:18:43 GMT;HttpOnly']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [a7d21c55-f4fa-4c81-b3d6-3b1f8342cb24]
+      x-runtime: ['0.015000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 412, message: Precondition Failed}
+version: 1

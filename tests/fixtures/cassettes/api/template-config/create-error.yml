@@ -1,0 +1,86 @@
+interactions:
+- request:
+    body: !!python/unicode '{"stages": [{"jobs": [{"artifacts": [], "timeout": null,
+      "tasks": [{"type": "exec", "attributes": {"working_directory": null, "on_cancel":
+      null, "command": "/bin/bash", "run_if": ["passed"], "arguments": ["-c", "echo
+      i am a default job"]}}], "environment_variables": [], "properties": null, "resources":
+      ["resource1"], "tabs": [], "run_instance_count": null, "name": "defaultJob"}],
+      "fetch_materials": true, "clean_working_directory": false, "approval": {"type":
+      "success", "authorization": {"users": [], "roles": []}}, "never_cleanup_artifacts":
+      false, "name": "defaultStage", "environment_variables": []}, {"jobs": [{"artifacts":
+      [], "timeout": null, "tasks": [{"type": "exec", "attributes": {"working_directory":
+      null, "on_cancel": null, "command": "/bin/bash", "run_if": [], "arguments":
+      ["-c", "echo i am a post job"]}}], "environment_variables": [], "properties":
+      null, "resources": [], "tabs": [], "run_instance_count": null, "name": "PostJob"}],
+      "fetch_materials": true, "clean_working_directory": false, "approval": {"type":
+      "success", "authorization": {"users": [], "roles": []}}, "never_cleanup_artifacts":
+      false, "name": "PostStage", "environment_variables": [{"secure": false, "name":
+      "ENV_VAR1", "value": "value1"}]}], "name": "MyTemplate"}'
+    headers:
+      Accept: [application/vnd.go.cd.v2+json]
+      Connection: [close]
+      Content-Length: ['1254']
+      Content-Type: [application/json]
+      Host: ['127.0.0.1:8153']
+      User-Agent: [py-gocd]
+    method: POST
+    uri: http://127.0.0.1:8153/go/api/admin/templates/
+  response:
+    body: {string: !!python/unicode "{\n  \"message\": \"Validations failed for pipeline
+        'MyTemplate'. Error(s): [Validation failed.]. Please correct and resubmit.\",\n
+        \ \"data\": {\n    \"errors\": {\n      \"name\": [\n        \"Template name
+        'MyTemplate' is not unique\"\n      ]\n    },\n    \"_links\": {\n      \"self\":
+        {\n        \"href\": \"http://127.0.0.1:8153/go/api/admin/templates/MyTemplate\"\n
+        \     },\n      \"doc\": {\n        \"href\": \"https://api.go.cd/#template-config\"\n
+        \     },\n      \"find\": {\n        \"href\": \"http://127.0.0.1:8153/go/api/admin/templates/:template_name\"\n
+        \     }\n    },\n    \"name\": \"MyTemplate\",\n    \"stages\": [\n      {\n
+        \       \"name\": \"defaultStage\",\n        \"fetch_materials\": true,\n
+        \       \"clean_working_directory\": false,\n        \"never_cleanup_artifacts\":
+        false,\n        \"approval\": {\n          \"type\": \"success\",\n          \"authorization\":
+        {\n            \"roles\": [\n\n            ],\n            \"users\": [\n\n
+        \           ]\n          }\n        },\n        \"environment_variables\":
+        [\n\n        ],\n        \"jobs\": [\n          {\n            \"name\": \"defaultJob\",\n
+        \           \"run_instance_count\": null,\n            \"timeout\": null,\n
+        \           \"environment_variables\": [\n\n            ],\n            \"resources\":
+        [\n              \"resource1\"\n            ],\n            \"tasks\": [\n
+        \             {\n                \"type\": \"exec\",\n                \"attributes\":
+        {\n                  \"run_if\": [\n                    \"passed\"\n                  ],\n
+        \                 \"on_cancel\": null,\n                  \"command\": \"/bin/bash\",\n
+        \                 \"arguments\": [\n                    \"-c\",\n                    \"echo
+        i am a default job\"\n                  ],\n                  \"working_directory\":
+        null\n                }\n              }\n            ],\n            \"tabs\":
+        [\n\n            ],\n            \"artifacts\": [\n\n            ],\n            \"properties\":
+        null\n          }\n        ]\n      },\n      {\n        \"name\": \"PostStage\",\n
+        \       \"fetch_materials\": true,\n        \"clean_working_directory\": false,\n
+        \       \"never_cleanup_artifacts\": false,\n        \"approval\": {\n          \"type\":
+        \"success\",\n          \"authorization\": {\n            \"roles\": [\n\n
+        \           ],\n            \"users\": [\n\n            ]\n          }\n        },\n
+        \       \"environment_variables\": [\n          {\n            \"secure\":
+        false,\n            \"name\": \"ENV_VAR1\",\n            \"value\": \"value1\"\n
+        \         }\n        ],\n        \"jobs\": [\n          {\n            \"name\":
+        \"PostJob\",\n            \"run_instance_count\": null,\n            \"timeout\":
+        null,\n            \"environment_variables\": [\n\n            ],\n            \"resources\":
+        [\n\n            ],\n            \"tasks\": [\n              {\n                \"type\":
+        \"exec\",\n                \"attributes\": {\n                  \"run_if\":
+        [\n\n                  ],\n                  \"on_cancel\": null,\n                  \"command\":
+        \"/bin/bash\",\n                  \"arguments\": [\n                    \"-c\",\n
+        \                   \"echo i am a post job\"\n                  ],\n                  \"working_directory\":
+        null\n                }\n              }\n            ],\n            \"tabs\":
+        [\n\n            ],\n            \"artifacts\": [\n\n            ],\n            \"properties\":
+        null\n          }\n        ]\n      }\n    ]\n  }\n}\n"}
+    headers:
+      cache-control: [no-cache]
+      connection: [close]
+      content-type: [application/vnd.go.cd.v2+json; charset=utf-8]
+      date: ['Mon, 21 Nov 2016 15:37:05 GMT']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=uk842939463v81mqe5sqqp72;Path=/go;Expires=Mon, 05-Dec-2016
+          15:37:05 GMT;HttpOnly']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [3a035125-1ced-4f7c-ac43-5756132674cb]
+      x-runtime: ['0.134000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 422, message: Unprocessable Entity}
+version: 1
