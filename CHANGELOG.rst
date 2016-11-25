@@ -2,6 +2,18 @@
 Change Log
 ==========
 
+`0.15.0`_ - 2016-11-25
+======================
+
+**Added**
+
+* `TemplateConfig`_ API endpoint.
+
+  Added by `@jlyheden`_
+
+.. _TemplateConfig: http://py-gocd.readthedocs.org/en/latest/gocd.api.html#gocd.api.TemplateConfig
+.. _@jlyheden: https://github.com/jlyheden
+
 `0.14.0`_ - 2016-10-13
 ======================
 
@@ -173,6 +185,7 @@ Changed
 
 Nothing much to say here, initial public release. :)
 
+.. _`0.15.0`: https://github.com/gaqzi/py-gocd/compare/v0.14.0...v0.15.0
 .. _`0.14.0`: https://github.com/gaqzi/py-gocd/compare/v0.13.0...v0.14.0
 .. _`0.13.0`: https://github.com/gaqzi/py-gocd/compare/v0.12.1...v0.13.0
 .. _`0.12.1`: https://github.com/gaqzi/py-gocd/compare/v0.12.0...v0.12.1
