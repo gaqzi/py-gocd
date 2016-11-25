@@ -1,0 +1,32 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: [application/vnd.go.cd.v2+json]
+      Connection: [close]
+      Content-Type: [application/json]
+      Host: ['127.0.0.1:8153']
+      User-Agent: [py-gocd]
+    method: DELETE
+    uri: http://127.0.0.1:8153/go/api/admin/templates/MyTemplate
+  response:
+    body: {string: !!python/unicode "{\n  \"message\": \"The template 'MyTemplate'
+        was deleted successfully.\"\n}\n"}
+    headers:
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [close]
+      content-type: [application/vnd.go.cd.v2+json; charset=utf-8]
+      date: ['Mon, 21 Nov 2016 15:51:26 GMT']
+      etag: ['"9d48cbffda63fda24dafd99f1ceeaecc"']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=7z52l90mfqx56wzr5ygw1v5f;Path=/go;Expires=Mon, 05-Dec-2016
+          15:51:26 GMT;HttpOnly']
+      vary: ['Accept-Encoding, User-Agent']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [a05c13f0-c028-44b6-9cb9-4d567e3dfccc]
+      x-runtime: ['0.058000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1

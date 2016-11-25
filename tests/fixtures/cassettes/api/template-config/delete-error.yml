@@ -1,0 +1,30 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: [application/vnd.go.cd.v2+json]
+      Connection: [close]
+      Content-Type: [application/json]
+      Host: ['127.0.0.1:8153']
+      User-Agent: [py-gocd]
+    method: DELETE
+    uri: http://127.0.0.1:8153/go/api/admin/templates/MyTemplateThatDoesntExist
+  response:
+    body: {string: !!python/unicode "{\n  \"message\": \"Either the resource you requested
+        was not found, or you are not authorized to perform this action.\"\n}\n"}
+    headers:
+      cache-control: [no-cache]
+      connection: [close]
+      content-type: [application/vnd.go.cd.v2+json; charset=utf-8]
+      date: ['Mon, 21 Nov 2016 15:52:12 GMT']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=gvotupz8thuw1mxo141w3byx7;Path=/go;Expires=Mon, 05-Dec-2016
+          15:52:12 GMT;HttpOnly']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [a272f5bf-4d71-43bf-988f-8a2deaf09f37]
+      x-runtime: ['0.012000']
+      x-ua-compatible: [chrome=1]
+      x-xss-protection: [1; mode=block]
+    status: {code: 404, message: Not Found}
+version: 1
