@@ -6,4 +6,5 @@ from .stage import Stage
 from .pluggable_scm import PluggableSCM
 from .template_config import TemplateConfig
 
-__all__ = ['Pipeline', 'PipelineGroups', 'Artifact', 'Stage', 'PipelineConfig', 'PluggableSCM', 'TemplateConfig']
+__all__ = ['Pipeline', 'PipelineGroups', 'Artifact', 'Stage',
+           'PipelineConfig', 'PluggableSCM', 'TemplateConfig']

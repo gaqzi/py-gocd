@@ -190,7 +190,7 @@ def test_delete_successful(server):
 
 
 @vcr.use_cassette('tests/fixtures/cassettes/api/template-config/delete-error.yml')
-def test_create_error(server):
+def test_delete_error(server):
     api_config = gocd.api.TemplateConfig(server, "MyTemplateThatDoesntExist")
 
     response = api_config.delete()
