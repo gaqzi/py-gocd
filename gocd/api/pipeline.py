@@ -158,7 +158,11 @@ class Pipeline(Endpoint):
         # TODO: Replace this with whatever is the official way as soon as gocd#990 is fixed.
         # https://github.com/gocd/gocd/issues/990
         if return_new_instance:
-            last_run = self.history()['pipelines'][0]['counter']
+            pipelines = self.history()['pipelines']
+            if len(pipelines) == 0:
+                last_run = None
+            else:
+                last_run = pipelines[0]['counter']
             response = self._post('/schedule', ok_status=202, **scheduling_args)
             if not response:
                 return response
@@ -166,7 +170,9 @@ class Pipeline(Endpoint):
             max_tries = 10
             while max_tries > 0:
                 current = self.instance()
-                if current['counter'] > last_run:
+                if not last_run and current:
+                    return current
+                elif last_run and current['counter'] > last_run:
                     return current
                 else:
                     time.sleep(backoff_time)
