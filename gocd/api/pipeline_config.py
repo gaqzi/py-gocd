@@ -10,7 +10,7 @@ class PipelineConfig(Endpoint):
     #: The result of a job/stage has been finalised when these values are set
     final_results = ['Passed', 'Failed']
 
-    def __init__(self, server, name, api_version=2):
+    def __init__(self, server, name, api_version=4):
         """A wrapper for the `Go pipeline config API`__
 
         .. __: https://api.go.cd/current/#pipeline-config
