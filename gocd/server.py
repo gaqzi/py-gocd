@@ -82,19 +82,20 @@ class Server(object):
         Example: http://go.example.com/
       user (str): The username to login as
       password (str): The password for this user
+      options (dict, optional): Some options, eg. set request debug level
     """
     SESSION_COOKIE_NAME = 'JSESSIONID'
-
-    #: Sets the debug level for the urllib2 HTTP(s) handlers
-    request_debug_level = 0
+    DEFAULT_REQUEST_DEBUG_LEVEL = 0
 
     _session_id = None
     _authenticity_token = None
 
-    def __init__(self, host, user=None, password=None):
+    def __init__(self, host, user=None, password=None, options={}):
         self.host = host
         self.user = user
         self.password = password
+        # Sets the debug level for the urllib2 HTTP(s) handlers
+        self.request_debug_level = options.get('request_debug_level', self.DEFAULT_REQUEST_DEBUG_LEVEL)
 
         if self.user and self.password:
             self._add_basic_auth()
