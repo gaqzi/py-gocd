@@ -128,11 +128,13 @@ class Pipeline(Endpoint):
         Args:
           variables (dict, optional): Variables to set/override
           secure_variables (dict, optional): Secure variables to set/override
-          materials (dict, optional): Material revisions to be used for
-            this pipeline run. The exact format for this is a bit iffy,
-            have a look at the official
-            `Go pipeline scheduling documentation`__ or inspect a call
-            from triggering manually in the UI.
+          materials (dict, optional): Materials to be used for
+            this pipeline run. The format is materials[name]=version.
+            Examples:
+              materials[svn_material]=1234
+              materials[pipeline_material]=upstream_foo/2/dist/1
+            For more details, see `Go pipeline scheduling documentation`__ or
+            inspect a call from triggering manually in the UI.
           return_new_instance (bool): Returns a :meth:`history` compatible
             response for the newly scheduled instance. This is primarily so
             users easily can get the new instance number. **Note:** This is done
@@ -149,7 +151,7 @@ class Pipeline(Endpoint):
         scheduling_args = dict(
             variables=variables,
             secure_variables=secure_variables,
-            material_fingerprint=materials,
+            materials=materials,
             headers={"Confirm": True},
         )
 
