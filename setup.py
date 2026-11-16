@@ -2,6 +2,8 @@
 # -*- encoding: utf-8 -*-
 import os
 import sys
+import tomllib
+from pathlib import Path
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
 
@@ -26,8 +28,11 @@ class PyTest(TestCommand):
 
 
 def version():
-    import version
-    return version.PY_GOCD_VERSION
+    pyproject = Path(__file__).parent / "pyproject.toml"
+    with pyproject.open("rb") as f:
+        return tomllib.load(f)["project"]["version"]
+    # import version
+    # return version.PY_GOCD_VERSION
 
 extra_dependencies = []
 
