@@ -9,11 +9,11 @@ PIPELINE_COUNTER = 1
 STAGE_NAME = 'up42_stage'
 STAGE_COUNTER = 1
 
-server = Server('http://localhost:8153', USERNAME, PASSWORD)
+server = Server('http://localhost:8153', USERNAME, PASSWORD, "py-gocd.log")
 
 pipeline = server.pipeline(PIPELINE_NAME)
 
-response =  pipeline.schedule(return_new_instance=True, maximum_backoff_time=100)
+response =  pipeline.schedule(return_new_instance=True, maximum_backoff_time=100, backoff_time=10)
 
 # response = pipeline.status()
 # print(response.is_ok)
