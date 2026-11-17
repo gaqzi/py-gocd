@@ -13,5 +13,6 @@ authors = [
     { name = "Björn Andersson" }
 ]
 dependencies = [
+    "six",
     "urllib3"
 ]
