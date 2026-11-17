@@ -51,14 +51,16 @@ class Server(object):
     _session_id = None
     _authenticity_token = None
 
-    def __init__(self, host, user=None, password=None, log_file=None):
+    def __init__(self, host, pat=None, user=None, password=None, log_file=None):
         self.host = host.rstrip('/') + '/'  # Ensure consistent trailing slash
         self.user = user
         self.password = password
 
         # Default headers (User-Agent + Basic Auth if provided)
         headers = {'User-Agent': 'py-gocd'}
-        if user and password:
+        if pat:
+            headers['Authorization'] = 'bearer %s' % pat
+        elif user and password:
             headers.update(make_headers(basic_auth=f'{user}:{password}'))
 
         # Create PoolManager with default headers (reused for connection pooling)
