@@ -1,58 +1,19 @@
+import os
 import re
+import json
+import logging
 
-try:
-    # python2
-    from urlparse import urljoin
-    from urllib2 import (
-        urlopen,
-        HTTPPasswordMgrWithDefaultRealm,
-        HTTPBasicAuthHandler,
-        HTTPHandler,
-        HTTPSHandler,
-        install_opener,
-        build_opener,
-        Request,
-    )
-
-    class CustomRequest(Request):
-        """Python2's Request class has no support
-        for setting the HTTP method."""
-
-        def __init__(self, *args, **kargs):
-            if "method" in kargs:
-                self.__method = kargs["method"]
-                del kargs["method"]
-            else:
-                self.__method = None
-            Request.__init__(self, *args, **kargs)
-
-        def get_method(self):
-            if self.__method is not None:
-                return self.__method
-            else:
-                return Request.get_method(self)
-
-except ImportError:  # pragma: no cover
-    # python3
-    from urllib.parse import urljoin
-    from urllib.request import (
-        urlopen,
-        HTTPPasswordMgrWithDefaultRealm,
-        HTTPBasicAuthHandler,
-        HTTPHandler,
-        HTTPSHandler,
-        install_opener,
-        build_opener,
-        Request,
-    )
-
-    CustomRequest = Request
-
-from gocd.vendor.multidimensional_urlencode import urlencoder
+import urllib3
+from urllib3.util import make_headers
+from six.moves.urllib.parse import urljoin
 
 from gocd.api import Pipeline, PipelineGroups, Stage
 
 __all__ = ['Server', 'AuthenticationFailed']
+
+from gocd.config import DEBUG_MODE
+
+FILENAME = filename = os.path.basename(__file__)
 
 
 class AuthenticationFailed(Exception):
@@ -85,19 +46,35 @@ class Server(object):
     """
     SESSION_COOKIE_NAME = 'JSESSIONID'
 
-    #: Sets the debug level for the urllib2 HTTP(s) handlers
-    request_debug_level = 0
-
+    #: Sets the debug level for the urllib3 HTTP(s) handlers (optional)
+    # You can pass cert_reqs='CERT_REQUIRED', ca_certs=... etc. if needed
     _session_id = None
     _authenticity_token = None
 
-    def __init__(self, host, user=None, password=None):
-        self.host = host
+    def __init__(self, host, pat=None, user=None, password=None, log_file=None):
+        self.host = host.rstrip('/') + '/'  # Ensure consistent trailing slash
         self.user = user
         self.password = password
 
-        if self.user and self.password:
-            self._add_basic_auth()
+        # Default headers (User-Agent + Basic Auth if provided)
+        headers = {'User-Agent': 'py-gocd'}
+        if pat:
+            headers['Authorization'] = 'bearer %s' % pat
+        elif user and password:
+            headers.update(make_headers(basic_auth=f'{user}:{password}'))
+
+        # Create PoolManager with default headers (reused for connection pooling)
+        self.http = urllib3.PoolManager(headers=headers)
+
+        if log_file:
+            logging.basicConfig(
+                filename=log_file,
+                filemode='a',  # 'a' for append (default), 'w' for overwrite
+                level=logging.DEBUG,
+                format='%(asctime)s - %(levelname)s - %(message)s'
+            )
+
+            logging.info(f"The server is initialised @ #{self.host}")
 
     def get(self, path):
         """Performs a HTTP GET request to the Go server
@@ -146,19 +123,55 @@ class Server(object):
         Raises:
           HTTPError: when the HTTP request fails.
 
-        Returns:
-          file like object: The response from a
-            :func:`urllib2.urlopen` call
+        Returns an urllib3.HTTPResponse (file-like object with .read(), .data, .status, .headers)
         """
-        if isinstance(data, str):
-            data = data.encode('utf-8')
-        response = urlopen(self._request(path, data=data, headers=headers, method=method))
+        url = self._url(path)
+
+        # Prepare body
+        body = self._encode_data(data)
+        if body is not None and method is None:
+            method = 'POST'
+
+        method = method or ('POST' if body is not None else 'GET')
+
+        # Per-request headers (session cookie + any overrides)
+        req_headers = self.http.headers.copy()
+        if self._session_id:
+            req_headers['Cookie'] = self._session_id
+        if headers:
+            req_headers.update(headers)
+
+        # Inject authenticity token for non-API POSTs
+        injected_data = self._inject_authenticity_token(data, path)
+        body = self._encode_data(injected_data)
+
+        if DEBUG_MODE:
+            print(f"🐞 {FILENAME} - path is %s" % path)
+            print(f"🐞 {FILENAME} - data is %s" % data)
+            print(f"🐞 {FILENAME} - headers is %s" % headers)
+            print(f"🐞 {FILENAME} - method is %s" % method)
+
+        response = self.http.request(
+            method,
+            url,
+            body=body,
+            headers=req_headers,
+            # You can add timeout=urllib3.Timeout(...) here if desired
+            # redirect=True is default in urllib3
+        )
+
+        if DEBUG_MODE:
+            print(f"🐞 {FILENAME} - response.status_code is %s" % response.status)
+            print(f"🐞 {FILENAME} - response is %s" % response)
+
         self._set_session_cookie(response)
 
         return response
 
     def add_logged_in_session(self, response=None):
         """Make the request appear to be coming from a browser
+
+        Summary: This extracts JSESSIONID and the CSRF authenticity_token.
 
         This is to interact with older parts of Go that doesn't have a
         proper API call to be made. What will be done:
@@ -190,9 +203,10 @@ class Server(object):
             raise AuthenticationFailed('No session id extracted from request.')
 
         response = self.get('go/pipelines')
+        content = response.data.decode('utf-8')  # .data is preloaded bytes
         match = re.search(
             r'name="authenticity_token".+?value="([^"]+)',
-            response.read().decode('utf-8')
+            content
         )
         if match:
             self._authenticity_token = match.group(1)
@@ -200,12 +214,22 @@ class Server(object):
             raise AuthenticationFailed('Authenticity token not found on page')
 
     def _set_session_cookie(self, response):
-        if 'set-cookie' not in response.headers:
+        """Extract JSESSIONID from Set-Cookie header(s)"""
+        # urllib3 normalises headers to a dict, but preserves multiple Set-Cookie as a comma-separated string
+
+        set_cookie = response.headers.get('set-cookie') or response.headers.get('Set-Cookie')
+        if not set_cookie:
             return
 
-        for cookie in response.headers['set-cookie'].split(';'):
-            if cookie.startswith(self.SESSION_COOKIE_NAME):
-                self._session_id = cookie
+        # Split on commas, but be careful – values can contain commas
+        # Simple split and look for the one starting with JSESSIONID
+        for part in set_cookie.split(','):
+            if self.SESSION_COOKIE_NAME in part:
+                # Take the first occurrence (JSESSIONID=xxx; ...)
+                cookie_part = part.split(';', 1)[0].strip()
+                if cookie_part.startswith(self.SESSION_COOKIE_NAME + '='):
+                    self._session_id = cookie_part
+                    return
 
     def pipeline(self, name):
         """Instantiates a :class:`Pipeline` with the given name.
@@ -239,39 +263,9 @@ class Server(object):
         """
         return Stage(self, pipeline_name, stage_name, pipeline_counter=pipeline_counter)
 
-    def _add_basic_auth(self):
-        auth_handler = HTTPBasicAuthHandler(
-            HTTPPasswordMgrWithDefaultRealm()
-        )
-        auth_handler.add_password(
-            realm=None,
-            uri=self.host,
-            user=self.user,
-            passwd=self.password,
-        )
-        install_opener(build_opener(
-            auth_handler,
-            HTTPHandler(debuglevel=self.request_debug_level),
-            HTTPSHandler(debuglevel=self.request_debug_level),
-        ))
-
-    def _request(self, path, data=None, headers=None, method=None):
-        default_headers = {'User-Agent': 'py-gocd'}
-        if self._session_id:
-            default_headers['Cookie'] = self._session_id
-        default_headers.update(headers or {})
-
-        data = self._inject_authenticity_token(data, path)
-        return CustomRequest(
-            self._url(path),
-            data=self._encode_data(data),  # None or False == GET request
-            headers=default_headers,
-            method=method,
-        )
-
     def _encode_data(self, data):
         if isinstance(data, dict):
-            return urlencoder.urlencode(data).encode('utf-8')
+            return json.dumps(data, ensure_ascii=False).encode('utf-8')
         elif isinstance(data, str):
             return data.encode('utf-8')
         elif isinstance(data, bytes):
@@ -285,13 +279,11 @@ class Server(object):
         return urljoin(self.host, path)
 
     def _inject_authenticity_token(self, data, path):
-        if (data is None or
-                not self._authenticity_token or
-                path.startswith('go/api')):
+        if data is None or not self._authenticity_token or path.startswith('go/api'):
             return data
 
-        if data == '':
-            data = {}
+        # if data == '':
+        #     data = {}
 
         data.update(authenticity_token=self._authenticity_token)
         return data

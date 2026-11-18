@@ -1,4 +1,6 @@
 import time
+import sys
+import logging
 from gocd.api.response import Response
 from gocd.api.endpoint import Endpoint
 from gocd.api.artifact import Artifact
@@ -26,7 +28,7 @@ class Pipeline(Endpoint):
         self.server = server
         self.name = name
 
-    def history(self, offset=0):
+    def history(self, page_size=0, after=None, before=None):
         """Lists previous instances/runs of the pipeline
 
         See the `Go pipeline history documentation`__ for example responses.
@@ -34,12 +36,26 @@ class Pipeline(Endpoint):
         .. __: http://api.go.cd/current/#get-pipeline-history
 
         Args:
-          offset (int, optional): How many instances to skip for this response.
+          page_size (int, optional): The number of records per page. Can be between 10 and 100. Defaults to 10.
+          after (int, optional): The cursor value for fetching the next set of records.
+          before (int, optional): The cursor value for fetching the previous set of records.
 
         Returns:
           Response: :class:`gocd.api.response.Response` object
         """
-        return self._get('/history/{offset:d}'.format(offset=offset or 0))
+
+        ps = page_size or 10
+        parts = [f'page_size={ps}']
+
+        if after is not None:
+            parts.append(f'after={after}')
+        if before is not None:
+            parts.append(f'before={before}')
+
+        query = '&'.join(parts)
+        path = f'/history?{query}'
+
+        return self._get(path, headers={"Accept": "application/vnd.go.cd.v1+json"})
 
     def release(self):
         """Releases a previously locked pipeline
@@ -52,12 +68,16 @@ class Pipeline(Endpoint):
         Returns:
           Response: :class:`gocd.api.response.Response` object
         """
-        return self._post('/releaseLock', headers={"Confirm": True})
+        return self._post('/unlock', headers={
+            "Accept": "application/vnd.go.cd.v1+json"
+            , "X-GoCD-Confirm": "True"
+            , "Content-Type": "application/json"
+        }, method="POST")
 
     #: This is an alias for :meth:`release`
     unlock = release
 
-    def pause(self, reason=''):
+    def pause(self, reason='Triggered via API. No reason provided.'):
         """Pauses the current pipeline
 
         See the `Go pipeline pause documentation`__ for example responses.
@@ -70,7 +90,9 @@ class Pipeline(Endpoint):
         Returns:
           Response: :class:`gocd.api.response.Response` object
         """
-        return self._post('/pause', headers={"Confirm": True}, pauseCause=reason)
+        return self._post('/pause', headers={
+            "Accept": "application/vnd.go.cd.v1+json",
+            "Content-Type": "application/json"}, pause_cause=reason)
 
     def unpause(self):
         """Unpauses the pipeline
@@ -82,7 +104,9 @@ class Pipeline(Endpoint):
         Returns:
           Response: :class:`gocd.api.response.Response` object
         """
-        return self._post('/unpause', headers={"Confirm": True})
+        return self._post('/unpause', headers={
+            "X-GoCD-Confirm": "True",
+            "Accept": "application/vnd.go.cd.v1+json"}, method="POST")
 
     def status(self):
         """Returns the current status of this pipeline
@@ -94,33 +118,31 @@ class Pipeline(Endpoint):
         Returns:
           Response: :class:`gocd.api.response.Response` object
         """
-        return self._get('/status')
+        return self._get('/status', headers={
+            "Accept": "application/vnd.go.cd.v1+json"
+        })
 
-    def instance(self, counter=None):
+    def instance(self, pipeline_counter=0):
         """Returns all the information regarding a specific pipeline run
 
         See the `Go pipeline instance documentation`__ for examples.
 
-        .. __: http://api.go.cd/current/#get-pipeline-instance
+        .. __: https://api.gocd.org/26.1.0/#get-pipeline-instance
 
         Args:
-          counter (int): The pipeline instance to fetch.
+          pipeline_counter (int): The pipeline instance to fetch.
             If falsey returns the latest pipeline instance from :meth:`history`.
 
         Returns:
           Response: :class:`gocd.api.response.Response` object
         """
-        if not counter:
-            history = self.history()
-            if not history:
-                return history
-            else:
-                return Response._from_json(history['pipelines'][0])
 
-        return self._get('/instance/{counter:d}'.format(counter=counter))
+        return self._get('/{counter:d}'.format(counter=pipeline_counter), headers={
+            "Accept": "application/vnd.go.cd.v1+json"
+        })
 
     def schedule(self, variables=None, secure_variables=None, materials=None,
-                 return_new_instance=False, backoff_time=1.0):
+        return_new_instance=False, maximum_backoff_time=1.0, backoff_time=1.0):
         """Schedule a pipeline run
 
         Aliased as :meth:`run`, :meth:`schedule`, and :meth:`trigger`.
@@ -138,7 +160,7 @@ class Pipeline(Endpoint):
             users easily can get the new instance number. **Note:** This is done
             in a very naive way, it just checks that the instance number is
             higher than before the pipeline was triggered.
-          backoff_time (float): How long between each check for
+          maximum_backoff_time (float): How long to check for
             :arg:`return_new_instance`.
 
          .. __: http://api.go.cd/current/#scheduling-pipelines
@@ -146,11 +168,28 @@ class Pipeline(Endpoint):
         Returns:
           Response: :class:`gocd.api.response.Response` object
         """
+
+        root_logger = logging.getLogger()
+        log_file = None
+
+        # Attempt to find the file
+        for handler in root_logger.handlers:
+            if isinstance(handler, logging.FileHandler):
+                log_file = handler.baseFilename
+                break
+
+        if log_file:
+            print(f"You can check {log_file} while you wait for the program to finish")
+
         scheduling_args = dict(
             variables=variables,
             secure_variables=secure_variables,
             material_fingerprint=materials,
-            headers={"Confirm": True},
+            headers={
+                "Accept": "application/vnd.go.cd.v1+json",
+                "Content-Type": "application/json",
+                "X-GoCD-Confirm": "true"
+            },
         )
 
         scheduling_args = dict((k, v) for k, v in scheduling_args.items() if v is not None)
@@ -158,36 +197,92 @@ class Pipeline(Endpoint):
         # TODO: Replace this with whatever is the official way as soon as gocd#990 is fixed.
         # https://github.com/gocd/gocd/issues/990
         if return_new_instance:
-            pipelines = self.history()['pipelines']
-            if len(pipelines) == 0:
-                last_run = None
-            else:
-                last_run = pipelines[0]['counter']
-            response = self._post('/schedule', ok_status=202, **scheduling_args)
+            before = self.history()['pipelines'][0]['counter'] if self.history()['pipelines'] else 0
+
+            response = self._post('/schedule', ok_status=202, method="POST", **scheduling_args)
+
             if not response:
                 return response
 
-            max_tries = 10
-            while max_tries > 0:
-                current = self.instance()
-                if not last_run and current:
-                    return current
-                elif last_run and current['counter'] > last_run:
-                    return current
-                else:
-                    time.sleep(backoff_time)
-                    max_tries -= 1
+            # I couldn't understand the logic, so I wrote it by myself
+            #
+            # while max_tries > 0:
+            #     current = self.instance()
+            #     if not last_run and current:
+            #         return current
+            #     elif last_run and current['counter'] > last_run:
+            #         return current
+            #     else:
+            #         time.sleep(backoff_time)
+            #         max_tries -= 1
+
+            # new logic
+
+            instance_start_timeout = maximum_backoff_time
+            while instance_start_timeout > 0:
+                latest = self.history()['pipelines'][0]['counter']
+
+                if latest > before:
+                    instance_id = latest
+                    break
+
+                time.sleep(backoff_time)
+                instance_start_timeout -= backoff_time
+                logging.debug(f"😴 Slept for {backoff_time} second while waiting on agent for the"
+                              f" pipeline {self.name} to start | remaining seconds: {instance_start_timeout}")
+            else:
+                logging.info("🤖💥 Timed out waiting on agent for new pipeline instance to start")
+                sys.exit(1)
+
+            pipeline_finish_timeout = maximum_backoff_time
+            while pipeline_finish_timeout > 0:
+                response = self.instance(instance_id)
+                is_finished, result = self._is_pipeline_finished(response)
+                if is_finished:
+                    result_emoji = ''
+                    if result == 'Passed':
+                        result_emoji = '✅'
+                    elif result == 'Failed':
+                        result_emoji = '⛔️'
+                    elif result == 'Cancelled':
+                        result_emoji = '⚠️'
+
+                    logging.info(
+                        f"{result_emoji} Pipeline '{self.name}' having instance #{instance_id}"
+                        f" finished with remaining seconds: {pipeline_finish_timeout}")
+                    break
+
+                time.sleep(backoff_time)
+                pipeline_finish_timeout -= backoff_time
+                logging.debug(f"😴 Slept for {backoff_time} second while waiting for the pipeline"
+                              f" {self.name} to finish | remaining seconds: {pipeline_finish_timeout}")
+            else:
+                logging.info(f"⏰💥 Timed out waiting for new pipeline instance {instance_id} to "
+                           f"finish")
+                sys.exit(1)
 
             # I can't come up with a scenario in testing where this would happen, but it seems
             # better than returning None.
             return response
         else:
-            return self._post('/schedule', ok_status=202, **scheduling_args)
+            return self._post('/schedule', ok_status=202, method="POST", **scheduling_args)
 
     #: This is an alias for :meth:`schedule`
     run = schedule
     #: This is an alias for :meth:`schedule`
     trigger = schedule
+
+    def _is_pipeline_finished(self, response):
+        """Return True if all stages in the pipeline instance are finished."""
+        stage_number = 1
+        for stage in response.payload.get('stages', []):
+            logging.debug(f"{self.name} stage #{stage_number} = {stage}")
+            if stage.get('result') in (None, 'Unknown', ''):
+                return False, "In Progress"
+            if stage.get('result') in ('Failed', 'Cancelled'):
+                return True, stage.get('result')
+            stage_number += 1
+        return True, "Passed"
 
     def artifact(self, counter, stage, job, stage_counter=1):
         """Helper to instantiate an :class:`gocd.api.artifact.Artifact` object
@@ -205,6 +300,7 @@ class Pipeline(Endpoint):
 
     # TODO: It would be nice if this could stream the output as it happens.
     # Currently it's built with the assumption that this is done after all output has finished.
+    # WARNING: The changes in the new instance() broke this function
     def console_output(self, instance=None):
         """Yields the output and metadata from all jobs in the pipeline
 

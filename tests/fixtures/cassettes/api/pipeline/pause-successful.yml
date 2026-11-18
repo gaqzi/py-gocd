@@ -1,30 +1,47 @@
 interactions:
 - request:
-    body: pauseCause=Time+to+sleep
+    body: '{"pause_cause": "Time to sleep"}'
     headers:
-      Connection: [close]
-      Content-Length: ['24']
-      Content-Type: [application/x-www-form-urlencoded]
-      Host: ['localhost:8153']
-      User-Agent: [py-gocd]
+      Accept:
+      - application/vnd.go.cd.v1+json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - py-gocd
+      authorization:
+      - Basic YWRtaW46YmFkZ2Vy
     method: POST
-    uri: http://localhost:8153/go/api/pipelines/Simple/pause
+    uri: http://localhost:8153/go/api/pipelines/up42/pause
   response:
-    body: {string: !!python/unicode ' '}
+    body:
+      string: "{\n  \"message\" : \"Pipeline 'up42' paused successfully.\"\n}"
     headers:
-      cache-control: ['max-age=0, private, must-revalidate']
-      connection: [close]
-      content-type: [text/html; charset=utf-8]
-      etag: ['"7215ee9c7d9dc229d2921a40e899ec5f"']
-      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
-      server: [Jetty()]
-      set-cookie: ['JSESSIONID=kbpc1s6hnzpn49sszrdj0gfz;Path=/go;Expires=Mon, 27-Jul-2015
-          15:37:30 GMT']
-      x-content-type-options: [nosniff]
-      x-frame-options: [SAMEORIGIN]
-      x-request-id: [389e5ab9-0462-48bb-bd61-87b77af863d7]
-      x-runtime: ['0.033000']
-      x-ua-compatible: [chrome=1]
-      x-xss-protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.go.cd.v1+json;charset=utf-8
+      Date:
+      - Fri, 27 Feb 2026 17:20:39 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Server:
+      - Apache/2.4.66 (Unix)
+      Set-Cookie:
+      - JSESSIONID=node03zy25noq4aht1uvxv2ttgwyca33.node0; Path=/go; Expires=Fri,
+        13-Mar-2026 17:20:39 GMT; Max-Age=1209600; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-UA-Compatible:
+      - chrome=1
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 version: 1

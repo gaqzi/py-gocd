@@ -1,0 +1,43 @@
+interactions:
+- request:
+    body: !!binary |
+      eyJtYXRlcmlhbHMiOiBbeyJ0eXBlIjogImdpdCIsICJhdHRyaWJ1dGVzIjogeyJuYW1lIjogbnVs
+      bCwgInN1Ym1vZHVsZV9mb2xkZXIiOiBudWxsLCAiYXV0b191cGRhdGUiOiB0cnVlLCAiYnJhbmNo
+      IjogIm1hc3RlciIsICJ1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tL2hlbnJpcXVlZ2VtaWduYW5p
+      L3B5LWdvY2QuZ2l0IiwgImZpbHRlciI6IG51bGwsICJkZXN0aW5hdGlvbiI6IG51bGwsICJzaGFs
+      bG93X2Nsb25lIjogdHJ1ZX19XSwgInRlbXBsYXRlIjogbnVsbCwgImVuYWJsZV9waXBlbGluZV9s
+      b2NraW5nIjogZmFsc2UsICJsYWJlbF90ZW1wbGF0ZSI6ICIke0NPVU5UfSIsICJ0cmFja2luZ190
+      b29sIjogbnVsbCwgInN0YWdlcyI6IFt7Im5hbWUiOiAiZGVmYXVsdFN0YWdlIiwgImpvYnMiOiBb
+      eyJydW5faW5zdGFuY2VfY291bnQiOiBudWxsLCAibmFtZSI6ICJkZWZhdWx0Sm9iIiwgImVudmly
+      b25tZW50X3ZhcmlhYmxlcyI6IFtdLCAidGFicyI6IFtdLCAidGltZW91dCI6IG51bGwsICJwcm9w
+      ZXJ0aWVzIjogbnVsbCwgInRhc2tzIjogW3sidHlwZSI6ICJleGVjIiwgImF0dHJpYnV0ZXMiOiB7
+      InJ1bl9pZiI6IFtdLCAid29ya2luZ19kaXJlY3RvcnkiOiBudWxsLCAiY29tbWFuZCI6ICJtYWtl
+      IiwgImFyZ3VtZW50cyI6IFsicHJlLWNvbW1pdCJdLCAib25fY2FuY2VsIjogbnVsbH19XSwgInJl
+      c291cmNlcyI6IFtdLCAiYXJ0aWZhY3RzIjogW119XSwgIm5ldmVyX2NsZWFudXBfYXJ0aWZhY3Rz
+      IjogZmFsc2UsICJlbnZpcm9ubWVudF92YXJpYWJsZXMiOiBbXSwgImFwcHJvdmFsIjogeyJhdXRo
+      b3JpemF0aW9uIjogeyJ1c2VycyI6IFtdLCAicm9sZXMiOiBbXX0sICJ0eXBlIjogInN1Y2Nlc3Mi
+      fSwgImZldGNoX21hdGVyaWFscyI6IHRydWUsICJjbGVhbl93b3JraW5nX2RpcmVjdG9yeSI6IGZh
+      bHNlfV0sICJ0aW1lciI6IG51bGwsICJlbnZpcm9ubWVudF92YXJpYWJsZXMiOiBbXSwgIm5hbWUi
+      OiAiUHlHb0NkIiwgInBhcmFtZXRlcnMiOiBbXX0=
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Connection: [close]
+      Content-Length: ['998']
+      Content-Type: [application/json]
+      Host: ['192.168.99.100:8153']
+      If-Match: ['"6b60a77d27312e3a21bfd59163db1e48"']
+      User-Agent: [py-gocd]
+    method: PUT
+    uri: http://localhost:8153/go/api/admin/pipelines/PyGoCd
+  response:
+    body: {string: "{\n  \"message\": \"You are not authorized to access this resource!\"\n}\n"}
+    headers:
+      Connection: [close]
+      Content-Type: [application/vnd.go.cd.v1+json]
+      Date: ['Tue, 03 May 2016 23:11:08 GMT']
+      Expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      Set-Cookie: ['JSESSIONID=mhpup5wpf5011ofhult7iwzb8;Path=/go;Expires=Tue, 17-May-2016
+          23:11:08 GMT']
+      WWW-Authenticate: [Basic realm="GoCD"]
+    status: {code: 401, message: Unauthorized}
+version: 1

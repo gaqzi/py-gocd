@@ -2,7 +2,7 @@ from gocd.api.endpoint import Endpoint
 
 
 class PipelineGroups(Endpoint):
-    base_path = 'go/api/config'
+    base_path = 'go/api/admin'
     _id = False
     _response = None
     _pipelines = None
@@ -18,7 +18,9 @@ class PipelineGroups(Endpoint):
         Returns:
           Response: an instance of :class:`gocd.api.Response`
         """
-        self._response = self._get('/pipeline_groups')
+        self._response = self._get('/pipeline_groups', headers={
+            "Accept": "application/vnd.go.cd.v1+json"
+        })
 
         return self._response
 
@@ -48,7 +50,7 @@ class PipelineGroups(Endpoint):
             return set()
         elif self._pipelines is None and self.response:
             self._pipelines = set()
-            for group in self.response.payload:
+            for group in self.response.payload['_embedded']['groups']:
                 for pipeline in group['pipelines']:
                     self._pipelines.add(pipeline['name'])
 

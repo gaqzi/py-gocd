@@ -2,41 +2,6 @@ interactions:
 - request:
     body: null
     headers:
-      Connection: [close]
-      Host: ['localhost:8153']
-      User-Agent: [py-gocd]
-    method: GET
-    uri: http://localhost:8153/go/api/pipelines/Simple/history/0
-  response:
-    body: {string: !!python/unicode "<html>\n<head>\n<meta http-equiv=\"Content-Type\"
-        content=\"text/html; charset=ISO-8859-1\"/>\n<title>Error 401 Full authentication
-        is required to access this resource</title>\n</head>\n<body><h2>HTTP ERROR
-        401</h2>\n<p>Problem accessing /go/api/pipelines/Simple/history/0. Reason:\n<pre>
-        \   Full authentication is required to access this resource</pre></p><hr /><i><small>Powered
-        by Jetty://</small></i><br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n<br/>                                                \n<br/>
-        \                                               \n\n</body>\n</html>\n"}
-    headers:
-      cache-control: ['must-revalidate,no-cache,no-store']
-      connection: [close]
-      content-length: ['1490']
-      content-type: [text/html; charset=iso-8859-1]
-      server: [Jetty()]
-      set-cookie: ['JSESSIONID=1xd7voojxoeru1nvh0xzw0478j;Path=/go;Expires=Sun, 26-Jul-2015
-          12:56:47 GMT']
-      www-authenticate: [Basic realm="Cruise"]
-    status: {code: 401, message: Full authentication is required to access this resource}
-- request:
-    body: null
-    headers:
       Authorization: [Basic YmE6c2VjcmV0]
       Connection: [close]
       Host: ['localhost:8153']

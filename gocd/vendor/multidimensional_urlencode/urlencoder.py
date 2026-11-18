@@ -1,9 +1,4 @@
-try:
-    #python2
-    from urllib import urlencode as _urlencode
-except ImportError:
-    #python3
-    from urllib.parse import urlencode as _urlencode
+from urllib.parse import urlencode as _urlencode
 
 
 def flatten(d):

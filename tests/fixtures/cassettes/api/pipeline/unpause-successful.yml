@@ -1,30 +1,47 @@
 interactions:
 - request:
-    body: ''
+    body: null
     headers:
-      Connection: [close]
-      Content-Length: ['0']
-      Content-Type: [application/x-www-form-urlencoded]
-      Host: ['localhost:8153']
-      User-Agent: [py-gocd]
+      Accept:
+      - application/vnd.go.cd.v1+json
+      User-Agent:
+      - py-gocd
+      X-GoCD-Confirm:
+      - 'True'
+      authorization:
+      - Basic YWRtaW46YmFkZ2Vy
     method: POST
-    uri: http://localhost:8153/go/api/pipelines/Simple/unpause
+    uri: http://localhost:8153/go/api/pipelines/up42/unpause
   response:
-    body: {string: !!python/unicode ' '}
+    body:
+      string: "{\n  \"message\" : \"Pipeline 'up42' unpaused successfully.\"\n}"
     headers:
-      cache-control: ['max-age=0, private, must-revalidate']
-      connection: [close]
-      content-type: [text/html; charset=utf-8]
-      etag: ['"7215ee9c7d9dc229d2921a40e899ec5f"']
-      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
-      server: [Jetty()]
-      set-cookie: ['JSESSIONID=1d011jvx122bm1afgusjthz69;Path=/go;Expires=Mon, 27-Jul-2015
-          15:39:23 GMT']
-      x-content-type-options: [nosniff]
-      x-frame-options: [SAMEORIGIN]
-      x-request-id: [66fe50c5-461b-4d3a-8dce-0d2b4af15f21]
-      x-runtime: ['0.024000']
-      x-ua-compatible: [chrome=1]
-      x-xss-protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.go.cd.v1+json;charset=utf-8
+      Date:
+      - Fri, 27 Feb 2026 18:34:43 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Server:
+      - Apache/2.4.66 (Unix)
+      Set-Cookie:
+      - JSESSIONID=node01jo54k3kippz81d9krh3m82m8u43.node0; Path=/go; Expires=Fri,
+        13-Mar-2026 18:34:43 GMT; Max-Age=1209600; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-UA-Compatible:
+      - chrome=1
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 version: 1

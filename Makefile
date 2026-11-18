@@ -4,6 +4,7 @@ default: coverage
 
 develop:
 	python setup.py develop
+	pip install -r requirements.txt
 	pip install -r test-requirements.txt
 	pip install flake8 restructuredtext_lint
 	@echo "#!/bin/bash\nmake pre-commit" > .git/hooks/pre-push

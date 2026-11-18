@@ -1,0 +1,46 @@
+interactions:
+- request:
+    body: '{"pause_cause": "Time to sleep"}'
+    headers:
+      Accept:
+      - application/vnd.go.cd.v1+json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - py-gocd
+      authorization:
+      - Basic YWRtaW46YmFkZ2Vy
+    method: POST
+    uri: http://localhost:8153/go/api/pipelines/up42/pause
+  response:
+    body:
+      string: "{\n  \"message\" : \"Failed to pause pipeline 'up42'. Pipeline 'up42'
+        is already paused.\"\n}"
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.go.cd.v1+json;charset=utf-8
+      Date:
+      - Fri, 27 Feb 2026 17:48:45 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Server:
+      - Apache/2.4.66 (Unix)
+      Set-Cookie:
+      - JSESSIONID=node01ibbd0podehrmqfwjp70hx3gy37.node0; Path=/go; Expires=Fri,
+        13-Mar-2026 17:48:45 GMT; Max-Age=1209600; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-UA-Compatible:
+      - chrome=1
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 409
+      message: Conflict
+version: 1

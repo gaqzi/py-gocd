@@ -35,9 +35,12 @@ curl, but when going a little further than the most basic interactions I've
 always started to feel the need for doing all of this in a proper programming
 language. I.e. something that is beyond bash.
 
-I've chosen to use Python and version 2.6.6 and newer as my target platform,
-with no external dependencies, to make it really straightforward to install/run
-on RHEL6 and other similar *stable* distributions.
+The project now requires Python 3.12.x and a new external dependency urllib3 https://pypi.org/project/urllib3/ to work.
+
+Anyone wanting to upgrade to this new version can do it easily via running this simple bash script
+"scripts/test_upgrade_to_python3.sh".
+This should take care of installing new dependency, upgrading new ones, installing test
+dependencies and running the tests for you to be able to confidently deploy it on your systems.
 
 This library was created to support `a Go CLI`__, to handle some common
 scenarios you as an admin or advanced user would do.
@@ -58,19 +61,20 @@ An example interaction:
 .. code-block:: python
 
     >>> from gocd import Server
-    >>> server = Server('http://localhost:8153', user='ba', password='secret')
-    >>> pipeline = server.pipeline('Example-Pipeline')
+    >>> server = Server('http://localhost:8153', user='admin', password='badger')
+    >>> pipeline = server.pipeline('up42')
     >>> response = pipeline.history()
     >>> bool(response)
     True
     >>> response.status_code
     200
     >>> response.content_type
-    'application/json'
+    'application/vnd.go.cd.v1+json'
     >>> response.is_ok
     True
     >>> response.body
-    {"pagination":{"offset":0,"total":1,"page_size":10},"pipelines":[...]"}
+    {'_links': {'next': {'href': 'http://localhost:8153/go/api/pipelines/up42/history?after=206
+    '}}, 'pipelines':[...]}
 
 Style
 -----

@@ -1,31 +1,47 @@
 interactions:
 - request:
-    body: ''
+    body: null
     headers:
-      Connection: [close]
-      Content-Length: ['0']
-      Content-Type: [application/x-www-form-urlencoded]
-      Host: ['localhost:8153']
-      User-Agent: [py-gocd]
+      Accept:
+      - application/vnd.go.cd.v1+json
+      Content-Type:
+      - application/json
+      User-Agent:
+      - py-gocd
+      X-GoCD-Confirm:
+      - 'true'
+      authorization:
+      - Basic YWRtaW46YmFkZ2Vy
     method: POST
-    uri: http://localhost:8153/go/api/pipelines/Simple/schedule
+    uri: http://localhost:8153/go/api/pipelines/up42/schedule
   response:
-    body: {string: !!python/unicode 'Request to schedule pipeline Simple accepted
-
-'}
+    body:
+      string: "{\n  \"message\" : \"Request to schedule pipeline up42 accepted\"\n}"
     headers:
-      cache-control: [no-cache]
-      connection: [close]
-      content-type: [text/html; charset=utf-8]
-      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
-      server: [Jetty()]
-      set-cookie: ['JSESSIONID=1b0ndiug7r7vnn3tk29ym08px;Path=/go;Expires=Mon, 27-Jul-2015
-          16:15:09 GMT']
-      x-content-type-options: [nosniff]
-      x-frame-options: [SAMEORIGIN]
-      x-request-id: [312fc0a6-8ce4-44af-b30d-1dc921ab1d61]
-      x-runtime: ['0.050000']
-      x-ua-compatible: [chrome=1]
-      x-xss-protection: [1; mode=block]
-    status: {code: 202, message: Accepted}
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.go.cd.v1+json;charset=utf-8
+      Date:
+      - Sun, 01 Mar 2026 07:23:04 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Set-Cookie:
+      - JSESSIONID=node0154jbmpijiigu9robaxdp1dry55.node0; Path=/go; Expires=Sun,
+        15-Mar-2026 07:23:04 GMT; Max-Age=1209600; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-UA-Compatible:
+      - chrome=1
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 202
+      message: Accepted
 version: 1

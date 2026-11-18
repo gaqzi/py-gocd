@@ -7,7 +7,7 @@ interactions:
       Host: ['192.168.99.100:8153']
       User-Agent: [py-gocd]
     method: GET
-    uri: http://192.168.99.100:8153/go/api/admin/pipelines/MissingPipeline
+    uri: http://localhost:8153/go/api/admin/pipelines/MissingPipeline
   response:
     body: {string: !!python/unicode "{\n  \"message\": \"You are not authorized to
         access this resource!\"\n}\n"}

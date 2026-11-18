@@ -1,0 +1,44 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.go.cd.v1+json
+      User-Agent:
+      - py-gocd
+      X-GoCD-Confirm:
+      - 'True'
+      authorization:
+      - Basic YWRtaW46YmFkZ2Vy
+    method: POST
+    uri: http://localhost:8153/go/api/pipelines/up42/unlock
+  response:
+    body:
+      string: "{\n  \"message\" : \"Locked pipeline instance is currently running
+        (one of the stages is in progress)\"\n}"
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.go.cd.v1+json;charset=utf-8
+      Date:
+      - Sun, 01 Mar 2026 06:01:48 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Set-Cookie:
+      - JSESSIONID=node01mxl7abhtsehb1k0tbvsk3mv9w11.node0; Path=/go; Expires=Sun,
+        15-Mar-2026 06:01:48 GMT; Max-Age=1209600; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-UA-Compatible:
+      - chrome=1
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 409
+      message: Conflict
+version: 1

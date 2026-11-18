@@ -64,8 +64,8 @@ class Response(object):
         Returns:
           bool: True if `content_type` is `application/json`
         """
-        return (self.content_type.startswith('application/json') or
-                re.match(r'application/vnd.go.cd.v(\d+)\+json', self.content_type))
+        return (self.content_type.startswith('application/json') or re.match(
+            r'application/vnd.go.cd.v(\d+)\+json', self.content_type))
 
     def __bool__(self):
         # XXX
@@ -139,8 +139,8 @@ class Response(object):
     @classmethod
     def _from_request(cls, response, ok_status=None):
         return Response(
-            response.code,
-            response,
+            response.status,
+            response.data,
             response.headers,
             ok_status=ok_status
         )

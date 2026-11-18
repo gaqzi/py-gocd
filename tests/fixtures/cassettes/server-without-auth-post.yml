@@ -10,22 +10,30 @@ interactions:
     method: POST
     uri: http://localhost:8153/go/api/pipelines/Simple/schedule
   response:
-    body: {string: !!python/unicode 'Request to schedule pipeline Simple accepted
-
-'}
+    body: {string: !!python/unicode "<html>\n<head>\n<meta http-equiv=\"Content-Type\"
+        content=\"text/html; charset=ISO-8859-1\"/>\n<title>Error 401 Full authentication
+        is required to access this resource</title>\n</head>\n<body><h2>HTTP ERROR
+        401</h2>\n<p>Problem accessing /go/api/pipelines/Simple/schedule. Reason:\n<pre>
+        \   Full authentication is required to access this resource</pre></p><hr /><i><small>Powered
+        by Jetty://</small></i><br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n<br/>                                                \n<br/>
+        \                                               \n\n</body>\n</html>\n"}
     headers:
-      cache-control: [no-cache]
+      cache-control: ['must-revalidate,no-cache,no-store']
       connection: [close]
-      content-type: [text/html; charset=utf-8]
-      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
+      content-length: ['1489']
+      content-type: [text/html; charset=iso-8859-1]
       server: [Jetty()]
-      set-cookie: ['JSESSIONID=162mnwrqt8zov122h8031otek;Path=/go;Expires=Mon, 27-Jul-2015
-          14:25:25 GMT']
-      x-content-type-options: [nosniff]
-      x-frame-options: [SAMEORIGIN]
-      x-request-id: [5ec42aee-feed-4420-8f51-125273286e3c]
-      x-runtime: ['0.043000']
-      x-ua-compatible: [chrome=1]
-      x-xss-protection: [1; mode=block]
-    status: {code: 202, message: Accepted}
+      set-cookie: ['JSESSIONID=1f509y8n10iua2szz4orlkus2;Path=/go;Expires=Mon, 27-Jul-2015
+          14:26:08 GMT']
+      www-authenticate: [Basic realm="Cruise"]
+    status: {code: 401, message: Full authentication is required to access this resource}
 version: 1

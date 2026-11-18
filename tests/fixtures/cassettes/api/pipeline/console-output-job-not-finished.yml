@@ -2,223 +2,140 @@ interactions:
 - request:
     body: null
     headers:
-      Connection: [close]
-      Host: ['localhost:8153']
-      User-Agent: [py-gocd]
+      Accept:
+      - application/vnd.go.cd.v1+json
+      User-Agent:
+      - py-gocd
+      authorization:
+      - Basic YWRtaW46YmFkZ2Vy
     method: GET
-    uri: http://localhost:8153/go/api/pipelines/Multiple-Stages-And-Jobs-Manual/history/0
+    uri: http://localhost:8153/go/api/pipelines/up42/40
   response:
-    body: {string: "{\"pagination\":{\"offset\":0,\"total\":1,\"page_size\":10},\"\
-        pipelines\":[{\"label\":\"1\",\"name\":\"Multiple-Stages-And-Jobs-Manual\"\
-        ,\"natural_order\":1.0,\"can_run\":true,\"stages\":[{\"result\":\"Passed\"\
-        ,\"jobs\":[{\"state\":\"Completed\",\"result\":\"Passed\",\"name\":\"Hello\"\
-        ,\"id\":18,\"scheduled_date\":1447837612480},{\"state\":\"Completed\",\"result\"\
-        :\"Passed\",\"name\":\"Bye\",\"id\":19,\"scheduled_date\":1447837612480}],\"\
-        name\":\"First\",\"rerun_of_counter\":null,\"approval_type\":\"success\",\"\
-        scheduled\":true,\"operate_permission\":true,\"approved_by\":\"changes\",\"\
-        can_run\":false,\"id\":17,\"counter\":\"1\"},{\"result\":\"Unknown\",\"jobs\"\
-        :[{\"state\":\"Scheduled\",\"result\":\"Unknown\",\"name\":\"Ehlo\",\"id\"\
-        :20,\"scheduled_date\":1447837957352}],\"name\":\"Second\",\"rerun_of_counter\"\
-        :null,\"approval_type\":\"manual\",\"scheduled\":true,\"operate_permission\"\
-        :true,\"approved_by\":\"anonymous\",\"can_run\":false,\"id\":18,\"counter\"\
-        :\"1\"}],\"id\":15,\"build_cause\":{\"trigger_message\":\"modified by Bj\xF6\
-        rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"approver\":\"\",\"material_revisions\"\
-        :[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\"\
-        ,\"description\":\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\"\
-        :3,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1439970615000,\"\
-        user_name\":\"Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"\
-        revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\",\"email_address\"\
-        :null,\"comment\":\"Hello\"}],\"changed\":true}],\"trigger_forced\":false},\"\
-        preparing_to_schedule\":false,\"counter\":1,\"comment\":null}]}"}
+    body:
+      string: "{\n  \"name\" : \"up42\",\n  \"counter\" : 40,\n  \"label\" : \"40\",\n
+        \ \"natural_order\" : 40.0,\n  \"can_run\" : true,\n  \"preparing_to_schedule\"
+        : false,\n  \"comment\" : null,\n  \"scheduled_date\" : 1772800430413,\n  \"build_cause\"
+        : {\n    \"trigger_message\" : \"Forced by admin\",\n    \"trigger_forced\"
+        : true,\n    \"approver\" : \"admin\",\n    \"material_revisions\" : [ {\n
+        \     \"changed\" : false,\n      \"material\" : {\n        \"name\" : \"/Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline\",\n
+        \       \"fingerprint\" : \"a0473b31243408757ed897bc8bc3797b0ce2898a2dbb98de5f17c039e15a89b1\",\n
+        \       \"type\" : \"Git\",\n        \"description\" : \"URL: /Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline,
+        Branch: main\"\n      },\n      \"modifications\" : [ {\n        \"revision\"
+        : \"56530ac0b6636b0640cc52d1c6517e8beffebfe1\",\n        \"modified_time\"
+        : 1755090801000,\n        \"user_name\" : \"Santosh Kumar Bachar <santoshbachar@gmail.com>\",\n
+        \       \"comment\" : \"Empty commit\",\n        \"email_address\" : null\n
+        \     } ]\n    } ]\n  },\n  \"stages\" : [ {\n    \"result\" : \"Failed\",\n
+        \   \"status\" : \"Failed\",\n    \"rerun_of_counter\" : null,\n    \"name\"
+        : \"up42_stage\",\n    \"counter\" : \"1\",\n    \"scheduled\" : true,\n    \"approval_type\"
+        : \"success\",\n    \"approved_by\" : \"admin\",\n    \"operate_permission\"
+        : true,\n    \"can_run\" : true,\n    \"jobs\" : [ {\n      \"name\" : \"up42_job\",\n
+        \     \"scheduled_date\" : 1772800430413,\n      \"state\" : \"Completed\",\n
+        \     \"result\" : \"Failed\"\n    } ]\n  }, {\n    \"status\" : \"Unknown\",\n
+        \   \"rerun_of_counter\" : null,\n    \"name\" : \"stage_to_lock\",\n    \"counter\"
+        : \"1\",\n    \"scheduled\" : false,\n    \"approval_type\" : null,\n    \"approved_by\"
+        : null,\n    \"operate_permission\" : true,\n    \"can_run\" : true,\n    \"jobs\"
+        : [ ]\n  } ]\n}"
     headers:
-      cache-control: ['max-age=0, private, must-revalidate']
-      connection: [close]
-      content-type: [application/json; charset=utf-8]
-      etag: ['"8e51da0f5ebd414f3076f4195e2ed9fb"']
-      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
-      server: [Jetty()]
-      set-cookie: ['JSESSIONID=h0fzr85xjudi105szq76xjk08;Path=/go;Expires=Wed, 02-Dec-2015
-          09:19:29 GMT']
-      x-content-type-options: [nosniff]
-      x-frame-options: [SAMEORIGIN]
-      x-request-id: [24a158be-4970-4b4e-99ab-dc7b379fe0d1]
-      x-runtime: ['0.009000']
-      x-ua-compatible: [chrome=1]
-      x-xss-protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.go.cd.v1+json;charset=utf-8
+      Date:
+      - Fri, 06 Mar 2026 13:14:48 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Set-Cookie:
+      - JSESSIONID=node0ais3z9phqb6sz7bsozu704c45.node0; Path=/go; Expires=Fri, 20-Mar-2026
+        13:14:48 GMT; Max-Age=1209600; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-UA-Compatible:
+      - chrome=1
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 - request:
     body: null
     headers:
-      Connection: [close]
-      Cookie: [JSESSIONID=h0fzr85xjudi105szq76xjk08]
-      Host: ['localhost:8153']
-      User-Agent: [py-gocd]
+      Cookie:
+      - JSESSIONID=node0ais3z9phqb6sz7bsozu704c45.node0
+      User-Agent:
+      - py-gocd
+      authorization:
+      - Basic YWRtaW46YmFkZ2Vy
     method: GET
-    uri: http://localhost:8153/go/files/Multiple-Stages-And-Jobs-Manual/1/First/1/Hello/cruise-output/console.log
+    uri: http://localhost:8153/go/files/up42/40/up42_stage/1/up42_job/cruise-output/console.log
   response:
-    body: {string: !!python/unicode '17:07:11.997 [go] Job Started: 2015-11-18 17:07:11
-        SGT
-
-
-        17:07:11.997 [go] Start to prepare Multiple-Stages-And-Jobs-Manual/1/First/1/Hello
-        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
-
-        17:07:12.014 [go] Skipping material update since stage is configured not to
-        fetch materials
-
-        17:07:12.045 [go] Start to build Multiple-Stages-And-Jobs-Manual/1/First/1/Hello
-        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
-
-        17:07:12.045 [go] Current job status: passed.
-
-
-        17:07:12.045 [go] Start to execute task: <exec command="echo" >
-
-        <arg>Hello</arg>
-
-        </exec>.
-
-        17:07:12.050 [go] setting environment variable ''GO_SERVER_URL'' to value
-        ''https://127.0.0.1:8154/go/''
-
-        17:07:12.050 [go] setting environment variable ''GO_TRIGGER_USER'' to value
-        ''changes''
-
-        17:07:12.050 [go] setting environment variable ''GO_PIPELINE_NAME'' to value
-        ''Multiple-Stages-And-Jobs-Manual''
-
-        17:07:12.050 [go] setting environment variable ''GO_PIPELINE_COUNTER'' to
-        value ''1''
-
-        17:07:12.050 [go] setting environment variable ''GO_PIPELINE_LABEL'' to value
-        ''1''
-
-        17:07:12.051 [go] setting environment variable ''GO_STAGE_NAME'' to value
-        ''First''
-
-        17:07:12.051 [go] setting environment variable ''GO_STAGE_COUNTER'' to value
-        ''1''
-
-        17:07:12.052 [go] setting environment variable ''GO_JOB_NAME'' to value ''Hello''
-
-        17:07:12.052 [go] setting environment variable ''GO_REVISION'' to value ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
-
-        17:07:12.052 [go] setting environment variable ''GO_TO_REVISION'' to value
-        ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
-
-        17:07:12.052 [go] setting environment variable ''GO_FROM_REVISION'' to value
-        ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
-
-        17:07:12.075 Hello
-
-        17:07:12.192 [go] Current job status: passed.
-
-
-        17:07:12.196 [go] Start to create properties Multiple-Stages-And-Jobs-Manual/1/First/1/Hello
-        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
-
-        17:07:12.197 [go] Start to upload Multiple-Stages-And-Jobs-Manual/1/First/1/Hello
-        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
-
-        17:07:12.211 [go] Job completed Multiple-Stages-And-Jobs-Manual/1/First/1/Hello
-        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
-
-        '}
+    body:
+      string: "##|18:04:06.585 [go] Job Started: 2026-03-06 18:04:06 IST\n##|18:04:06.585
+        \npr|18:04:06.585 [go] Start to prepare up42/40/up42_stage/1/up42_job on Santoshs-MacBook-Pro.local
+        [/Users/santoshkumarbachar/Workspace/gocd/agent]\npr|18:04:06.617 [go] Start
+        to update materials.\npr|18:04:06.617 \npr|18:04:06.617 [go] Start updating
+        files at revision 56530ac0b6636b0640cc52d1c6517e8beffebfe1 from /Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline\npr|18:04:06.637
+        [GIT] Fetching changes\npr|18:04:06.667 [GIT] Performing git gc\npr|18:04:06.676
+        [GIT] Reset working directory pipelines/up42\npr|18:04:06.676 [GIT] Cleaning
+        all unversioned files in working copy\npr|18:04:06.766 [GIT] Cleaning submodule
+        configurations in .git/config\npr|18:04:06.774 [GIT] Updating working copy
+        to revision 56530ac0b6636b0640cc52d1c6517e8beffebfe1\npr|18:04:06.787 HEAD
+        is now at 56530ac Empty commit\npr|18:04:06.787 [GIT] Removing modified files
+        in submodules\npr|18:04:06.852 [GIT] Cleaning all unversioned files in working
+        copy\npr|18:04:06.917 [go] Done.\npr|18:04:06.917 \npr|18:04:06.917 [go] setting
+        environment variable 'GO_SERVER_URL' to value 'http://localhost:8153/go'\npr|18:04:06.917
+        [go] setting environment variable 'GO_PIPELINE_GROUP_NAME' to value 'first'\npr|18:04:06.917
+        [go] setting environment variable 'GO_TRIGGER_USER' to value 'admin'\npr|18:04:06.917
+        [go] setting environment variable 'GO_PIPELINE_NAME' to value 'up42'\npr|18:04:06.917
+        [go] setting environment variable 'GO_PIPELINE_COUNTER' to value '40'\npr|18:04:06.917
+        [go] setting environment variable 'GO_PIPELINE_LABEL' to value '40'\npr|18:04:06.917
+        [go] setting environment variable 'GO_STAGE_NAME' to value 'up42_stage'\npr|18:04:06.917
+        [go] setting environment variable 'GO_STAGE_COUNTER' to value '1'\npr|18:04:06.917
+        [go] setting environment variable 'GO_JOB_NAME' to value 'up42_job'\npr|18:04:06.917
+        [go] setting environment variable 'GO_REVISION' to value '56530ac0b6636b0640cc52d1c6517e8beffebfe1'\npr|18:04:06.917
+        [go] setting environment variable 'GO_TO_REVISION' to value '56530ac0b6636b0640cc52d1c6517e8beffebfe1'\npr|18:04:06.917
+        [go] setting environment variable 'GO_FROM_REVISION' to value '56530ac0b6636b0640cc52d1c6517e8beffebfe1'\npr|18:04:06.917
+        [go] setting environment variable 'GO_MATERIAL_URL' to value '/Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline'\npr|18:04:06.917
+        [go] setting environment variable 'GO_MATERIAL_BRANCH' to value 'main'\npr|18:04:06.917
+        [go] setting environment variable 'GO_MATERIAL_HAS_CHANGED' to value 'false'\npr|18:04:06.917
+        \n##|18:04:06.924 [go] Start to build up42/40/up42_stage/1/up42_job on Santoshs-MacBook-Pro.local
+        [/Users/santoshkumarbachar/Workspace/gocd/agent]\n!!|18:04:06.944 [go] Task:
+        exit -1\n&2|18:04:06.948 Error happened while attempting to execute 'exit
+        -1'. \n&2|18:04:06.948 Please make sure [exit] can be executed on this agent.\n&2|18:04:06.948
+        \n&2|18:04:06.948 [Debug Information] Environment variable PATH: /Users/santoshkumarbachar/.local/bin/alire/bin:/opt/homebrew/opt/bison/bin:/Users/santoshkumarbachar/.local/share/mise/installs/node/24.13.0/bin:/opt/homebrew/bin:/Users/santoshkumarbachar/.nodenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pmk/env/global/bin:/Library/Apple/usr/bin:/Applications/VMware
+        Fusion.app/Contents/Public:/Users/santoshkumarbachar/Library/Application Support/JetBrains/Toolbox/scripts:/Users/santoshkumarbachar/.orbstack/bin:/Users/santoshkumarbachar/.lmstudio/bin\n?1|18:04:06.948
+        [go] Task status: failed (3 ms)\nj1|18:04:06.973 [go] Current job status:
+        failed\nar|18:04:07.005 [go] Start to upload up42/40/up42_stage/1/up42_job
+        on Santoshs-MacBook-Pro.local [/Users/santoshkumarbachar/Workspace/gocd/agent]\nex|18:04:07.005
+        [go] Job completed up42/40/up42_stage/1/up42_job on Santoshs-MacBook-Pro.local
+        [/Users/santoshkumarbachar/Workspace/gocd/agent]\n"
     headers:
-      connection: [close]
-      content-disposition: [Inline; filename=fname.ext]
-      content-language: [en-US]
-      content-length: ['2135']
-      content-type: [text/plain; charset=utf-8]
-      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
-      server: [Jetty()]
-      set-cookie: ['JSESSIONID=h0fzr85xjudi105szq76xjk08;Path=/go;Expires=Wed, 02-Dec-2015
-          09:19:29 GMT']
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Connection: [close]
-      Cookie: [JSESSIONID=h0fzr85xjudi105szq76xjk08]
-      Host: ['localhost:8153']
-      User-Agent: [py-gocd]
-    method: GET
-    uri: http://localhost:8153/go/files/Multiple-Stages-And-Jobs-Manual/1/First/1/Bye/cruise-output/console.log
-  response:
-    body: {string: !!python/unicode '17:07:31.981 [go] Job Started: 2015-11-18 17:07:31
-        SGT
-
-
-        17:07:31.981 [go] Start to prepare Multiple-Stages-And-Jobs-Manual/1/First/1/Bye
-        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
-
-        17:07:31.985 [go] Skipping material update since stage is configured not to
-        fetch materials
-
-        17:07:31.991 [go] Start to build Multiple-Stages-And-Jobs-Manual/1/First/1/Bye
-        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
-
-        17:07:31.992 [go] Current job status: passed.
-
-
-        17:07:31.992 [go] Start to execute task: <exec command="echo" >
-
-        <arg>Good Bye</arg>
-
-        </exec>.
-
-        17:07:31.992 [go] setting environment variable ''GO_SERVER_URL'' to value
-        ''https://127.0.0.1:8154/go/''
-
-        17:07:31.992 [go] setting environment variable ''GO_TRIGGER_USER'' to value
-        ''changes''
-
-        17:07:31.992 [go] setting environment variable ''GO_PIPELINE_NAME'' to value
-        ''Multiple-Stages-And-Jobs-Manual''
-
-        17:07:31.992 [go] setting environment variable ''GO_PIPELINE_COUNTER'' to
-        value ''1''
-
-        17:07:31.992 [go] setting environment variable ''GO_PIPELINE_LABEL'' to value
-        ''1''
-
-        17:07:31.993 [go] setting environment variable ''GO_STAGE_NAME'' to value
-        ''First''
-
-        17:07:31.993 [go] setting environment variable ''GO_STAGE_COUNTER'' to value
-        ''1''
-
-        17:07:31.993 [go] setting environment variable ''GO_JOB_NAME'' to value ''Bye''
-
-        17:07:31.993 [go] setting environment variable ''GO_REVISION'' to value ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
-
-        17:07:31.993 [go] setting environment variable ''GO_TO_REVISION'' to value
-        ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
-
-        17:07:31.993 [go] setting environment variable ''GO_FROM_REVISION'' to value
-        ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
-
-        17:07:31.997 Good Bye
-
-        17:07:32.109 [go] Current job status: passed.
-
-
-        17:07:32.114 [go] Start to create properties Multiple-Stages-And-Jobs-Manual/1/First/1/Bye
-        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
-
-        17:07:32.114 [go] Start to upload Multiple-Stages-And-Jobs-Manual/1/First/1/Bye
-        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
-
-        17:07:32.169 [go] Job completed Multiple-Stages-And-Jobs-Manual/1/First/1/Bye
-        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
-
-        '}
-    headers:
-      connection: [close]
-      content-disposition: [Inline; filename=fname.ext]
-      content-language: [en-US]
-      content-length: ['2129']
-      content-type: [text/plain; charset=utf-8]
-      server: [Jetty()]
-    status: {code: 200, message: OK}
+      Content-Disposition:
+      - Inline; filename=fname.ext
+      Content-Language:
+      - en-IN
+      Content-Length:
+      - '4135'
+      Content-Type:
+      - text/plain;charset=utf-8
+      Date:
+      - Fri, 06 Mar 2026 13:14:48 GMT
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-UA-Compatible:
+      - chrome=1
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 version: 1
