@@ -8,9 +8,9 @@ interactions:
       Host: ['localhost:8153']
       User-Agent: [py-gocd]
     method: POST
-    uri: http://localhost:8153/go/api/pipelines/Simple/schedule
+    uri: http://localhost:8153/go/api/pipelines/up42/schedule
   response:
-    body: {string: !!python/unicode 'Request to schedule pipeline Simple accepted
+    body: {string: !!python/unicode 'Request to schedule pipeline up42 accepted
 
 '}
     headers:

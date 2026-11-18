@@ -2,28 +2,75 @@ interactions:
 - request:
     body: null
     headers:
-      Connection: [close]
-      Host: ['localhost:8153']
-      User-Agent: [py-gocd]
+      Accept:
+      - application/vnd.go.cd.v1+json
+      User-Agent:
+      - py-gocd
+      authorization:
+      - Basic YWRtaW46YmFkZ2Vy
     method: GET
-    uri: http://localhost:8153/go/api/config/pipeline_groups
+    uri: http://localhost:8153/go/api/admin/pipeline_groups
   response:
-    body: {string: !!python/unicode '[{"name":"defaultGroup","pipelines":[{"label":"${COUNT}","materials":[{"fingerprint":"7ac538cb4982616d4cf18a17b2fe7e6ae2e033ef04d66c29a508ca1155460e20","type":"Git","description":"URL:
-        /Users/ba/code/empty/, Branch: master"}],"stages":[{"name":"defaultStage"}],"name":"No-valid-agents"}]}]'}
+    body:
+      string: "{\n  \"_links\" : {\n    \"self\" : {\n      \"href\" : \"http://localhost:8153/go/api/admin/pipeline_groups\"\n
+        \   },\n    \"doc\" : {\n      \"href\" : \"https://api.gocd.org/current/#pipeline-group-config\"\n
+        \   },\n    \"find\" : {\n      \"href\" : \"http://localhost:8153/go/api/admin/pipeline_groups/:group_name\"\n
+        \   }\n  },\n  \"_embedded\" : {\n    \"groups\" : [ {\n      \"_links\" :
+        {\n        \"self\" : {\n          \"href\" : 
+        \"http://localhost:8153/go/api/admin/pipeline_groups/defaultGroup\"\n
+        \       },\n        \"doc\" : {\n          \"href\" : \"https://api.gocd.org/current/#pipeline-group-config\"\n
+        \       },\n        \"find\" : {\n          \"href\" : \"http://localhost:8153/go/api/admin/pipeline_groups/:group_name\"\n
+        \       }\n      },\n      \"name\" : \"defaultGroup\",\n      \"authorization\"
+        : {\n        \"view\" : {\n          \"users\" : [ \"operate\" ],\n          \"roles\"
+        : [ ]\n        },\n        \"admins\" : {\n          \"users\" : [ \"operate\"
+        ],\n          \"roles\" : [ ]\n        }\n      },\n      \"pipelines\" :
+        [ {\n        \"_links\" : {\n          \"self\" : {\n            \"href\"
+        : \"http://localhost:8153/go/api/admin/pipelines/up42\"\n          },\n          \"doc\"
+        : {\n            \"href\" : \"https://api.gocd.org/26.1.0/#pipeline-config\"\n
+        \         },\n          \"find\" : {\n            \"href\" : \"http://localhost:8153/go/api/admin/pipelines/:pipeline_name\"\n
+        \         }\n        },\n        \"name\" : \"up42\"\n      }, {\n        \"_links\"
+        : {\n          \"self\" : {\n            \"href\" : \"http://localhost:8153/go/api/admin/pipelines/re-runs-insight\"\n
+        \         },\n          \"doc\" : {\n            \"href\" : \"https://api.gocd.org/26.1.0/#pipeline-config\"\n
+        \         },\n          \"find\" : {\n            \"href\" : \"http://localhost:8153/go/api/admin/pipelines/:pipeline_name\"\n
+        \         }\n        },\n        \"name\" : \"re-runs-insight\"\n      } ]\n
+        \   }, {\n      \"_links\" : {\n        \"self\" : {\n          \"href\" :
+        \"http://localhost:8153/go/api/admin/pipeline_groups/Gajraj\"\n        },\n
+        \       \"doc\" : {\n          \"href\" : \"https://api.gocd.org/current/#pipeline-group-config\"\n
+        \       },\n        \"find\" : {\n          \"href\" : \"http://localhost:8153/go/api/admin/pipeline_groups/:group_name\"\n
+        \       }\n      },\n      \"name\" : \"Gajraj\",\n      \"authorization\"
+        : { },\n      \"pipelines\" : [ {\n        \"_links\" : {\n          \"self\"
+        : {\n            \"href\" : \"http://localhost:8153/go/api/admin/pipelines/PHP\"\n
+        \         },\n          \"doc\" : {\n            \"href\" : \"https://api.gocd.org/26.1.0/#pipeline-config\"\n
+        \         },\n          \"find\" : {\n            \"href\" : \"http://localhost:8153/go/api/admin/pipelines/:pipeline_name\"\n
+        \         }\n        },\n        \"name\" : \"PHP\"\n      } ]\n    } ]\n
+        \ }\n}"
     headers:
-      cache-control: ['max-age=0, private, must-revalidate']
-      connection: [close]
-      content-type: [application/json; charset=utf-8]
-      etag: ['"fcdbd4209c7a2211a5611d95dc968d2a"']
-      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
-      server: [Jetty()]
-      set-cookie: ['JSESSIONID=a6td4q7ux7pr19htd8h7y4nsd;Path=/go;Expires=Tue, 29-Sep-2015
-          10:20:29 GMT']
-      x-content-type-options: [nosniff]
-      x-frame-options: [SAMEORIGIN]
-      x-request-id: [91cc22d1-31fc-4298-8ff1-e63cbb2c50eb]
-      x-runtime: ['0.036000']
-      x-ua-compatible: [chrome=1]
-      x-xss-protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.go.cd.v1+json;charset=utf-8
+      Date:
+      - Sat, 14 Mar 2026 13:18:31 GMT
+      ETag:
+      - '"8526cb92fe2108bee285450f0aa2ca82fda405a5d87d00d70e632fe528f132c8"'
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Set-Cookie:
+      - JSESSIONID=node081leah8flkq01qdys95cn34yg80.node0; Path=/go; Expires=Sat,
+        28-Mar-2026 13:18:32 GMT; Max-Age=1209600; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-UA-Compatible:
+      - chrome=1
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 version: 1

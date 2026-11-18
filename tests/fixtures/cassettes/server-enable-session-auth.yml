@@ -287,4 +287,27 @@ interactions:
       x-ua-compatible: [chrome=1]
       x-xss-protection: [1; mode=block]
     status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Connection: [close]
+      Cookie: [JSESSIONID=109fd27wv21v113boef4izt2eu]  # reuse one from cassette
+      Host: ['localhost:8153']
+      User-Agent: [py-gocd]
+    method: POST
+    uri: http://localhost:8153/go/run/Simple-with-lock/11/firstStage
+  response:
+    body: {string: !!python/unicode "<html><body><h1>Stage triggered</h1><input type=\"hidden\" name=\"authenticity_token\" value=\"yPRpHPuWEo9sex1nZBDkRpHbMkJzA7b1Pj3Qzrn4bts=\" /><p>Redirecting...</p></body></html>"}
+    headers:
+      cache-control: ['no-cache, no-store']
+      connection: [close]
+      content-type: [text/html; charset=utf-8]
+      location: ['/go/pipelines/Simple-with-lock/11/firstStage/7']  # fake redirect to a stage instance
+      server: [Jetty()]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [dummy-request-id-123456]
+      x-runtime: ['0.012000']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
 version: 1

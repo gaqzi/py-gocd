@@ -2,27 +2,42 @@ interactions:
 - request:
     body: null
     headers:
-      Connection: [close]
-      Host: ['localhost:8153']
-      User-Agent: [py-gocd]
+      Accept:
+      - application/vnd.go.cd.v1+json
+      User-Agent:
+      - py-gocd
+      authorization:
+      - Basic YmE6c2VjcmV0
     method: GET
-    uri: http://localhost:8153/go/api/config/pipeline_groups
+    uri: http://localhost:8153/go/api/admin/pipeline_groups
   response:
-    body: {string: !!python/unicode ''}
+    body:
+      string: "{\n  \"message\": \"Invalid credentials. Either your username and password
+        are incorrect, or there is a problem with your browser cookies. Please check
+        with your administrator.\"\n}"
     headers:
-      cache-control: ['max-age=0, private, must-revalidate']
-      connection: [close]
-      content-type: [application/json; charset=utf-8]
-      etag: ['"fcdbd4209c7a2211a5611d95dc968d2a"']
-      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
-      server: [Jetty()]
-      set-cookie: ['JSESSIONID=a6td4q7ux7pr19htd8h7y4nsd;Path=/go;Expires=Tue, 29-Sep-2015
-          10:20:29 GMT']
-      x-content-type-options: [nosniff]
-      x-frame-options: [SAMEORIGIN]
-      x-request-id: [91cc22d1-31fc-4298-8ff1-e63cbb2c50eb]
-      x-runtime: ['0.036000']
-      x-ua-compatible: [chrome=1]
-      x-xss-protection: [1; mode=block]
-    status: {code: 404, message: 'Not found'}
+      Content-Length:
+      - '175'
+      Content-Type:
+      - application/vnd.go.cd.v1+json;charset=utf-8
+      Date:
+      - Sat, 14 Mar 2026 13:15:45 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Set-Cookie:
+      - JSESSIONID=node01mve29jl005x71qlfudda6nuow76.node0; Path=/go; Expires=Sat,
+        28-Mar-2026 13:15:45 GMT; Max-Age=1209600; HttpOnly
+      WWW-Authenticate:
+      - Basic realm="GoCD"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-UA-Compatible:
+      - chrome=1
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 401
+      message: Unauthorized
 version: 1

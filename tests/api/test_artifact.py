@@ -38,7 +38,7 @@ def test_get(artifact, cassette_name, path_to_file, expected_content):
         response = artifact.get(path_to_file)
 
     assert response.status_code == 200
-    assert response.fp.read().decode('utf-8') == expected_content
+    assert response.payload.decode('utf-8') == expected_content
 
 
 @vcr.use_cassette('tests/fixtures/cassettes/api/artifact/get_directory.yml')
@@ -47,6 +47,6 @@ def test_get_directory(artifact):
 
     assert response.status_code == 200
 
-    file_like_object = io.BytesIO(response.fp.read())
+    file_like_object = io.BytesIO(response.payload)
     zip_file = zipfile.ZipFile(file_like_object)
     assert set(['foo/', 'foo/a.txt', 'foo/b.txt']) == set(zip_file.namelist())

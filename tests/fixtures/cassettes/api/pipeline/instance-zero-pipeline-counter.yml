@@ -1,0 +1,41 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.go.cd.v1+json
+      Cookie:
+      - JSESSIONID=node0vnhcom2dfisddf3xxxgjy9py53.node0
+      User-Agent:
+      - py-gocd
+      authorization:
+      - Basic YWRtaW46YmFkZ2Vy
+    method: GET
+    uri: http://localhost:8153/go/api/pipelines/up42/0
+  response:
+    body:
+      string: '{"message":"Your request could not be processed. The pipeline counter
+        cannot be less than 1."}'
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.go.cd.v1+json;charset=utf-8
+      Date:
+      - Sun, 01 Mar 2026 07:14:12 GMT
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Runtime:
+      - '2'
+      X-UA-Compatible:
+      - chrome=1
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 422
+      message: Unprocessable Entity
+version: 1

@@ -1,0 +1,244 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.go.cd.v1+json
+      User-Agent:
+      - py-gocd
+      authorization:
+      - Basic YWRtaW46YmFkZ2Vy
+    method: GET
+    uri: http://localhost:8153/go/api/pipelines/up42/history?page_size=10
+  response:
+    body:
+      string: "{\n  \"_links\" : {\n    \"next\" : {\n      \"href\" : \"http://localhost:8153/go/api/pipelines/up42/history?after=66\"\n
+        \   }\n  },\n  \"pipelines\" : [ {\n    \"name\" : \"up42\",\n    \"counter\"
+        : 12,\n    \"label\" : \"12\",\n    \"natural_order\" : 12.0,\n    \"can_run\"
+        : true,\n    \"preparing_to_schedule\" : false,\n    \"comment\" : null,\n
+        \   \"scheduled_date\" : 1772108322509,\n    \"build_cause\" : {\n      \"trigger_message\"
+        : \"Forced by admin\",\n      \"trigger_forced\" : true,\n      \"approver\"
+        : \"admin\",\n      \"material_revisions\" : [ {\n        \"changed\" : false,\n
+        \       \"material\" : {\n          \"name\" : \"/Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline\",\n
+        \         \"fingerprint\" : \"a0473b31243408757ed897bc8bc3797b0ce2898a2dbb98de5f17c039e15a89b1\",\n
+        \         \"type\" : \"Git\",\n          \"description\" : \"URL: /Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline,
+        Branch: main\"\n        },\n        \"modifications\" : [ {\n          \"revision\"
+        : \"56530ac0b6636b0640cc52d1c6517e8beffebfe1\",\n          \"modified_time\"
+        : 1755090801000,\n          \"user_name\" : \"Santosh Kumar Bachar <santoshbachar@gmail.com>\",\n
+        \         \"comment\" : \"Empty commit\",\n          \"email_address\" : null\n
+        \       } ]\n      } ]\n    },\n    \"stages\" : [ {\n      \"result\" : \"Passed\",\n
+        \     \"status\" : \"Passed\",\n      \"rerun_of_counter\" : null,\n      \"name\"
+        : \"up42_stage\",\n      \"counter\" : \"1\",\n      \"scheduled\" : true,\n
+        \     \"approval_type\" : \"success\",\n      \"approved_by\" : \"admin\",\n
+        \     \"operate_permission\" : true,\n      \"can_run\" : true,\n      \"jobs\"
+        : [ {\n        \"name\" : \"up42_job\",\n        \"scheduled_date\" : 1772108322509,\n
+        \       \"state\" : \"Completed\",\n        \"result\" : \"Passed\"\n      }
+        ]\n    } ]\n  }, {\n    \"name\" : \"up42\",\n    \"counter\" : 11,\n    \"label\"
+        : \"11\",\n    \"natural_order\" : 11.0,\n    \"can_run\" : true,\n    \"preparing_to_schedule\"
+        : false,\n    \"comment\" : null,\n    \"scheduled_date\" : 1772108299394,\n
+        \   \"build_cause\" : {\n      \"trigger_message\" : \"Forced by admin\",\n
+        \     \"trigger_forced\" : true,\n      \"approver\" : \"admin\",\n      \"material_revisions\"
+        : [ {\n        \"changed\" : false,\n        \"material\" : {\n          \"name\"
+        : \"/Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline\",\n
+        \         \"fingerprint\" : \"a0473b31243408757ed897bc8bc3797b0ce2898a2dbb98de5f17c039e15a89b1\",\n
+        \         \"type\" : \"Git\",\n          \"description\" : \"URL: /Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline,
+        Branch: main\"\n        },\n        \"modifications\" : [ {\n          \"revision\"
+        : \"56530ac0b6636b0640cc52d1c6517e8beffebfe1\",\n          \"modified_time\"
+        : 1755090801000,\n          \"user_name\" : \"Santosh Kumar Bachar <santoshbachar@gmail.com>\",\n
+        \         \"comment\" : \"Empty commit\",\n          \"email_address\" : null\n
+        \       } ]\n      } ]\n    },\n    \"stages\" : [ {\n      \"result\" : \"Passed\",\n
+        \     \"status\" : \"Passed\",\n      \"rerun_of_counter\" : null,\n      \"name\"
+        : \"up42_stage\",\n      \"counter\" : \"1\",\n      \"scheduled\" : true,\n
+        \     \"approval_type\" : \"success\",\n      \"approved_by\" : \"admin\",\n
+        \     \"operate_permission\" : true,\n      \"can_run\" : true,\n      \"jobs\"
+        : [ {\n        \"name\" : \"up42_job\",\n        \"scheduled_date\" : 1772108299394,\n
+        \       \"state\" : \"Completed\",\n        \"result\" : \"Passed\"\n      }
+        ]\n    } ]\n  }, {\n    \"name\" : \"up42\",\n    \"counter\" : 10,\n    \"label\"
+        : \"10\",\n    \"natural_order\" : 10.0,\n    \"can_run\" : true,\n    \"preparing_to_schedule\"
+        : false,\n    \"comment\" : null,\n    \"scheduled_date\" : 1772108271254,\n
+        \   \"build_cause\" : {\n      \"trigger_message\" : \"Forced by admin\",\n
+        \     \"trigger_forced\" : true,\n      \"approver\" : \"admin\",\n      \"material_revisions\"
+        : [ {\n        \"changed\" : false,\n        \"material\" : {\n          \"name\"
+        : \"/Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline\",\n
+        \         \"fingerprint\" : \"a0473b31243408757ed897bc8bc3797b0ce2898a2dbb98de5f17c039e15a89b1\",\n
+        \         \"type\" : \"Git\",\n          \"description\" : \"URL: /Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline,
+        Branch: main\"\n        },\n        \"modifications\" : [ {\n          \"revision\"
+        : \"56530ac0b6636b0640cc52d1c6517e8beffebfe1\",\n          \"modified_time\"
+        : 1755090801000,\n          \"user_name\" : \"Santosh Kumar Bachar <santoshbachar@gmail.com>\",\n
+        \         \"comment\" : \"Empty commit\",\n          \"email_address\" : null\n
+        \       } ]\n      } ]\n    },\n    \"stages\" : [ {\n      \"result\" : \"Passed\",\n
+        \     \"status\" : \"Passed\",\n      \"rerun_of_counter\" : null,\n      \"name\"
+        : \"up42_stage\",\n      \"counter\" : \"1\",\n      \"scheduled\" : true,\n
+        \     \"approval_type\" : \"success\",\n      \"approved_by\" : \"admin\",\n
+        \     \"operate_permission\" : true,\n      \"can_run\" : true,\n      \"jobs\"
+        : [ {\n        \"name\" : \"up42_job\",\n        \"scheduled_date\" : 1772108271254,\n
+        \       \"state\" : \"Completed\",\n        \"result\" : \"Passed\"\n      }
+        ]\n    } ]\n  }, {\n    \"name\" : \"up42\",\n    \"counter\" : 9,\n    \"label\"
+        : \"9\",\n    \"natural_order\" : 9.0,\n    \"can_run\" : true,\n    \"preparing_to_schedule\"
+        : false,\n    \"comment\" : null,\n    \"scheduled_date\" : 1772108251148,\n
+        \   \"build_cause\" : {\n      \"trigger_message\" : \"Forced by admin\",\n
+        \     \"trigger_forced\" : true,\n      \"approver\" : \"admin\",\n      \"material_revisions\"
+        : [ {\n        \"changed\" : false,\n        \"material\" : {\n          \"name\"
+        : \"/Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline\",\n
+        \         \"fingerprint\" : \"a0473b31243408757ed897bc8bc3797b0ce2898a2dbb98de5f17c039e15a89b1\",\n
+        \         \"type\" : \"Git\",\n          \"description\" : \"URL: /Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline,
+        Branch: main\"\n        },\n        \"modifications\" : [ {\n          \"revision\"
+        : \"56530ac0b6636b0640cc52d1c6517e8beffebfe1\",\n          \"modified_time\"
+        : 1755090801000,\n          \"user_name\" : \"Santosh Kumar Bachar <santoshbachar@gmail.com>\",\n
+        \         \"comment\" : \"Empty commit\",\n          \"email_address\" : null\n
+        \       } ]\n      } ]\n    },\n    \"stages\" : [ {\n      \"result\" : \"Passed\",\n
+        \     \"status\" : \"Passed\",\n      \"rerun_of_counter\" : null,\n      \"name\"
+        : \"up42_stage\",\n      \"counter\" : \"1\",\n      \"scheduled\" : true,\n
+        \     \"approval_type\" : \"success\",\n      \"approved_by\" : \"admin\",\n
+        \     \"operate_permission\" : true,\n      \"can_run\" : true,\n      \"jobs\"
+        : [ {\n        \"name\" : \"up42_job\",\n        \"scheduled_date\" : 1772108251148,\n
+        \       \"state\" : \"Completed\",\n        \"result\" : \"Passed\"\n      }
+        ]\n    } ]\n  }, {\n    \"name\" : \"up42\",\n    \"counter\" : 8,\n    \"label\"
+        : \"8\",\n    \"natural_order\" : 8.0,\n    \"can_run\" : true,\n    \"preparing_to_schedule\"
+        : false,\n    \"comment\" : null,\n    \"scheduled_date\" : 1772108218999,\n
+        \   \"build_cause\" : {\n      \"trigger_message\" : \"Forced by admin\",\n
+        \     \"trigger_forced\" : true,\n      \"approver\" : \"admin\",\n      \"material_revisions\"
+        : [ {\n        \"changed\" : false,\n        \"material\" : {\n          \"name\"
+        : \"/Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline\",\n
+        \         \"fingerprint\" : \"a0473b31243408757ed897bc8bc3797b0ce2898a2dbb98de5f17c039e15a89b1\",\n
+        \         \"type\" : \"Git\",\n          \"description\" : \"URL: /Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline,
+        Branch: main\"\n        },\n        \"modifications\" : [ {\n          \"revision\"
+        : \"56530ac0b6636b0640cc52d1c6517e8beffebfe1\",\n          \"modified_time\"
+        : 1755090801000,\n          \"user_name\" : \"Santosh Kumar Bachar <santoshbachar@gmail.com>\",\n
+        \         \"comment\" : \"Empty commit\",\n          \"email_address\" : null\n
+        \       } ]\n      } ]\n    },\n    \"stages\" : [ {\n      \"result\" : \"Passed\",\n
+        \     \"status\" : \"Passed\",\n      \"rerun_of_counter\" : null,\n      \"name\"
+        : \"up42_stage\",\n      \"counter\" : \"1\",\n      \"scheduled\" : true,\n
+        \     \"approval_type\" : \"success\",\n      \"approved_by\" : \"admin\",\n
+        \     \"operate_permission\" : true,\n      \"can_run\" : true,\n      \"jobs\"
+        : [ {\n        \"name\" : \"up42_job\",\n        \"scheduled_date\" : 1772108218999,\n
+        \       \"state\" : \"Completed\",\n        \"result\" : \"Passed\"\n      }
+        ]\n    } ]\n  }, {\n    \"name\" : \"up42\",\n    \"counter\" : 7,\n    \"label\"
+        : \"7\",\n    \"natural_order\" : 7.0,\n    \"can_run\" : true,\n    \"preparing_to_schedule\"
+        : false,\n    \"comment\" : null,\n    \"scheduled_date\" : 1772108162773,\n
+        \   \"build_cause\" : {\n      \"trigger_message\" : \"Forced by admin\",\n
+        \     \"trigger_forced\" : true,\n      \"approver\" : \"admin\",\n      \"material_revisions\"
+        : [ {\n        \"changed\" : false,\n        \"material\" : {\n          \"name\"
+        : \"/Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline\",\n
+        \         \"fingerprint\" : \"a0473b31243408757ed897bc8bc3797b0ce2898a2dbb98de5f17c039e15a89b1\",\n
+        \         \"type\" : \"Git\",\n          \"description\" : \"URL: /Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline,
+        Branch: main\"\n        },\n        \"modifications\" : [ {\n          \"revision\"
+        : \"56530ac0b6636b0640cc52d1c6517e8beffebfe1\",\n          \"modified_time\"
+        : 1755090801000,\n          \"user_name\" : \"Santosh Kumar Bachar <santoshbachar@gmail.com>\",\n
+        \         \"comment\" : \"Empty commit\",\n          \"email_address\" : null\n
+        \       } ]\n      } ]\n    },\n    \"stages\" : [ {\n      \"result\" : \"Passed\",\n
+        \     \"status\" : \"Passed\",\n      \"rerun_of_counter\" : null,\n      \"name\"
+        : \"up42_stage\",\n      \"counter\" : \"1\",\n      \"scheduled\" : true,\n
+        \     \"approval_type\" : \"success\",\n      \"approved_by\" : \"admin\",\n
+        \     \"operate_permission\" : true,\n      \"can_run\" : true,\n      \"jobs\"
+        : [ {\n        \"name\" : \"up42_job\",\n        \"scheduled_date\" : 1772108162773,\n
+        \       \"state\" : \"Completed\",\n        \"result\" : \"Passed\"\n      }
+        ]\n    } ]\n  }, {\n    \"name\" : \"up42\",\n    \"counter\" : 6,\n    \"label\"
+        : \"6\",\n    \"natural_order\" : 6.0,\n    \"can_run\" : true,\n    \"preparing_to_schedule\"
+        : false,\n    \"comment\" : null,\n    \"scheduled_date\" : 1772108138663,\n
+        \   \"build_cause\" : {\n      \"trigger_message\" : \"Forced by admin\",\n
+        \     \"trigger_forced\" : true,\n      \"approver\" : \"admin\",\n      \"material_revisions\"
+        : [ {\n        \"changed\" : false,\n        \"material\" : {\n          \"name\"
+        : \"/Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline\",\n
+        \         \"fingerprint\" : \"a0473b31243408757ed897bc8bc3797b0ce2898a2dbb98de5f17c039e15a89b1\",\n
+        \         \"type\" : \"Git\",\n          \"description\" : \"URL: /Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline,
+        Branch: main\"\n        },\n        \"modifications\" : [ {\n          \"revision\"
+        : \"56530ac0b6636b0640cc52d1c6517e8beffebfe1\",\n          \"modified_time\"
+        : 1755090801000,\n          \"user_name\" : \"Santosh Kumar Bachar <santoshbachar@gmail.com>\",\n
+        \         \"comment\" : \"Empty commit\",\n          \"email_address\" : null\n
+        \       } ]\n      } ]\n    },\n    \"stages\" : [ {\n      \"result\" : \"Passed\",\n
+        \     \"status\" : \"Passed\",\n      \"rerun_of_counter\" : null,\n      \"name\"
+        : \"up42_stage\",\n      \"counter\" : \"1\",\n      \"scheduled\" : true,\n
+        \     \"approval_type\" : \"success\",\n      \"approved_by\" : \"admin\",\n
+        \     \"operate_permission\" : true,\n      \"can_run\" : true,\n      \"jobs\"
+        : [ {\n        \"name\" : \"up42_job\",\n        \"scheduled_date\" : 1772108138663,\n
+        \       \"state\" : \"Completed\",\n        \"result\" : \"Passed\"\n      }
+        ]\n    } ]\n  }, {\n    \"name\" : \"up42\",\n    \"counter\" : 5,\n    \"label\"
+        : \"5\",\n    \"natural_order\" : 5.0,\n    \"can_run\" : true,\n    \"preparing_to_schedule\"
+        : false,\n    \"comment\" : null,\n    \"scheduled_date\" : 1772032534057,\n
+        \   \"build_cause\" : {\n      \"trigger_message\" : \"Forced by admin\",\n
+        \     \"trigger_forced\" : true,\n      \"approver\" : \"admin\",\n      \"material_revisions\"
+        : [ {\n        \"changed\" : false,\n        \"material\" : {\n          \"name\"
+        : \"/Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline\",\n
+        \         \"fingerprint\" : \"a0473b31243408757ed897bc8bc3797b0ce2898a2dbb98de5f17c039e15a89b1\",\n
+        \         \"type\" : \"Git\",\n          \"description\" : \"URL: /Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline,
+        Branch: main\"\n        },\n        \"modifications\" : [ {\n          \"revision\"
+        : \"56530ac0b6636b0640cc52d1c6517e8beffebfe1\",\n          \"modified_time\"
+        : 1755090801000,\n          \"user_name\" : \"Santosh Kumar Bachar <santoshbachar@gmail.com>\",\n
+        \         \"comment\" : \"Empty commit\",\n          \"email_address\" : null\n
+        \       } ]\n      } ]\n    },\n    \"stages\" : [ {\n      \"result\" : \"Passed\",\n
+        \     \"status\" : \"Passed\",\n      \"rerun_of_counter\" : null,\n      \"name\"
+        : \"up42_stage\",\n      \"counter\" : \"1\",\n      \"scheduled\" : true,\n
+        \     \"approval_type\" : \"success\",\n      \"approved_by\" : \"admin\",\n
+        \     \"operate_permission\" : true,\n      \"can_run\" : true,\n      \"jobs\"
+        : [ {\n        \"name\" : \"up42_job\",\n        \"scheduled_date\" : 1772032534057,\n
+        \       \"state\" : \"Completed\",\n        \"result\" : \"Passed\"\n      }
+        ]\n    } ]\n  }, {\n    \"name\" : \"up42\",\n    \"counter\" : 4,\n    \"label\"
+        : \"4\",\n    \"natural_order\" : 4.0,\n    \"can_run\" : true,\n    \"preparing_to_schedule\"
+        : false,\n    \"comment\" : null,\n    \"scheduled_date\" : 1772030940912,\n
+        \   \"build_cause\" : {\n      \"trigger_message\" : \"Forced by admin\",\n
+        \     \"trigger_forced\" : true,\n      \"approver\" : \"admin\",\n      \"material_revisions\"
+        : [ {\n        \"changed\" : false,\n        \"material\" : {\n          \"name\"
+        : \"/Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline\",\n
+        \         \"fingerprint\" : \"a0473b31243408757ed897bc8bc3797b0ce2898a2dbb98de5f17c039e15a89b1\",\n
+        \         \"type\" : \"Git\",\n          \"description\" : \"URL: /Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline,
+        Branch: main\"\n        },\n        \"modifications\" : [ {\n          \"revision\"
+        : \"56530ac0b6636b0640cc52d1c6517e8beffebfe1\",\n          \"modified_time\"
+        : 1755090801000,\n          \"user_name\" : \"Santosh Kumar Bachar <santoshbachar@gmail.com>\",\n
+        \         \"comment\" : \"Empty commit\",\n          \"email_address\" : null\n
+        \       } ]\n      } ]\n    },\n    \"stages\" : [ {\n      \"result\" : \"Passed\",\n
+        \     \"status\" : \"Passed\",\n      \"rerun_of_counter\" : null,\n      \"name\"
+        : \"up42_stage\",\n      \"counter\" : \"1\",\n      \"scheduled\" : true,\n
+        \     \"approval_type\" : \"success\",\n      \"approved_by\" : \"admin\",\n
+        \     \"operate_permission\" : true,\n      \"can_run\" : true,\n      \"jobs\"
+        : [ {\n        \"name\" : \"up42_job\",\n        \"scheduled_date\" : 1772030940912,\n
+        \       \"state\" : \"Completed\",\n        \"result\" : \"Passed\"\n      }
+        ]\n    } ]\n  }, {\n    \"name\" : \"up42\",\n    \"counter\" : 3,\n    \"label\"
+        : \"3\",\n    \"natural_order\" : 3.0,\n    \"can_run\" : true,\n    \"preparing_to_schedule\"
+        : false,\n    \"comment\" : null,\n    \"scheduled_date\" : 1772030699044,\n
+        \   \"build_cause\" : {\n      \"trigger_message\" : \"Forced by admin\",\n
+        \     \"trigger_forced\" : true,\n      \"approver\" : \"admin\",\n      \"material_revisions\"
+        : [ {\n        \"changed\" : false,\n        \"material\" : {\n          \"name\"
+        : \"/Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline\",\n
+        \         \"fingerprint\" : \"a0473b31243408757ed897bc8bc3797b0ce2898a2dbb98de5f17c039e15a89b1\",\n
+        \         \"type\" : \"Git\",\n          \"description\" : \"URL: /Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline,
+        Branch: main\"\n        },\n        \"modifications\" : [ {\n          \"revision\"
+        : \"56530ac0b6636b0640cc52d1c6517e8beffebfe1\",\n          \"modified_time\"
+        : 1755090801000,\n          \"user_name\" : \"Santosh Kumar Bachar <santoshbachar@gmail.com>\",\n
+        \         \"comment\" : \"Empty commit\",\n          \"email_address\" : null\n
+        \       } ]\n      } ]\n    },\n    \"stages\" : [ {\n      \"result\" : \"Passed\",\n
+        \     \"status\" : \"Passed\",\n      \"rerun_of_counter\" : null,\n      \"name\"
+        : \"up42_stage\",\n      \"counter\" : \"1\",\n      \"scheduled\" : true,\n
+        \     \"approval_type\" : \"success\",\n      \"approved_by\" : \"admin\",\n
+        \     \"operate_permission\" : true,\n      \"can_run\" : true,\n      \"jobs\"
+        : [ {\n        \"name\" : \"up42_job\",\n        \"scheduled_date\" : 1772030699044,\n
+        \       \"state\" : \"Completed\",\n        \"result\" : \"Passed\"\n      }
+        ]\n    } ]\n  } ]\n}"
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.go.cd.v1+json;charset=utf-8
+      Date:
+      - Thu, 26 Feb 2026 12:55:45 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Set-Cookie:
+      - JSESSIONID=node012edir5zp8rxm1nzdywoidbcip12.node0; Path=/go; Expires=Thu,
+        12-Mar-2026 12:55:45 GMT; Max-Age=1209600; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-UA-Compatible:
+      - chrome=1
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

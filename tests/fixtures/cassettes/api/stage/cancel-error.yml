@@ -1,0 +1,45 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.go.cd.v3+json
+      User-Agent:
+      - py-gocd
+      X-GoCD-Confirm:
+      - 'true'
+      authorization:
+      - Basic YWRtaW46YmFkZ2Vy
+    method: POST
+    uri: http://localhost:8153/go/api/stages/up42/40/up42_stage/10/cancel
+  response:
+    body:
+      string: "{\n  \"message\" : \"Not Found { Stage 'up42_stage' with counter '10'
+        not found. Please make sure specified stage or stage run with specified counter
+        exists. }\"\n}"
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.go.cd.v3+json;charset=utf-8
+      Date:
+      - Sat, 07 Mar 2026 04:55:29 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Set-Cookie:
+      - JSESSIONID=node0h8fcr0cabofops021qua2wjk37.node0; Path=/go; Expires=Sat, 21-Mar-2026
+        04:55:29 GMT; Max-Age=1209600; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-UA-Compatible:
+      - chrome=1
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 404
+      message: Not Found
+version: 1

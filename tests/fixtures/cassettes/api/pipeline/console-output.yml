@@ -2,266 +2,140 @@ interactions:
 - request:
     body: null
     headers:
-      Connection: [close]
-      Host: ['localhost:8153']
-      User-Agent: [py-gocd]
+      Accept:
+      - application/vnd.go.cd.v1+json
+      User-Agent:
+      - py-gocd
+      authorization:
+      - Basic YWRtaW46YmFkZ2Vy
     method: GET
-    uri: http://localhost:8153/go/api/pipelines/Simple/history/0
+    uri: http://localhost:8153/go/api/pipelines/up42/40
   response:
-    body: {string: "{\"pagination\":{\"offset\":0,\"total\":9,\"page_size\":10},\"\
-        pipelines\":[{\"label\":\"9\",\"name\":\"Simple\",\"natural_order\":9.0,\"\
-        can_run\":true,\"stages\":[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"\
-        Completed\",\"result\":\"Passed\",\"name\":\"defaultJob\",\"id\":13,\"scheduled_date\"\
-        :1447817370382}],\"name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\"\
-        :\"success\",\"scheduled\":true,\"operate_permission\":true,\"approved_by\"\
-        :\"anonymous\",\"can_run\":true,\"id\":13,\"counter\":\"1\"}],\"id\":12,\"\
-        build_cause\":{\"trigger_message\":\"Forced by anonymous\",\"approver\":\"\
-        anonymous\",\"material_revisions\":[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\"\
-        ,\"description\":\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\"\
-        :3,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1439970615000,\"\
-        user_name\":\"Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"\
-        revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\",\"email_address\"\
-        :null,\"comment\":\"Hello\"}],\"changed\":false}],\"trigger_forced\":true},\"\
-        preparing_to_schedule\":false,\"counter\":9,\"comment\":null},{\"label\":\"\
-        8\",\"name\":\"Simple\",\"natural_order\":8.0,\"can_run\":true,\"stages\"\
-        :[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"\
-        Passed\",\"name\":\"defaultJob\",\"id\":12,\"scheduled_date\":1447816847452}],\"\
-        name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\":\"success\"\
-        ,\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"anonymous\"\
-        ,\"can_run\":true,\"id\":12,\"counter\":\"1\"}],\"id\":11,\"build_cause\"\
-        :{\"trigger_message\":\"Forced by anonymous\",\"approver\":\"anonymous\",\"\
-        material_revisions\":[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\"\
-        ,\"description\":\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\"\
-        :3,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1439970615000,\"\
-        user_name\":\"Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"\
-        revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\",\"email_address\"\
-        :null,\"comment\":\"Hello\"}],\"changed\":false}],\"trigger_forced\":true},\"\
-        preparing_to_schedule\":false,\"counter\":8,\"comment\":null},{\"label\":\"\
-        7\",\"name\":\"Simple\",\"natural_order\":7.0,\"can_run\":true,\"stages\"\
-        :[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"\
-        Passed\",\"name\":\"defaultJob\",\"id\":11,\"scheduled_date\":1447816801298}],\"\
-        name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\":\"success\"\
-        ,\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"anonymous\"\
-        ,\"can_run\":true,\"id\":11,\"counter\":\"1\"}],\"id\":10,\"build_cause\"\
-        :{\"trigger_message\":\"Forced by anonymous\",\"approver\":\"anonymous\",\"\
-        material_revisions\":[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\"\
-        ,\"description\":\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\"\
-        :3,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1439970615000,\"\
-        user_name\":\"Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"\
-        revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\",\"email_address\"\
-        :null,\"comment\":\"Hello\"}],\"changed\":false}],\"trigger_forced\":true},\"\
-        preparing_to_schedule\":false,\"counter\":7,\"comment\":null},{\"label\":\"\
-        6\",\"name\":\"Simple\",\"natural_order\":6.0,\"can_run\":true,\"stages\"\
-        :[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"\
-        Passed\",\"name\":\"defaultJob\",\"id\":10,\"scheduled_date\":1447816746094}],\"\
-        name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\":\"success\"\
-        ,\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"anonymous\"\
-        ,\"can_run\":true,\"id\":10,\"counter\":\"1\"}],\"id\":9,\"build_cause\":{\"\
-        trigger_message\":\"Forced by anonymous\",\"approver\":\"anonymous\",\"material_revisions\"\
-        :[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\"\
-        ,\"description\":\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\"\
-        :3,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1439970615000,\"\
-        user_name\":\"Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"\
-        revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\",\"email_address\"\
-        :null,\"comment\":\"Hello\"}],\"changed\":false}],\"trigger_forced\":true},\"\
-        preparing_to_schedule\":false,\"counter\":6,\"comment\":null},{\"label\":\"\
-        5\",\"name\":\"Simple\",\"natural_order\":5.0,\"can_run\":true,\"stages\"\
-        :[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"\
-        Passed\",\"name\":\"defaultJob\",\"id\":9,\"scheduled_date\":1447816694909}],\"\
-        name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\":\"success\"\
-        ,\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"anonymous\"\
-        ,\"can_run\":true,\"id\":9,\"counter\":\"1\"}],\"id\":8,\"build_cause\":{\"\
-        trigger_message\":\"Forced by anonymous\",\"approver\":\"anonymous\",\"material_revisions\"\
-        :[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\"\
-        ,\"description\":\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\"\
-        :3,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1439970615000,\"\
-        user_name\":\"Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"\
-        revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\",\"email_address\"\
-        :null,\"comment\":\"Hello\"}],\"changed\":false}],\"trigger_forced\":true},\"\
-        preparing_to_schedule\":false,\"counter\":5,\"comment\":null},{\"label\":\"\
-        4\",\"name\":\"Simple\",\"natural_order\":4.0,\"can_run\":true,\"stages\"\
-        :[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"\
-        Passed\",\"name\":\"defaultJob\",\"id\":8,\"scheduled_date\":1447814880186}],\"\
-        name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\":\"success\"\
-        ,\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"anonymous\"\
-        ,\"can_run\":true,\"id\":8,\"counter\":\"1\"}],\"id\":7,\"build_cause\":{\"\
-        trigger_message\":\"Forced by anonymous\",\"approver\":\"anonymous\",\"material_revisions\"\
-        :[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\"\
-        ,\"description\":\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\"\
-        :3,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1439970615000,\"\
-        user_name\":\"Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"\
-        revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\",\"email_address\"\
-        :null,\"comment\":\"Hello\"}],\"changed\":false}],\"trigger_forced\":true},\"\
-        preparing_to_schedule\":false,\"counter\":4,\"comment\":null},{\"label\":\"\
-        3\",\"name\":\"Simple\",\"natural_order\":3.0,\"can_run\":true,\"stages\"\
-        :[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"\
-        Passed\",\"name\":\"defaultJob\",\"id\":7,\"scheduled_date\":1447814839058}],\"\
-        name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\":\"success\"\
-        ,\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"anonymous\"\
-        ,\"can_run\":true,\"id\":7,\"counter\":\"1\"}],\"id\":6,\"build_cause\":{\"\
-        trigger_message\":\"Forced by anonymous\",\"approver\":\"anonymous\",\"material_revisions\"\
-        :[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\"\
-        ,\"description\":\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\"\
-        :3,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1439970615000,\"\
-        user_name\":\"Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"\
-        revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\",\"email_address\"\
-        :null,\"comment\":\"Hello\"}],\"changed\":false}],\"trigger_forced\":true},\"\
-        preparing_to_schedule\":false,\"counter\":3,\"comment\":null},{\"label\":\"\
-        2\",\"name\":\"Simple\",\"natural_order\":2.0,\"can_run\":true,\"stages\"\
-        :[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"\
-        Passed\",\"name\":\"defaultJob\",\"id\":6,\"scheduled_date\":1447814811978}],\"\
-        name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\":\"success\"\
-        ,\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"anonymous\"\
-        ,\"can_run\":true,\"id\":6,\"counter\":\"1\"}],\"id\":5,\"build_cause\":{\"\
-        trigger_message\":\"Forced by anonymous\",\"approver\":\"anonymous\",\"material_revisions\"\
-        :[{\"material\":{\"fingerprint\":\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\"\
-        ,\"description\":\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\"\
-        :3,\"type\":\"Git\"},\"modifications\":[{\"modified_time\":1439970615000,\"\
-        user_name\":\"Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"\
-        revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\",\"email_address\"\
-        :null,\"comment\":\"Hello\"}],\"changed\":false}],\"trigger_forced\":true},\"\
-        preparing_to_schedule\":false,\"counter\":2,\"comment\":null},{\"label\":\"\
-        1\",\"name\":\"Simple\",\"natural_order\":1.0,\"can_run\":true,\"stages\"\
-        :[{\"result\":\"Passed\",\"jobs\":[{\"state\":\"Completed\",\"result\":\"\
-        Passed\",\"name\":\"defaultJob\",\"id\":5,\"scheduled_date\":1447814683534}],\"\
-        name\":\"defaultStage\",\"rerun_of_counter\":null,\"approval_type\":\"success\"\
-        ,\"scheduled\":true,\"operate_permission\":true,\"approved_by\":\"changes\"\
-        ,\"can_run\":true,\"id\":5,\"counter\":\"1\"}],\"id\":4,\"build_cause\":{\"\
-        trigger_message\":\"modified by Bj\xF6rn Andersson \\u003Cbjorn@neo.com\\\
-        u003E\",\"approver\":\"\",\"material_revisions\":[{\"material\":{\"fingerprint\"\
-        :\"430ae9c756851465616526da7882dcfb2d34e58fb4dcd12a47588dec07b46a07\",\"description\"\
-        :\"URL: /Users/ba/code/empty/.git, Branch: master\",\"id\":3,\"type\":\"Git\"\
-        },\"modifications\":[{\"modified_time\":1439970615000,\"user_name\":\"Bj\xF6\
-        rn Andersson \\u003Cbjorn@neo.com\\u003E\",\"id\":2,\"revision\":\"106a9ffe7131a15a44338eb703ecb31e1bc5de68\"\
-        ,\"email_address\":null,\"comment\":\"Hello\"}],\"changed\":true}],\"trigger_forced\"\
-        :false},\"preparing_to_schedule\":false,\"counter\":1,\"comment\":null}]}"}
+    body:
+      string: "{\n  \"name\" : \"up42\",\n  \"counter\" : 40,\n  \"label\" : \"40\",\n
+        \ \"natural_order\" : 40.0,\n  \"can_run\" : true,\n  \"preparing_to_schedule\"
+        : false,\n  \"comment\" : null,\n  \"scheduled_date\" : 1772800430413,\n  \"build_cause\"
+        : {\n    \"trigger_message\" : \"Forced by admin\",\n    \"trigger_forced\"
+        : true,\n    \"approver\" : \"admin\",\n    \"material_revisions\" : [ {\n
+        \     \"changed\" : false,\n      \"material\" : {\n        \"name\" : \"/Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline\",\n
+        \       \"fingerprint\" : \"a0473b31243408757ed897bc8bc3797b0ce2898a2dbb98de5f17c039e15a89b1\",\n
+        \       \"type\" : \"Git\",\n        \"description\" : \"URL: /Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline,
+        Branch: main\"\n      },\n      \"modifications\" : [ {\n        \"revision\"
+        : \"56530ac0b6636b0640cc52d1c6517e8beffebfe1\",\n        \"modified_time\"
+        : 1755090801000,\n        \"user_name\" : \"Santosh Kumar Bachar <santoshbachar@gmail.com>\",\n
+        \       \"comment\" : \"Empty commit\",\n        \"email_address\" : null\n
+        \     } ]\n    } ]\n  },\n  \"stages\" : [ {\n    \"result\" : \"Failed\",\n
+        \   \"status\" : \"Failed\",\n    \"rerun_of_counter\" : null,\n    \"name\"
+        : \"up42_stage\",\n    \"counter\" : \"1\",\n    \"scheduled\" : true,\n    \"approval_type\"
+        : \"success\",\n    \"approved_by\" : \"admin\",\n    \"operate_permission\"
+        : true,\n    \"can_run\" : true,\n    \"jobs\" : [ {\n      \"name\" : \"up42_job\",\n
+        \     \"scheduled_date\" : 1772800430413,\n      \"state\" : \"Completed\",\n
+        \     \"result\" : \"Failed\"\n    } ]\n  }, {\n    \"status\" : \"Unknown\",\n
+        \   \"rerun_of_counter\" : null,\n    \"name\" : \"stage_to_lock\",\n    \"counter\"
+        : \"1\",\n    \"scheduled\" : false,\n    \"approval_type\" : null,\n    \"approved_by\"
+        : null,\n    \"operate_permission\" : true,\n    \"can_run\" : true,\n    \"jobs\"
+        : [ ]\n  } ]\n}"
     headers:
-      cache-control: ['max-age=0, private, must-revalidate']
-      connection: [close]
-      content-type: [application/json; charset=utf-8]
-      etag: ['"6ebd54e30deec2a5e517a79c73b5601a"']
-      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
-      server: [Jetty()]
-      set-cookie: ['JSESSIONID=128at6k3qjuuq12a5lzlstmniq;Path=/go;Expires=Wed, 02-Dec-2015
-          09:19:29 GMT']
-      x-content-type-options: [nosniff]
-      x-frame-options: [SAMEORIGIN]
-      x-request-id: [d3494eac-08c1-499a-ae8d-4e0a6b6d23b1]
-      x-runtime: ['0.040000']
-      x-ua-compatible: [chrome=1]
-      x-xss-protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.go.cd.v1+json;charset=utf-8
+      Date:
+      - Fri, 06 Mar 2026 12:51:06 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Set-Cookie:
+      - JSESSIONID=node01scoyihwuko1v1kahrk9m00n2v33.node0; Path=/go; Expires=Fri,
+        20-Mar-2026 12:51:06 GMT; Max-Age=1209600; HttpOnly
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-UA-Compatible:
+      - chrome=1
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 - request:
     body: null
     headers:
-      Connection: [close]
-      Cookie: [JSESSIONID=128at6k3qjuuq12a5lzlstmniq]
-      Host: ['localhost:8153']
-      User-Agent: [py-gocd]
+      Cookie:
+      - JSESSIONID=node01scoyihwuko1v1kahrk9m00n2v33.node0
+      User-Agent:
+      - py-gocd
+      authorization:
+      - Basic YWRtaW46YmFkZ2Vy
     method: GET
-    uri: http://localhost:8153/go/files/Simple/9/defaultStage/1/defaultJob/cruise-output/console.log
+    uri: http://localhost:8153/go/files/up42/40/up42_stage/1/up42_job/cruise-output/console.log
   response:
-    body: {string: !!python/unicode '11:29:44.088 [go] Job Started: 2015-11-18 11:29:44
-        SGT
-
-
-        11:29:44.088 [go] Start to prepare Simple/9/defaultStage/1/defaultJob on arkham.local
-        [/Users/ba/Library/Application Support/Go Agent]
-
-        11:29:44.096 [go] Start to update materials.
-
-
-        11:29:44.096 [go] Start updating files at revision 106a9ffe7131a15a44338eb703ecb31e1bc5de68
-        from /Users/ba/code/empty/.git
-
-        11:29:44.366 [GIT] Fetch and reset in working directory pipelines/Simple
-
-        11:29:44.366 [GIT] Cleaning all unversioned files in working copy
-
-        11:29:44.495 [GIT] Cleaning submodule configurations in .git/config
-
-        11:29:44.605 [GIT] Fetching changes
-
-        11:29:44.783 [GIT] Performing git gc
-
-        11:29:44.896 [GIT] Updating working copy to revision 106a9ffe7131a15a44338eb703ecb31e1bc5de68
-
-        11:29:44.913 HEAD is now at 106a9ff Hello
-
-        11:29:45.015 [GIT] Removing modified files in submodules
-
-        11:29:45.175 [GIT] Cleaning all unversioned files in working copy
-
-        11:29:45.399 [go] Done.
-
-
-        11:29:45.408 [go] Start to build Simple/9/defaultStage/1/defaultJob on arkham.local
-        [/Users/ba/Library/Application Support/Go Agent]
-
-        11:29:45.408 [go] Current job status: passed.
-
-
-        11:29:45.408 [go] Start to execute task: <exec command="echo" >
-
-        <arg>Hello!</arg>
-
-        </exec>.
-
-        11:29:45.409 [go] setting environment variable ''GO_SERVER_URL'' to value
-        ''https://127.0.0.1:8154/go/''
-
-        11:29:45.409 [go] setting environment variable ''GO_TRIGGER_USER'' to value
-        ''anonymous''
-
-        11:29:45.410 [go] setting environment variable ''GO_PIPELINE_NAME'' to value
-        ''Simple''
-
-        11:29:45.410 [go] setting environment variable ''GO_PIPELINE_COUNTER'' to
-        value ''9''
-
-        11:29:45.410 [go] setting environment variable ''GO_PIPELINE_LABEL'' to value
-        ''9''
-
-        11:29:45.411 [go] setting environment variable ''GO_STAGE_NAME'' to value
-        ''defaultStage''
-
-        11:29:45.411 [go] setting environment variable ''GO_STAGE_COUNTER'' to value
-        ''1''
-
-        11:29:45.411 [go] setting environment variable ''GO_JOB_NAME'' to value ''defaultJob''
-
-        11:29:45.411 [go] setting environment variable ''GO_REVISION'' to value ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
-
-        11:29:45.412 [go] setting environment variable ''GO_TO_REVISION'' to value
-        ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
-
-        11:29:45.412 [go] setting environment variable ''GO_FROM_REVISION'' to value
-        ''106a9ffe7131a15a44338eb703ecb31e1bc5de68''
-
-        11:29:45.419 Hello!
-
-        11:29:45.552 [go] Current job status: passed.
-
-
-        11:29:45.570 [go] Start to create properties Simple/9/defaultStage/1/defaultJob
-        on arkham.local [/Users/ba/Library/Application Support/Go Agent]
-
-        11:29:45.570 [go] Start to upload Simple/9/defaultStage/1/defaultJob on arkham.local
-        [/Users/ba/Library/Application Support/Go Agent]
-
-        11:29:45.695 [go] Job completed Simple/9/defaultStage/1/defaultJob on arkham.local
-        [/Users/ba/Library/Application Support/Go Agent]
-
-        '}
+    body:
+      string: "##|18:04:06.585 [go] Job Started: 2026-03-06 18:04:06 IST\n##|18:04:06.585
+        \npr|18:04:06.585 [go] Start to prepare up42/40/up42_stage/1/up42_job on Santoshs-MacBook-Pro.local
+        [/Users/santoshkumarbachar/Workspace/gocd/agent]\npr|18:04:06.617 [go] Start
+        to update materials.\npr|18:04:06.617 \npr|18:04:06.617 [go] Start updating
+        files at revision 56530ac0b6636b0640cc52d1c6517e8beffebfe1 from /Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline\npr|18:04:06.637
+        [GIT] Fetching changes\npr|18:04:06.667 [GIT] Performing git gc\npr|18:04:06.676
+        [GIT] Reset working directory pipelines/up42\npr|18:04:06.676 [GIT] Cleaning
+        all unversioned files in working copy\npr|18:04:06.766 [GIT] Cleaning submodule
+        configurations in .git/config\npr|18:04:06.774 [GIT] Updating working copy
+        to revision 56530ac0b6636b0640cc52d1c6517e8beffebfe1\npr|18:04:06.787 HEAD
+        is now at 56530ac Empty commit\npr|18:04:06.787 [GIT] Removing modified files
+        in submodules\npr|18:04:06.852 [GIT] Cleaning all unversioned files in working
+        copy\npr|18:04:06.917 [go] Done.\npr|18:04:06.917 \npr|18:04:06.917 [go] setting
+        environment variable 'GO_SERVER_URL' to value 'http://localhost:8153/go'\npr|18:04:06.917
+        [go] setting environment variable 'GO_PIPELINE_GROUP_NAME' to value 'first'\npr|18:04:06.917
+        [go] setting environment variable 'GO_TRIGGER_USER' to value 'admin'\npr|18:04:06.917
+        [go] setting environment variable 'GO_PIPELINE_NAME' to value 'up42'\npr|18:04:06.917
+        [go] setting environment variable 'GO_PIPELINE_COUNTER' to value '40'\npr|18:04:06.917
+        [go] setting environment variable 'GO_PIPELINE_LABEL' to value '40'\npr|18:04:06.917
+        [go] setting environment variable 'GO_STAGE_NAME' to value 'up42_stage'\npr|18:04:06.917
+        [go] setting environment variable 'GO_STAGE_COUNTER' to value '1'\npr|18:04:06.917
+        [go] setting environment variable 'GO_JOB_NAME' to value 'up42_job'\npr|18:04:06.917
+        [go] setting environment variable 'GO_REVISION' to value '56530ac0b6636b0640cc52d1c6517e8beffebfe1'\npr|18:04:06.917
+        [go] setting environment variable 'GO_TO_REVISION' to value '56530ac0b6636b0640cc52d1c6517e8beffebfe1'\npr|18:04:06.917
+        [go] setting environment variable 'GO_FROM_REVISION' to value '56530ac0b6636b0640cc52d1c6517e8beffebfe1'\npr|18:04:06.917
+        [go] setting environment variable 'GO_MATERIAL_URL' to value '/Users/santoshkumarbachar/Workspace/gocd_pipelines_data/simple_pipeline'\npr|18:04:06.917
+        [go] setting environment variable 'GO_MATERIAL_BRANCH' to value 'main'\npr|18:04:06.917
+        [go] setting environment variable 'GO_MATERIAL_HAS_CHANGED' to value 'false'\npr|18:04:06.917
+        \n##|18:04:06.924 [go] Start to build up42/40/up42_stage/1/up42_job on Santoshs-MacBook-Pro.local
+        [/Users/santoshkumarbachar/Workspace/gocd/agent]\n!!|18:04:06.944 [go] Task:
+        exit -1\n&2|18:04:06.948 Error happened while attempting to execute 'exit
+        -1'. \n&2|18:04:06.948 Please make sure [exit] can be executed on this agent.\n&2|18:04:06.948
+        \n&2|18:04:06.948 [Debug Information] Environment variable PATH: /Users/santoshkumarbachar/.local/bin/alire/bin:/opt/homebrew/opt/bison/bin:/Users/santoshkumarbachar/.local/share/mise/installs/node/24.13.0/bin:/opt/homebrew/bin:/Users/santoshkumarbachar/.nodenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pmk/env/global/bin:/Library/Apple/usr/bin:/Applications/VMware
+        Fusion.app/Contents/Public:/Users/santoshkumarbachar/Library/Application Support/JetBrains/Toolbox/scripts:/Users/santoshkumarbachar/.orbstack/bin:/Users/santoshkumarbachar/.lmstudio/bin\n?1|18:04:06.948
+        [go] Task status: failed (3 ms)\nj1|18:04:06.973 [go] Current job status:
+        failed\nar|18:04:07.005 [go] Start to upload up42/40/up42_stage/1/up42_job
+        on Santoshs-MacBook-Pro.local [/Users/santoshkumarbachar/Workspace/gocd/agent]\nex|18:04:07.005
+        [go] Job completed up42/40/up42_stage/1/up42_job on Santoshs-MacBook-Pro.local
+        [/Users/santoshkumarbachar/Workspace/gocd/agent]\n"
     headers:
-      connection: [close]
-      content-disposition: [Inline; filename=fname.ext]
-      content-language: [en-US]
-      content-length: ['2702']
-      content-type: [text/plain; charset=utf-8]
-      expires: ['Thu, 01-Jan-1970 00:00:00 GMT']
-      server: [Jetty()]
-      set-cookie: ['JSESSIONID=128at6k3qjuuq12a5lzlstmniq;Path=/go;Expires=Wed, 02-Dec-2015
-          09:19:29 GMT']
-    status: {code: 200, message: OK}
+      Content-Disposition:
+      - Inline; filename=fname.ext
+      Content-Language:
+      - en-IN
+      Content-Length:
+      - '4135'
+      Content-Type:
+      - text/plain;charset=utf-8
+      Date:
+      - Fri, 06 Mar 2026 12:51:06 GMT
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-UA-Compatible:
+      - chrome=1
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 version: 1

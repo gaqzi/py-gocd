@@ -1,0 +1,23 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: [application/vnd.go.cd.v1+json]
+      Connection: [close]
+      Host: ['192.168.99.100:8153']
+      User-Agent: [py-gocd]
+    method: GET
+    uri: http://localhost:8153/go/api/admin/pipelines/PyGoCd
+  response:
+    body: {string: !!python/unicode "{\n  \"message\": \"You are not authorized to
+        access this resource!\"\n}\n"}
+    headers:
+      connection: [close]
+      content-type: [application/vnd.go.cd.v1+json]
+      date: ['Tue, 03 May 2016 20:45:03 GMT']
+      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
+      set-cookie: ['JSESSIONID=ns41r4cyxzod1nisgsy6uzbng;Path=/go;Expires=Tue, 17-May-2016
+          20:45:03 GMT']
+      www-authenticate: [Basic realm="GoCD"]
+    status: {code: 401, message: Unauthorized}
+version: 1

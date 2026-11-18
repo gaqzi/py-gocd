@@ -2,6 +2,8 @@
 # -*- encoding: utf-8 -*-
 import os
 import sys
+import tomllib
+from pathlib import Path
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
 
@@ -26,16 +28,13 @@ class PyTest(TestCommand):
 
 
 def version():
-    import gocd
-    return gocd.__version__
+    pyproject = Path(__file__).parent / "pyproject.toml"
+    with pyproject.open("rb") as f:
+        return tomllib.load(f)["project"]["version"]
+    # import version
+    # return version.PY_GOCD_VERSION
 
 extra_dependencies = []
-if sys.version_info < (2, 7):
-    extra_dependencies = [
-        'mock==1.0.1',
-        'contextlib2',
-        'backport_collections',
-    ]
 
 README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 
@@ -60,12 +59,8 @@ setup(
         'Development Status :: 4 - Beta',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.12.12'
     ],
+    python_requires='==3.12.12'
 )

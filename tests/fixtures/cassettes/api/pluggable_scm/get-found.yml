@@ -3,31 +3,6 @@ interactions:
     body: null
     headers:
       Accept: [application/vnd.go.cd.v1+json]
-      Connection: [close]
-      Host: ['localhost:8153']
-      User-Agent: [py-gocd]
-    method: GET
-    uri: http://localhost:8153/go/api/admin/scms/SCM-NAME
-  response:
-    body: {string: !!python/unicode "{\n  \"message\": \"You are not authorized to
-        access this resource!\"\n}\n"}
-    headers:
-      connection: [close]
-      content-type: [application/vnd.go.cd.v1+json]
-      date: ['Thu, 13 Oct 2016 18:53:33 GMT']
-      expires: ['Thu, 01 Jan 1970 00:00:00 GMT']
-      set-cookie: ['JSESSIONID=yswhb3zslapl1nks6mqvy64iy;Path=/go;Expires=Thu, 27-Oct-2016
-          18:53:33 GMT;HttpOnly']
-      www-authenticate: [Basic realm="GoCD"]
-      x-content-type-options: [nosniff]
-      x-frame-options: [SAMEORIGIN]
-      x-ua-compatible: [chrome=1]
-      x-xss-protection: [1; mode=block]
-    status: {code: 401, message: Unauthorized}
-- request:
-    body: null
-    headers:
-      Accept: [application/vnd.go.cd.v1+json]
       Authorization: [Basic Ym90OjEyMzQ1Njc4]
       Connection: [close]
       Host: ['localhost:8153']

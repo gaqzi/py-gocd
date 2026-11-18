@@ -14,7 +14,6 @@
 
 import sys
 import os
-import shlex
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -304,11 +303,11 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 
 def maybe_skip_member(app, what, name, obj, skip, options):
     if(name in ['run', 'trigger']
-       and obj.im_class.__name__ == 'Pipeline'
-       and obj.im_func.__name__ == 'schedule'):
+       and obj.__self__.__class__.__name__ == 'Pipeline'
+       and obj.__func__.__name__ == 'schedule'):
         # return False
         # import ipdb; ipdb.set_trace()
-        print skip, options
+        print(skip, options)
         return True
 
         # print app, what, name, obj, skip, options
